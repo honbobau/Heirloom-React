@@ -3,11 +3,10 @@ import React from 'react';
 class RenderAddRecipe extends React.Component {
 
   render() {
-    return (
+    return(
       <div>
         {/* glyphicon rendering RecipeNewEditPage */}
       </div>
-
     );
   }
 }

@@ -6,7 +6,25 @@ import RenderUserProfile from '../utility_components/RenderUserProfile.jsx';
 class GlobalFeedHeader extends React.Component {
   
     render() {
-        return <div>GlobalFeedHeader</div>;
+      return(
+        <div className="container">
+          <div className="row">
+
+            <section className="col s3">
+              Global Feed
+              {/* stats */}
+            </section>
+
+            <section className="col s6">
+              {/* RenderUserFeed */}
+              {/* RenderSearchRecipes */}
+              {/* RenderAddRecipe e */}
+            </section>
+
+          </div>
+        </div>
+
+      );
     }
 }
 

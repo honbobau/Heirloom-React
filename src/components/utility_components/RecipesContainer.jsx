@@ -1,7 +1,7 @@
 import React from 'react';
-import RecipeCard from '../utility_components/RecipeCard.jsx'
+import RecipeCard from './RecipeCard.jsx';
 
-class UserFeedRecipes extends React.Component {
+class RecipesContainer extends React.Component {
 
   render() {
     // let following_ids = SELECT following_id FROM follows WHERE this.props.user_id = user_id
@@ -10,12 +10,10 @@ class UserFeedRecipes extends React.Component {
 
     return(
       <div>
-        <RecipeCard />
         {/* listRecipes */}
       </div>
     );
   }
-
 }
 
-export default UserFeedRecipes;
+export default RecipesContainer;

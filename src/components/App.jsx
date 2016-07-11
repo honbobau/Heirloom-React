@@ -1,10 +1,14 @@
 import React from 'react';
 import UsernameInput from './'
 
-class LoginForm extends React.Component {
+class App extends React.Component {
   
+  render() { 
+    return(
+      <div>
+      </div>
+    );
+  }
 }
 
-
-
-export default LoginForm;
+export default App;

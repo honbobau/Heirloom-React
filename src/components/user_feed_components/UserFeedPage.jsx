@@ -1,6 +1,6 @@
 import React from 'react';
 import UserFeedHeader from './UserFeedHeader.jsx'
-import UserFeedRecipes from './UserFeedRecipes.jsx'
+import RecipesContainer from '../utility_components/RecipesContainer.jsx'
 
 class UserFeedPage extends React.Component {
 
@@ -12,10 +12,10 @@ class UserFeedPage extends React.Component {
           <UserFeedHeader />
         </header>
 
-        <section className="user-feed-recipes">
+        <section className="recipes-container">
           <div className="container">
             <div className="row">
-              <UserFeedRecipes />
+              <RecipesContainer />
             </div>
           </div>
         </section>
