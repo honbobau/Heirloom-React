@@ -30,7 +30,9 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "materialize-css": "^0.97.6",
+    "normalize.css": "^4.2.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.5.2"

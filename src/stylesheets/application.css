@@ -1,0 +1,27 @@
+.landing-page {
+  height: 35em;
+  margin-top: 20px; }
+  .landing-page .landing-page-filler {
+    height: 100%; }
+    .landing-page .landing-page-filler img {
+      width: 100%;
+      height: auto; }
+  .landing-page .landing-page-login {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30em; }
+    .landing-page .landing-page-login .login-form, .landing-page .landing-page-login .signup-button {
+      border: 1px solid #61af3e;
+      border-radius: 5%;
+      padding: 15px; }
+      .landing-page .landing-page-login .login-form button, .landing-page .landing-page-login .login-form a, .landing-page .landing-page-login .signup-button button, .landing-page .landing-page-login .signup-button a {
+        background-color: #e2562b; }
+    .landing-page .landing-page-login .login-form input {
+      border-color: #61af3e; }
+    .landing-page .landing-page-login .login-form input:focus {
+      border-color: #e2562b; }
+
+/*# sourceMappingURL=application.css.map */

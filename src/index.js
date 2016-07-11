@@ -5,4 +5,4 @@ import SignupPage from './components/signup_components/SignupPage.jsx';
 import UserFeedPage from './components/user_feed_components/UserFeedPage.jsx';
 import GlobalFeedPage from './components/global_feed_components/GlobalFeedPage.jsx';
 
-ReactDOM.render(<GlobalFeedPage />, document.getElementById('app'));
+ReactDOM.render(<LandingPage />, document.getElementById('app'));

@@ -1,0 +1,43 @@
+$primary-color: #e2562b;
+$secondary-color: #61af3e;
+
+.landing-page {
+  height: 35em;
+  margin-top: 20px;
+
+  .landing-page-filler {
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .landing-page-login {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30em;
+
+    .login-form, .signup-button {
+      border: 1px solid $secondary-color;
+      border-radius: 5%;
+      padding: 15px;
+
+      button, a {
+        background-color: $primary-color;
+      }
+    }
+
+    .login-form input {
+      border-color: $secondary-color;
+    }
+
+    .login-form input:focus {
+      border-color: $primary-color;
+    }
+  }
+}
