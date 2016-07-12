@@ -4,5 +4,6 @@ import LandingPage from './components/landing_page_components/LandingPage.jsx';
 import SignupPage from './components/signup_components/SignupPage.jsx';
 import UserFeedPage from './components/user_feed_components/UserFeedPage.jsx';
 import GlobalFeedPage from './components/global_feed_components/GlobalFeedPage.jsx';
+import RecipeNewEditPage from './components/recipe_new_edit_components/RecipeNewEditPage.jsx';
 
-ReactDOM.render(<SignupPage />, document.getElementById('app'));
+ReactDOM.render(<RecipeNewEditPage />, document.getElementById('app'));

@@ -6,13 +6,6 @@ import SignupForm from './SignupForm.jsx'
 
 class SignupPage extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    }
-  };
-
   render() {
     return (
 

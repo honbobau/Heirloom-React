@@ -35,6 +35,7 @@ class SignupFormPhoto extends React.Component {
 
     this.props.saveValuesPhoto(data)
     this.props.submitForm()
+    this.props.nextStep()
   }
 }
 

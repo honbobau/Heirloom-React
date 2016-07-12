@@ -2,8 +2,9 @@ import React from 'react';
 import fetch from 'isomorphic-fetch';
 import SignupFormInfo from './SignupFormInfo.jsx';
 import SignupFormPhoto from './SignupFormPhoto.jsx';
+import SignupFormConfirm from './SignupFormConfirm.jsx';
 
-var userFormValues = {
+let userFormValues = {
   username:   null,
   password:   null,
   email:      null,
@@ -33,8 +34,12 @@ class SignupForm extends React.Component {
         return <SignupFormPhoto 
                   userFormValues={userFormValues}
                   previousStep={this.previousStep}
+                  nextStep={this.nextStep}
                   saveValuesPhoto={this.saveValuesPhoto}
                   submitForm={this.submitForm} />
+      case 3:
+        return <SignupFormConfirm 
+                  username={userFormValues.username}/>
     }
   }
 
