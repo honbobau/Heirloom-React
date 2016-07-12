@@ -1,11 +1,7 @@
 import React from 'react';
-import RecipeNewEditIngredients from './RecipeNewEditIngredients.jsx';
+import RecipeForm from './RecipeForm.jsx'
 
 class RecipeNewEditPage extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return(
@@ -14,7 +10,7 @@ class RecipeNewEditPage extends React.Component {
 
           <section className="col-sm-5 col-sm-offset-3">
             <h4>New Recipe</h4> 
-            <RecipeNewEditIngredients />
+            <RecipeForm />
           </section>
 
         </div>

@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 import SignupFormInfo from './SignupFormInfo.jsx';
 import SignupFormPhoto from './SignupFormPhoto.jsx';
 
-var userFormValues = {
+let userFormValues = {
   username:   null,
   password:   null,
   email:      null,
@@ -17,13 +17,13 @@ class SignupForm extends React.Component {
     super(props);
 
     this.state = {
-      form_progression: 1
+      state: 1
     }
   };
 
   render() {
  
-    switch(this.state.form_progression) {
+    switch(this.state.state) {
       case 1: 
         return <SignupFormInfo 
                   userFormValues={userFormValues}
@@ -51,13 +51,13 @@ class SignupForm extends React.Component {
 
   nextStep = () => {
     this.setState({
-      form_progression : this.state.form_progression + 1
+      state : this.state.state + 1
     })
   }
 
   previousStep = () => {
     this.setState({
-      form_progression : this.state.form_progression - 1
+      state : this.state.state - 1
     })
   }
 

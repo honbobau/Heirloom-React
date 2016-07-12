@@ -11,7 +11,7 @@ class LandingPage extends React.Component {
           <div className="row">
 
             <div className="col-sm-6 col-sm-offset-1 landing-page-filler">
-                <img src="http://thumb7.shutterstock.com/display_pic_with_logo/3048662/394253539/stock-vector-red-tomato-vegetable-logo-icon-in-flat-style-with-funny-text-red-tomato-icon-logo-fresh-394253539.jpg" />
+                <img src="../images/heirloom_logo.jpg" />
               
             </div>
 

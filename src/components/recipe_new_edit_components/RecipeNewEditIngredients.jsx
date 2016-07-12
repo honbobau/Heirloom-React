@@ -1,12 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Ingredient from './Ingredient.jsx'
-
-let ingredientCounter = 1
 
 class RecipeNewEditIngredients extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      ingredientInputs: [],
+      ic: 2
+    }
+  };
+
   render() {
+
+    const input = this.state.ingredientInputs
+    const ic = this.state.ic;
+
     return(
       <form className="new-recipe-form">
         <h4 className="ingredients-header">Add ingredients</h4>
@@ -14,9 +24,12 @@ class RecipeNewEditIngredients extends React.Component {
         <label htmlFor="ingredient1"></label>
         <input type="text" ref="ingredient1" />
 
-        <div id="add-ingredients"></div>
+        <div id="add-ingredients">
+          {input}
+        </div>
 
         <button onClick={ this.addIngredient }>+</button>
+        <button onClick={ this.props.nextStep }>Next</button>
       </form>
     );
   }
@@ -24,8 +37,14 @@ class RecipeNewEditIngredients extends React.Component {
   addIngredient = (ev) => {
     ev.preventDefault();
 
-    ReactDOM.render(<Ingredient ingredientCounter={ingredientCounter} />, document.getElementById('add-ingredients'))
-    ingredientCounter += 1
+    let refCount = this.state.ic
+    let input = this.state.ingredientInputs.concat(<Ingredient ic={refCount} />);
+    refCount += 1
+    
+    this.setState({
+      ingredientInputs: input,
+      ic: refCount
+    })
   }
 
 }
