@@ -32,8 +32,8 @@ class RecipeForm extends React.Component {
     }
   }
 
-  saveIngredients = (input) => {
-    ingredients = input;
+  saveIngredients = (data) => {
+    ingredients = data;
     console.log(ingredients);
   }
 
