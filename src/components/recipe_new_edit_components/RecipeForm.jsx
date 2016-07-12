@@ -21,6 +21,7 @@ class RecipeForm extends React.Component {
     case 1: 
       return <RecipeNewEditIngredients 
                 ingredients={ingredients}
+                saveIngredients={this.saveIngredients}
                 nextStep={this.nextStep} /> 
 
     case 2:
@@ -31,17 +32,16 @@ class RecipeForm extends React.Component {
     }
   }
 
-  saveIngredients = (ingredients) => {
-
+  saveIngredients = (input) => {
+    ingredients = input;
+    console.log(ingredients);
   }
 
   saveInstructions = (instructions) => {
 
   }
 
-  nextStep = (ev) => {
-    ev.preventDefault()
-
+  nextStep = () => {
     this.setState({
       state: this.state.state + 1
     })
@@ -56,7 +56,7 @@ class RecipeForm extends React.Component {
   }
 
   submitForm = () => {
-    
+
   }
 
 }

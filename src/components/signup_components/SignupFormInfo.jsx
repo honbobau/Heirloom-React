@@ -27,7 +27,7 @@ class SignupFormInfo extends React.Component {
   saveAndContinue = (ev) => {
     ev.preventDefault();
 
-    var data = {
+    let data = {
       username : ReactDOM.findDOMNode(this.refs.username).value,
       password : ReactDOM.findDOMNode(this.refs.password).value,
       email    : ReactDOM.findDOMNode(this.refs.email).value
