@@ -6,7 +6,7 @@ class SignupFormInfo extends React.Component {
 
   render() {
     return(
-      <form encType="application/x-www-form-urlencoded">
+      <form>
         <label htmlFor="signup-username">Username</label>
         <input type="text" 
                ref="username" />
