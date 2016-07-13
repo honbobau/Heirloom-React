@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import RecipeNewEditIngredients from './RecipeNewEditIngredients.jsx';
 import RecipeNewEditInstructions from './RecipeNewEditInstructions.jsx';
 
-let ingredients = [];
-let instructions = [];
-
 class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      state: 1
+      state: 1,
+      ingredients: [],
+      intructions: []
     }
   }
 
@@ -20,21 +19,22 @@ class RecipeForm extends React.Component {
     switch(this.state.state) {
     case 1: 
       return <RecipeNewEditIngredients 
-                ingredients={ingredients}
                 saveIngredients={this.saveIngredients}
                 nextStep={this.nextStep} /> 
 
     case 2:
       return <RecipeNewEditInstructions
-                instructions={instructions}
                 nextStep={this.nextStep}
                 previousStep={this.previousStep} />
     }
   }
 
   saveIngredients = (data) => {
-    ingredients = data;
-    console.log(ingredients);
+    console.log(data)
+    this.setState({
+      ingredients: [...this.state.ingredients, data]
+    })
+    console.log(this.state.ingredients)
   }
 
   saveInstructions = (instructions) => {
