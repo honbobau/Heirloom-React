@@ -19,3 +19,16 @@ $> pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
 ## Stop postgres
 $> pg_ctl -D /usr/local/var/postgres stop -s -m fast
+
+$$ AWS 
+IAM signin
+https://440665028335.signin.aws.amazon.com/console
+
+bucket name:
+heirloom-toronto
+
+Access Key ID:
+AKIAI3RY2WC24RH65JYQ
+
+Secret Access Key:
+0WzhC3lP1ASC0AwQo6u5RrqM1un/LSyE6aKGkw9b

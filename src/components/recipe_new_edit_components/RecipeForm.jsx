@@ -130,7 +130,7 @@ class RecipeForm extends React.Component {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         ingredients:  this.state.ingredients,
@@ -138,7 +138,6 @@ class RecipeForm extends React.Component {
 
       })
     })
-    .then(this.submitPhoto)
     .then(function(res){ console.log(res) })
     .catch(function(res){ console.log(res) })
   }

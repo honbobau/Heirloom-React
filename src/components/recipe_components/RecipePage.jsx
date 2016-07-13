@@ -4,7 +4,23 @@ class RecipePage extends React.Component {
 
   render() {
     return(
-      <div>Test</div>
+      <div>
+        <header>
+          {/* header */}
+        </header>
+
+        <section>
+          {/* picture */}
+        </section>
+
+        <section>
+          {/* instructions */}
+        </section>
+
+        <section>
+          {/* description */}
+        </section>
+      </div>
     );
   }
 }

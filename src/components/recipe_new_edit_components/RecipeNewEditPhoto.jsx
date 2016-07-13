@@ -1,4 +1,5 @@
 import React from 'react';
+const ReactS3Uploader = require('react-s3-uploader');
 
 class RecipeNewEditPhoto extends React.Component {
 
@@ -17,7 +18,18 @@ class RecipeNewEditPhoto extends React.Component {
     return(
       <div>
         <label>Input Photo</label>
-        <input type="file" />
+        <ReactS3Uploader
+          signingUrl="/s3/sign"
+          accept="image/*"
+          onProgress={this.onUploadProgress}
+          onError={this.onUploadError}
+          onFinish={this.onUploadFinish}
+          // signingUrlHeaders={{ additional: headers }}
+          // signingUrlQueryParams={{ additional: query-params }}
+          uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
+          contentDisposition="auto"
+          server="http://localhost:3000" 
+        />
 
         <label>Input Description</label>
         <input 
