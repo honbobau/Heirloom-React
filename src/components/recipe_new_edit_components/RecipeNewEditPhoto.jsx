@@ -13,8 +13,6 @@ class RecipeNewEditPhoto extends React.Component {
 
   // renders
   render() {
-    let description = this.state.description;
-    let photo = this.state.photo;
 
     return(
       <div>
@@ -27,7 +25,7 @@ class RecipeNewEditPhoto extends React.Component {
           onChange={ this.updateDescriptionState.bind(this) }/>
 
         <button onClick={ this.props.previousStep}>Previous</button>
-        <button onClick={ (e) => { this.updateParentState(photo, description) } }>Submit</button>
+        <button onClick={ (e) => { this.updateParentState() } }>Submit</button>
       </div>
     );
   }
@@ -54,8 +52,9 @@ class RecipeNewEditPhoto extends React.Component {
   }
 
   // updates parent state 
-  updateParentState = (photo, description) => {
-    this.props.saveDescription(description)
+  updateParentState = () => {
+    this.props.savePhoto(this.state.photo)
+    this.props.saveDescription(this.state.description)
     this.props.submitForm()
   }
 
