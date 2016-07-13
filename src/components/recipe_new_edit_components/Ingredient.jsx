@@ -18,11 +18,12 @@ class Ingredient extends React.Component {
         <label htmlFor={'ingredient' + ic} ></label>
         <input 
           type='text' 
-          onChange={this.handleChange.bind(this)} />
+          onChange={ this.handleChange.bind(this) } />
       </li> 
     ); 
   }
 
+  // updates the parent state with the input data
   handleChange(e) {
     let data = e.target.value
     this.props.updateState(+this.props.ic - 1, data)
