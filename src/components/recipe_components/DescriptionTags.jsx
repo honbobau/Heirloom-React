@@ -1,12 +1,13 @@
 import React from 'react';
 
 class DescriptionTags extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   
   render() {
-    return <div>DescriptionTags</div>;
+    const description = this.props.description
+
+    return(
+      <p>{description}</p>
+    );
   }
 }
 

@@ -1,13 +1,19 @@
 import React from 'react';
 
 class Ingredients extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
+
   render() {
+    const ingredients = this.props.ingredients
+
     return(
-      <div>fasf</div>
+      <ul>
+        <h5>Ingredients</h5>
+        {ingredients.map(function(ingredient) {
+          return(
+            <li>{ingredient}</li>
+          );
+        })}
+      </ul>
     );
   }
 }

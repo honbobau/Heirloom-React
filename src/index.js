@@ -7,4 +7,4 @@ import GlobalFeedPage from './components/global_feed_components/GlobalFeedPage.j
 import RecipeNewEditPage from './components/recipe_new_edit_components/RecipeNewEditPage.jsx';
 import RecipePage from './components/recipe_components/RecipePage.jsx';
 
-ReactDOM.render(<RecipePage />, document.getElementById('app'));
+ReactDOM.render(<GlobalFeedPage />, document.getElementById('app'));

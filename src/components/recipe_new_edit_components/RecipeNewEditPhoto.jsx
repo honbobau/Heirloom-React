@@ -8,7 +8,7 @@ class RecipeNewEditPhoto extends React.Component {
     
     this.state = {
       description: '',
-      photo: ''
+      photoURL: ''
     }
   }
 
@@ -34,7 +34,9 @@ class RecipeNewEditPhoto extends React.Component {
         <label>Input Description</label>
         <input 
           type="text"
-          onChange={ this.updateDescriptionState.bind(this) }/>
+          onChange={ this.updateDescriptionState.bind(this) }
+          onBlur={ this.updateDescriptionState.bind(this) }
+        />
 
         <button onClick={ this.props.previousStep}>Previous</button>
         <button onClick={ (e) => { this.updateParentState() } }>Submit</button>
@@ -45,7 +47,7 @@ class RecipeNewEditPhoto extends React.Component {
  // updates photo state
   updatePhotoState = (data) => {
     this.setState({
-      photo: data
+      photoURL: data
     })
 
   }
@@ -58,25 +60,25 @@ class RecipeNewEditPhoto extends React.Component {
     this.setState({
       description: data
     })
-    console.log(data)
+    // console.debug(data)
+    this.props.saveDescription(this.state.description)
   }
+
+
 
   // updates parent state 
   updateParentState = () => {
     this.props.savePhoto(this.state.photo)
-    this.props.saveDescription(this.state.description)
     this.props.submitForm()
   }
 
   // returns signedURL after successful upload
   onUploadFinish = (url) => {
-    let photoUrl = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.publicUrl
-    this.updatePhotoState(photoUrl)
-    console.log(photoUrl)
+    let setURL = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.filename
+    this.props.savePhoto(setURL)
+    console.log(setURL)
   }
 
 }
 
 export default RecipeNewEditPhoto;
-
-

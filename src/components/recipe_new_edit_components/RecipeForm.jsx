@@ -5,7 +5,7 @@ import RecipeNewEditIngredients from './RecipeNewEditIngredients.jsx';
 import RecipeNewEditInstructions from './RecipeNewEditInstructions.jsx';
 import RecipeNewEditPhoto from './RecipeNewEditPhoto.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODQ0ODc2NywiZXhwIjoxNDY4NTM1MTY3fQ.Fk33QeqOD9H0XMI5tiSRAkUPBHyeiPiW8rRSvF7O8Kc'
+const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA'
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -97,18 +97,21 @@ class RecipeForm extends React.Component {
       description: data
     })
     console.log(this.state.description)
+
   }
 
   // makes photo ajax call using 
-  submitPhoto = (id) => {
-    fetch('http://localhost:3000/recipes/photos' + token, {
+  submitPhoto = (id, url) => {
+    console.log(url)
+
+    fetch('http://localhost:3000/recipes/photos' + token, { 
       method: 'POST',
       headers: {
         'Accept':       'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        filepath:  this.state.photo,
+        filepath:  url,
         recipe_id: id
       })
     })
@@ -116,8 +119,12 @@ class RecipeForm extends React.Component {
 
   // makes ajax post to server with recipe for then with photo form
   submitForm = () => {
-    let currentDate = new Date()
-    console.log(currentDate)
+    let ingredients = this.state.ingredients;
+    let instructions = this.state.instructions;
+    let description = this.state.description;
+    let photo = this.state.photo;
+    let currentDate = new Date();
+    
     fetch('http://localhost:3000/recipes' + token, {
       method: 'POST',
       headers: {
@@ -125,16 +132,17 @@ class RecipeForm extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        ingredients:  this.state.ingredients,
-        instructions: this.state.instructions,
-        description:  this.state.description,
+        ingredients:  ingredients,
+        instructions: instructions,
+        description:  description,
         created_at:   currentDate
       })
     })
     .then((object) => object.json())
-    .then(object => { this.submitPhoto(object[0].id) })
+    .then((object) => { this.submitPhoto(object[0].id, photo) })
     .catch(function(res){ console.log(res) })
   }
+  
 
 }
 
