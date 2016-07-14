@@ -46,7 +46,8 @@ class RecipeNewEditIngredients extends React.Component {
             <Ingredient 
               key={new_input.ic} 
               ic={new_input.ic}
-              updateState={updateState} />
+              updateState={updateState} 
+            />
           );
         })}
       </div>

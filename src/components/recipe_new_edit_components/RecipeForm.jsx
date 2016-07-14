@@ -5,7 +5,7 @@ import RecipeNewEditIngredients from './RecipeNewEditIngredients.jsx';
 import RecipeNewEditInstructions from './RecipeNewEditInstructions.jsx';
 import RecipeNewEditPhoto from './RecipeNewEditPhoto.jsx';
 
-let token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODQyNTMxOSwiZXhwIjoxNDY4NTExNzE5fQ.iPFah2XEt0NhKWUo_ZXSaV5KYEeu2S_yavgv8SCSu5U'
+let token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODQ0ODc2NywiZXhwIjoxNDY4NTM1MTY3fQ.Fk33QeqOD9H0XMI5tiSRAkUPBHyeiPiW8rRSvF7O8Kc'
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -15,9 +15,8 @@ class RecipeForm extends React.Component {
       state: 1,
       ingredients: [],
       instructions: [],
-      photo: [],
-      description: '',
-      created_at: ''
+      photo: '',
+      description: ''
     }
   }
 
@@ -72,13 +71,10 @@ class RecipeForm extends React.Component {
       ingredients: [...ingredients, ...data]
     })
     console.log(this.state.ingredients)
-
   }
 
   // save form instructions to state
   saveInstructions = (data) => {
-    console.log(this.state.instructions)
-
     let instructions = this.state.instructions
     this.setState({
       instructions: [...instructions, ...data]
@@ -88,44 +84,39 @@ class RecipeForm extends React.Component {
 
   // save photo upload to state
   savePhoto = (data) => {
-    console.log(this.state.description)
-
-    let description = this.state.description
     this.setState({
       photo: data
     })
-
-    console.log(this.state.description)
+    console.log(this.state.photo)
   }
 
   // save description to state
   saveDescription = (data) => {
-    console.log(this.state.description)
-
     let description = this.state.description
     this.setState({
       description: data
     })
-
     console.log(this.state.description)
   }
 
   // makes photo ajax call using 
-  submitPhoto = () => {
-    fetch('http://localhost:3000/recipes/:recipe_id/photos' + token, {
+  submitPhoto = (id) => {
+    fetch('http://localhost:3000/recipes/' + id + '/photos' + token, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        photo: this.state.photo
+        filepath:  this.state.photo
       })
     })
   }
 
   // makes ajax call using state information to the server
   submitForm = () => {
+    let currentDate = new Date()
+    console.log(currentDate)
     fetch('http://localhost:3000/recipes' + token, {
       method: 'POST',
       headers: {
@@ -134,12 +125,18 @@ class RecipeForm extends React.Component {
       },
       body: JSON.stringify({
         ingredients:  this.state.ingredients,
-        instructions: this.state.instructions
-
+        instructions: this.state.instructions,
+        description:  this.state.description,
+        created_at:   currentDate
       })
     })
-    .then(function(res){ console.log(res) })
+    .then((object) => object.json())
+    .then(object => {
+      console.log(object[0].id)
+      this.submitPhoto(object[0].id)
+    })
     .catch(function(res){ console.log(res) })
+    console.log()
   }
 
 }

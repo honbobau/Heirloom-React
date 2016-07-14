@@ -32,3 +32,5 @@ AKIAI3RY2WC24RH65JYQ
 
 Secret Access Key:
 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
+
+https://s3-us-west-2.amazonaws.com/heirloom-toronto/ + publicURL
