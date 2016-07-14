@@ -114,7 +114,7 @@ class RecipeForm extends React.Component {
     })
   }
 
-  // makes ajax call using state information to the server
+  // makes ajax post to server with recipe for then with photo form
   submitForm = () => {
     let currentDate = new Date()
     console.log(currentDate)
@@ -132,12 +132,8 @@ class RecipeForm extends React.Component {
       })
     })
     .then((object) => object.json())
-    .then(object => {
-      console.log(object[0].id)
-      this.submitPhoto(object[0].id)
-    })
+    .then(object => { this.submitPhoto(object[0].id) })
     .catch(function(res){ console.log(res) })
-    console.log()
   }
 
 }
