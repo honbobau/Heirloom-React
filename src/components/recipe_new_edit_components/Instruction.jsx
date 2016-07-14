@@ -2,14 +2,6 @@ import React from 'react';
 
 class Instruction extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      instruction: ''
-    }
-  };
-
   render() {
     let ic = this.props.ic;
 
