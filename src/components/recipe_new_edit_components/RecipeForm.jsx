@@ -101,14 +101,15 @@ class RecipeForm extends React.Component {
 
   // makes photo ajax call using 
   submitPhoto = (id) => {
-    fetch('http://localhost:3000/recipes/' + id + '/photos' + token, {
+    fetch('http://localhost:3000/recipes/photos' + token, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        filepath:  this.state.photo
+        filepath:  this.state.photo,
+        recipe_id: id
       })
     })
   }
