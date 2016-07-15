@@ -15,6 +15,7 @@ class GlobalFeedPage extends React.Component {
     }
   }
 
+  // fetches all recipes upon mount
   componentDidMount() {
     this.fetchAllRecipes()
   }
@@ -56,8 +57,6 @@ class GlobalFeedPage extends React.Component {
     })
     console.log(this.state.recipes)
   }
-
-  // render recipe cards
 
 }
 
