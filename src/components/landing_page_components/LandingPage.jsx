@@ -8,14 +8,14 @@ class LandingPage extends React.Component {
     return (
       <section className="landing-page">
         <div className="container">
-          <div className="row">
+          <div className="columns">
 
-            <div className="col-sm-6 col-sm-offset-1 landing-page-filler">
+            <div className="column is-6 is-offset-1 landing-page-filler">
                 <img src="../images/heirloom_logo.jpg" />
               
             </div>
 
-            <div className="col-sm-3 landing-page-login">
+            <div className="column is-3 landing-page-login">
               <div className="login-form"> 
                 <LoginForm />
               </div>

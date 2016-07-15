@@ -7,12 +7,16 @@ class LoginForm extends React.Component {
 
       <form id="login-form">
         <label htmlFor="login-username">Username</label>
-        <input type="text" id="login-username" />
-        <span className="login-error"></span>
+        <div>
+          <input type="text" id="login-username" />
+          <span className="login-error"></span>
+        </div>
 
         <label htmlFor="login-password">Password</label>
-        <input type="text" id="login-password" />
-        <span className="login-error"></span>
+        <div>
+          <input type="text" id="login-password" />
+          <span className="login-error"></span>
+        </div>
 
         <button type="submit" className="btn">Log In</button>
         {/* upon successful login, page rerenders to UserFeedPage */}
