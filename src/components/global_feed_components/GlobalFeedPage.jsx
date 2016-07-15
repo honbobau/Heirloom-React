@@ -26,10 +26,7 @@ class GlobalFeedPage extends React.Component {
 
     return(
       <div>
-        <div>
-          {/* header */}
-        </div>
-        <div>
+        <div className="recipe-card-container">
           {recipes.map(recipe => <RecipeCard recipe={recipe} />)}
         </div>
       </div>

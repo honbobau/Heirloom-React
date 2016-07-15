@@ -1,6 +1,6 @@
 $primary-color: #e2562b;
 $secondary-color: #61af3e;
-
+/* ------------------------ landing page --------------------- */
 .landing-page {
   height: 35em;
   margin-top: 20px;
@@ -40,4 +40,30 @@ $secondary-color: #61af3e;
       border-color: $primary-color;
     }
   }
+}
+
+/* ------------------------ Global Feed --------------------- */
+
+.feed-image {
+  display: block;
+  width: 300px;
+  height: 200px;
+}
+
+.recipe-card {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 340px;
+}
+
+.recipe-card-container {
+
+}
+
+
+/* ------------------------ Signup Form --------------------- */
+.signup-page {
+
+
 }

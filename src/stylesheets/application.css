@@ -1,3 +1,4 @@
+/* ------------------------ landing page --------------------- */
 .landing-page {
   height: 35em;
   margin-top: 20px; }
@@ -23,5 +24,19 @@
       border-color: #61af3e; }
     .landing-page .landing-page-login .login-form input:focus {
       border-color: #e2562b; }
+
+/* ------------------------ Global Feed --------------------- */
+.feed-image {
+  display: block;
+  width: 300px;
+  height: 200px; }
+
+.recipe-card {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 340px; }
+
+/* ------------------------ Signup Form --------------------- */
 
 /*# sourceMappingURL=application.css.map */

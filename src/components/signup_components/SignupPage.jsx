@@ -16,14 +16,14 @@ class SignupPage extends React.Component {
   render() {
     return (
 
-      <div className="container">
-        <div className="row">
+      <div className="container signup-page">
+        <div className="columns">
 
-          <div className="col s3 offset-s1">
+          <div className="column is-4 is-offset-2">
             <SignupForm />
           </div>
 
-          <div className="col s6">
+          <div className="column is-4">
             <SignupPreview />
           </div>
           
