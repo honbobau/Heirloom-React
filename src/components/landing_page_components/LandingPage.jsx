@@ -4,10 +4,6 @@ import SignupButton from './SignupButton.jsx'
 
 class LandingPage extends React.Component {
 
-  componentWillMount() {
-    
-  }
-
   render() {
     const renderNewPage = this.props.renderNewPage;
 

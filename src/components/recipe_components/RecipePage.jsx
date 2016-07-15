@@ -5,7 +5,7 @@ import Instructions from './Instructions.jsx';
 import DescriptionTags from './DescriptionTags.jsx';
 import Image from './Image.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODQ0ODc2NywiZXhwIjoxNDY4NTM1MTY3fQ.Fk33QeqOD9H0XMI5tiSRAkUPBHyeiPiW8rRSvF7O8Kc'
+const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjIsInVzZXJuYW1lIjoiSGFtYnVyZ2VybWFuIiwicGFzc3dvcmQiOiIkMmEkMTAkd3lJVG5tdEVyMjBHZHRZZ0xBZDc5TzhKSnJqMTBzRFFlNUlmUWpOT3RJS0Q0MnlVR2trdXEiLCJlbWFpbCI6IjEyMzQ1NkAxMjM0NTYuMTIzNDU2IiwiYmx1cmIiOiJJIGFtIGEgaGFtYnVyZ2VyLiIsInVzZXJfcGhvdG8iOiJodHRwczovL3MzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tL2hlaXJsb29tLXRvcm9udG8vNjY1MWZhYTctN2ViYy00YWVkLWI2Y2YtNDQyOWIxZGYyNTk2X3VzZXIxLnBuZyIsImlhdCI6MTQ2ODYxNTk5OCwiZXhwIjoxNDY4NzAyMzk4fQ.JsGjIFFhxlvjuAxAQRIQvq_UF1LwP0iLbRfp5XbgcXI'
 
 class RecipePage extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class RecipePage extends React.Component {
 
   // fetches the recipe from the database
   fetchRecipeComponents = () => {
-    fetch('http://localhost:3000/recipes/218' + token, {
+    fetch('http://localhost:3000/recipes/223' + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -62,6 +62,7 @@ class RecipePage extends React.Component {
       }
     })
     .then((recipe) => recipe.json())
+    .then((recipe) => { console.log(recipe); return recipe; })
     .then((recipe) => this.setState({ recipe: recipe }) )
     .then(this.fetchRecipeIngredients)
     .then(this.fetchRecipeInstructions)
