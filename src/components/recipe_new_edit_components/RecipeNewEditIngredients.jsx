@@ -11,7 +11,6 @@ class RecipeNewEditIngredients extends React.Component {
       newInputs: [],
       ingredients: []
     }
-
   };
 
   // rendering

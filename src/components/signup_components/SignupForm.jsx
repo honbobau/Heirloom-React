@@ -103,6 +103,7 @@ class SignupForm extends React.Component {
       })
     })
     .then((user) => user.json())
+    .then((user) => console.log(user))
     .then(callback)
     .catch(function(res){ console.log(res) })
   }

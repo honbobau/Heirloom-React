@@ -11,7 +11,7 @@ class LandingPage extends React.Component {
           <div className="columns">
 
             <div className="column is-6 is-offset-1 landing-page-filler">
-                <img src="../images/heirloom_logo.jpg" />
+                <img src="src/images/heirloom_logo.jpg" />
               
             </div>
 
