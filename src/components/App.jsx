@@ -7,55 +7,31 @@ import RecipePage from './recipe_components/RecipePage.jsx';
 import UserFeedPage from './user_feed_components/UserFeedPage.jsx';
 import GlobalFeedPage from './global_feed_components/GlobalFeedPage.jsx';
 
+const routes = {
+  LandingPage,
+  SignupPage,
+  ProfilePage,
+  RecipeNewEditPage,
+  RecipePage,
+  UserFeedPage,
+  GlobalFeedPage,
+};
+
 class App extends React.Component {
-  
   constructor(props) {
     super(props);
 
     this.state = {
-      state: 'LandingPage'
+      page: 'LandingPage'
     }
   };
 
-  render() { 
-
-    switch(this.state.state) {
-      case 'LandingPage':
-        return(
-          <LandingPage />
-        );
-
-      case 'SignupPage':
-        return(
-          <SignupPage />
-        );
-
-      case 'ProfilePage':
-        return(
-          <ProfilePage />
-        );
-
-      case 'RecipeNewEditPage':
-        return(
-          <RecipeNewEditPage />
-        );
-
-      case 'RecipePage':
-        return(
-          <RecipePage />
-        );
-
-      case 'UserFeedPage':
-        return(
-          <UserFeedPage />
-        );
-
-      case 'GlobalFeedPage':
-        return(
-          <GlobalFeedPage />
-        );
-    }
+  render() {
+    const View = routes[this.state.page];
+    return <View renderNewPage={this.renderNewPage} />;
   }
+
+  renderNewPage = page => this.setState({ page });
 }
 
 export default App;

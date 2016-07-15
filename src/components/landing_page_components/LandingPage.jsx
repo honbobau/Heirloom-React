@@ -4,7 +4,13 @@ import SignupButton from './SignupButton.jsx'
 
 class LandingPage extends React.Component {
 
+  componentWillMount() {
+    
+  }
+
   render() {
+    const renderNewPage = this.props.renderNewPage;
+
     return (
       <section className="landing-page">
         <div className="container">
@@ -21,7 +27,7 @@ class LandingPage extends React.Component {
               </div>
 
               <div className="signup-button">
-                <SignupButton />
+                <SignupButton renderNewPage={renderNewPage} />
               </div>
             </div>
             
