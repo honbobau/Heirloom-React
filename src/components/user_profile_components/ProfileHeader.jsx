@@ -1,8 +1,8 @@
 import React from 'react';
 import RenderGlobalFeed from '../utility_components/RenderGlobalFeed.jsx';
 import RenderUserFeed from '../utility_components/RenderUserFeed.jsx';
-import SearchRecipes from '../utility_components/SearchRecipes.jsx';
-import SearchRecipesForm from './SearchRecipesForm.jsx';
+// import SearchRecipes from '../utility_components/SearchRecipes.jsx';
+// import SearchRecipesForm from './SearchRecipesForm.jsx';
 
 class ProfileHeader extends React.Component {
 
@@ -23,7 +23,7 @@ class ProfileHeader extends React.Component {
         <div className='column is-6'>
           <RenderUserFeed renderNewPage={renderNewPage} />
           <RenderGlobalFeed renderNewPage={renderNewPage} />
-          <SearchRecipes displayRecipeSearch={this.displayRecipeSearch}/>
+          {/* <SearchRecipes displayRecipeSearch={this.displayRecipeSearch}/> */}
         </div>
       </header>
     );
