@@ -8,10 +8,14 @@ class SignupFormPhoto extends React.Component {
 
       <form id="signup-form-photo" encType="application/x-www-form-urlencoded">
         <label htmlFor="signup-photo">Photo</label>
-        <input type="text" ref="user_photo" />
+        <div>
+          <input type="text" ref="user_photo" />
+        </div>
 
         <label htmlFor="signup-blurb">Blurb</label>
-        <input type="text" ref="blurb" />
+        <div>
+          <input type="text" ref="blurb" />
+        </div>
 
         <button onClick={ this.previousForm }>Previous</button>
         <button onClick={ this.saveAndFinish }>Finish</button>

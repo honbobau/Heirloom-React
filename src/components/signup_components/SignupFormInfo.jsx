@@ -8,16 +8,19 @@ class SignupFormInfo extends React.Component {
     return(
       <form>
         <label htmlFor="signup-username">Username</label>
-        <input type="text" 
-               ref="username" />
+        <div>
+          <input type="text" ref="username" />
+        </div>
 
         <label htmlFor="password">Password</label>
-        <input type="text" 
-               ref="password" />
+        <div>
+          <input type="text" ref="password" />
+        </div>
 
         <label htmlFor="email">Email</label>
-        <input type="text" 
-               ref="email" />        
+        <div>
+          <input type="text" ref="email" />        
+        </div>
 
         <button onClick={ this.saveAndContinue }>Next</button>
       </form>
