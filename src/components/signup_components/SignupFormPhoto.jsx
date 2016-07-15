@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+const ReactS3Uploader = require('react-s3-uploader');
 
 class SignupFormPhoto extends React.Component {
 
@@ -8,13 +9,22 @@ class SignupFormPhoto extends React.Component {
 
       <form id="signup-form-photo" encType="application/x-www-form-urlencoded">
         <label htmlFor="signup-photo">Photo</label>
-        <div>
-          <input type="text" ref="user_photo" />
-        </div>
+        <ReactS3Uploader
+          signingUrl="/s3/sign"
+          accept="image/*"
+          onProgress={this.onUploadProgress}
+          onError={this.onUploadError}
+          onFinish={this.onUploadFinish}
+          // signingUrlHeaders={{ additional: headers }}
+          // signingUrlQueryParams={{ additional: query-params }}
+          uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
+          contentDisposition="auto"
+          server="http://localhost:3000" 
+        />
 
         <label htmlFor="signup-blurb">Blurb</label>
         <div>
-          <input type="text" ref="blurb" />
+          <input type="text" ref="blurb" onBlur={ this.saveBlurb }/>
         </div>
 
         <button onClick={ this.previousForm }>Previous</button>
@@ -29,17 +39,19 @@ class SignupFormPhoto extends React.Component {
     this.props.previousStep()
   }
 
+  saveBlurb = () => {
+    let blurb =  ReactDOM.findDOMNode(this.refs.blurb).value
+    this.props.saveBlurb(blurb)
+  }
+
   saveAndFinish = (ev) => {
     ev.preventDefault();
+    this.props.submitForm(this.props.nextStep)
+  }
 
-    let data = {
-      user_photo : ReactDOM.findDOMNode(this.refs.user_photo).value,
-      blurb      : ReactDOM.findDOMNode(this.refs.blurb).value
-    }
-
-    this.props.saveValuesPhoto(data)
-    this.props.submitForm()
-    this.props.nextStep()
+  onUploadFinish = (url) => { 
+    let setURL = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.filename 
+    this.props.savePhotoURL(setURL)
   }
 }
 

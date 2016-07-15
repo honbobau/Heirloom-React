@@ -4,13 +4,7 @@ import SignupFormInfo from './SignupFormInfo.jsx';
 import SignupFormPhoto from './SignupFormPhoto.jsx';
 import SignupFormConfirm from './SignupFormConfirm.jsx';
 
-let userFormValues = {
-  username:   null,
-  password:   null,
-  email:      null,
-  user_photo: null,
-  blurb:      null
-}
+const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA'
 
 class SignupForm extends React.Component {
 
@@ -18,7 +12,12 @@ class SignupForm extends React.Component {
     super(props);
 
     this.state = {
-      state: 1
+      state: 1,
+      username: '',
+      password: '',
+      email:    '',
+      photoURL: '',
+      blurb:    ''
     }
   };
 
@@ -27,62 +26,84 @@ class SignupForm extends React.Component {
     switch(this.state.state) {
       case 1: 
         return <SignupFormInfo 
-                  userFormValues={userFormValues}
                   nextStep={this.nextStep}
-                  saveValuesInfo={this.saveValuesInfo} />
+                  saveValuesInfo={this.saveValuesInfo}
+               />
       case 2:
         return <SignupFormPhoto 
-                  userFormValues={userFormValues}
                   previousStep={this.previousStep}
                   nextStep={this.nextStep}
-                  saveValuesPhoto={this.saveValuesPhoto}
-                  submitForm={this.submitForm} />
+                  saveBlurb={this.saveBlurb}
+                  savePhotoURL={this.savePhotoURL}
+                  submitForm={this.submitForm} 
+               />
       case 3:
-        return <SignupFormConfirm 
-                  username={userFormValues.username}/>
+        return <SignupFormConfirm username={this.state.username} />
     }
   }
 
   saveValuesInfo = (data) => {
-    userFormValues.username = data.username
-    userFormValues.password = data.password
-    userFormValues.email    = data.email
+    this.setState({
+      username: data.username,
+      password: data.password,
+      email:    data.email
+    })
   }
 
-  saveValuesPhoto = (data) => {
-    userFormValues.user_photo = data.user_photo
-    userFormValues.blurb      = data.blurb
+  // saves the blurb
+  saveBlurb = (data) => {
+    console.log(data)
+    this.setState({
+      blurb: data
+    })
+    console.log(this.state)
   }
 
+  // saves the photo url
+  savePhotoURL = (url) => {
+    this.setState({
+      photoURL: url
+    })
+  }
+
+  // renders the next step of the form
   nextStep = () => {
     this.setState({
       state : this.state.state + 1
     })
   }
 
+  // renders the previous step of the form
   previousStep = () => {
     this.setState({
       state : this.state.state - 1
     })
   }
 
-  submitForm = () => {
-    console.log(userFormValues);
-    fetch('http://localhost:3000/users', {
+  submitForm = (callback) => {
+    console.log(this.state);
+    const username = this.state.username;
+    const password = this.state.password;
+    const email    = this.state.email;
+    const photoURL = this.state.photoURL;
+    const blurb    = this.state.blurb;
+
+    fetch('http://localhost:3000/users' + token, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username:    userFormValues.username,
-        password:    userFormValues.password,
-        email:       userFormValues.email,
-        blurb:       userFormValues.blurb,
-        user_photo:  userFormValues.user_photo
+        username:   username,
+        password:   password,
+        email:      email,
+        blurb:      blurb,
+        user_photo: photoURL
       })
     })
-    .then(function(res){ console.log(res) })
+    .then((user) => user.json())
+    .then(callback)
     .catch(function(res){ console.log(res) })
   }
 
