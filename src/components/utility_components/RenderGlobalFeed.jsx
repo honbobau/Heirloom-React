@@ -1,14 +1,7 @@
 import React from 'react';
 
-class RenderGlobalFeed extends React.Component {
-
-  render() {
-    return (
-      <div>
-        {/* glyphicon rendering GlobalFeedPage */}
-      </div>
-    )
-  }
-}
-
-export default RenderGlobalFeed;
+export default ({renderNewPage}) => (
+  <span className='icon is-large'>
+    <i className='fa fa-globe' onClick={ () => renderNewPage('GlobalFeedPage')}></i>
+  </span>
+);

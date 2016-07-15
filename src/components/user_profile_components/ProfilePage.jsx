@@ -9,7 +9,7 @@ class ProfilePage extends React.Component {
     super(props);
     
     this.state = {
-      user: []
+      userInfo: []
     }
   }
 
@@ -18,9 +18,19 @@ class ProfilePage extends React.Component {
   }
 
   render() {
+
     return(
       <div>
-        
+        <div>
+          <ProfileHeader 
+            userInfo={this.state.userInfo} 
+            renderNewPage={this.props.renderNewPage}
+          />
+        </div>
+
+        <div>
+          {/* recipes owned by user */}
+        </div>
       </div>
     );
   }
@@ -39,7 +49,7 @@ class ProfilePage extends React.Component {
 
   setUserInState = (user) => {
     this.setState({
-      user: user
+      userInfo: user
     })
   }
 
