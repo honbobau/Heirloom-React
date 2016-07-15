@@ -1,32 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-let
+import RecipeForm from './RecipeForm.jsx'
 
 class RecipeNewEditPage extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      form_progression: 1
-    }
-  };
-
   render() {
     return(
-      <div className="container">
+      <section className="container new-recipe">
         <div className="row">
 
-          <div className="col-sm-4">
+          <section className="col-sm-5 col-sm-offset-3">
+            <h4>New Recipe</h4> 
+            <RecipeForm />
+          </section>
 
-          </div>
-
-        </div> 
-      </div>
+        </div>
+      </section>
     );
   }
-
 }
 
 export default RecipeNewEditPage;
