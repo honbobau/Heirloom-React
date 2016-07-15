@@ -1,8 +1,9 @@
 import React from 'react';
+import SearchRecipesForm from './SearchRecipesForm.jsx'
 
-export default () => (
+export default ({displayRecipeSearch}) => (
   <span className='icon is-large'>
-    <i className='fa fa-search' onClick={ () => renderNewPage('UserFeedPage')}></i>
+    <i className='fa fa-search' onClick={ () => displayRecipeSearch()}></i>
   </span>
 );
 

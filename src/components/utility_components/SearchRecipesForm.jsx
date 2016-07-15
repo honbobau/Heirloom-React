@@ -19,6 +19,13 @@ class SearchRecipesForm extends React.Component {
       </form>
     );
   }
+
+
+  // filters through 
+  filterRecipes = (query) => {
+
+  }
+
 }
 
 export default SearchRecipesForm;

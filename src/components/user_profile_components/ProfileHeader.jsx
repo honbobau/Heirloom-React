@@ -22,10 +22,14 @@ class ProfileHeader extends React.Component {
         <div className='column is-6'>
           <RenderUserFeed renderNewPage={renderNewPage} />
           <RenderGlobalFeed renderNewPage={renderNewPage} />
-          <SearchRecipes />
+          <SearchRecipes displayRecipeSearch={this.displayRecipeSearch}/>
         </div>
       </header>
     );
+  }
+
+  displayRecipeSearch = () => {
+
   }
 
 }
