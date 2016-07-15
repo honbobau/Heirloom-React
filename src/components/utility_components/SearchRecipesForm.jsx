@@ -26,6 +26,11 @@ class SearchRecipesForm extends React.Component {
 
   }
 
+  // stores query in state
+  storeQuery = (query) => {
+    
+  }
+
 }
 
 export default SearchRecipesForm;

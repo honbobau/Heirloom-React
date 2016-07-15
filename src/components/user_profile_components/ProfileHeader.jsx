@@ -1,7 +1,8 @@
 import React from 'react';
 import RenderGlobalFeed from '../utility_components/RenderGlobalFeed.jsx';
 import RenderUserFeed from '../utility_components/RenderUserFeed.jsx';
-import SearchRecipes from '../utility_components/SearchRecipes.jsx'
+import SearchRecipes from '../utility_components/SearchRecipes.jsx';
+import SearchRecipesForm from './SearchRecipesForm.jsx';
 
 class ProfileHeader extends React.Component {
 
