@@ -4,20 +4,24 @@ import Ingredients from './Ingredients.jsx';
 import Instructions from './Instructions.jsx';
 import DescriptionTags from './DescriptionTags.jsx';
 import Image from './Image.jsx';
+import LikeButton from './LikeButton.jsx';
+import FavButton from './FavButton.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODQ0ODc2NywiZXhwIjoxNDY4NTM1MTY3fQ.Fk33QeqOD9H0XMI5tiSRAkUPBHyeiPiW8rRSvF7O8Kc'
+const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInVzZXJuYW1lIjoid3NoYW5rczAxIiwicGFzc3dvcmQiOiIkMmEkMTAkLzNEekpRbnNVMWd6eE1PVFdrLkc2T3ljN011WVBrUlRDNzFnN0lXZUxPbHpPQnQ5R1IxNnEiLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODYwNjE1NywiZXhwIjoxNDY4NjkyNTU3fQ.y9Vul1LuG0ofnRPsCR270VT970cXT2bKedrgVn_UTKc'
 
 class RecipePage extends React.Component {
   constructor(props) {
     super(props);
     
     this.state = {
+      id: '',
       recipe:       [],
       ingredients:  [],
       instructions: [],
       description:  '',
       tags:         '',
-      photoURL:     ''
+      photoURL:     '',
+      user_id: ''
     }
   }
 
@@ -48,13 +52,28 @@ class RecipePage extends React.Component {
           <Instructions instructions={this.state.instructions} />
         </section>
 
+        <section>
+          <button>
+          <LikeButton 
+            likeRecipe={this.likeRecipe}
+          />
+          </button>
+        </section>
+
+        <section>
+          <button>
+            <FavButton
+              favRecipe={this.favRecipe}
+              />
+          </button>    
+        </section>
       </div>
     );
   }
 
   // fetches the recipe from the database
   fetchRecipeComponents = () => {
-    fetch('http://localhost:3000/recipes/218' + token, {
+    fetch('http://localhost:3000/recipes/2' + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -67,6 +86,8 @@ class RecipePage extends React.Component {
     .then(this.fetchRecipeInstructions)
     .then(this.fetchRecipeDescription)
     .then(this.fetchRecipePhoto)
+    .then(this.fetchRecipeID)
+    .then(this.fetchUserID)
     .catch(function(recipe){ console.log(recipe) })
   }
 
@@ -102,6 +123,41 @@ class RecipePage extends React.Component {
     console.log(this.state.description) 
   }
 
-}
+  fetchRecipeID = () => {
+  this.setState({
+    id: this.state.recipe[0].recipe.id
+  })
+  console.log(this.state.recipe_id) 
+  } 
+
+  fetchUserID = () => {
+  this.setState({
+    user_id: this.state.recipe[0].recipe.user_id
+  })
+  console.log(this.state.user_id) 
+  }  
+
+  likeRecipe = () => {
+    const { user_id, id } = this.state;
+    fetch(`http://localhost:3000/user/${user_id}/recipe/${id}/likes${token}`, {
+      method: 'POST',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json' 
+      }
+    })
+  }
+
+  favRecipe = () => {
+    const {user_id, id} = this.state;
+    fetch(`http://localhost:3000/user/${user_id}/recipe/${id}/favourites${token}`, {
+      method: 'POST',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json' 
+      }
+    })
+  }
+};
 
 export default RecipePage;

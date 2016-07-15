@@ -9,4 +9,4 @@ import RecipeNewEditPage from './components/recipe_new_edit_components/RecipeNew
 import RecipePage from './components/recipe_components/RecipePage.jsx';
 import ProfilePage from './components/user_profile_components/ProfilePage.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<RecipePage />, document.getElementById('app'));
