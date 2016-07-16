@@ -19,19 +19,25 @@ class UserFeedPage extends React.Component {
     this.fetchAllRecipes()
   }
 
-
   render() {
     const { recipes } = this.state;
     const renderNewPage = this.props.renderNewPage;
+    let noRecipes;
+
+    if (this.props.recipes == null) {
+      noRecipes = (
+        <p> You have no recipes </p>
+      )
+    }
 
     return(
       <div className="user-feed-page container">
         <div className="columns">
-
           <div className="column is-3 is-offset-4 user-feed-content">
             <UserFeedHeader renderNewPage={renderNewPage}/>
 
             <div className='recipe-container'>
+            { noRecipes }
               {recipes.map(recipe => <RecipeCard 
                                       recipe={recipe} 
                                       renderNewPage={renderNewPage}
