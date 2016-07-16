@@ -10,7 +10,7 @@ class RecipeNewEditPage extends React.Component {
 
           <section className="col-sm-5 col-sm-offset-3">
             <h4>New Recipe</h4> 
-            <RecipeForm />
+            <RecipeForm renderNewPage={this.props.renderNewPage}/>
           </section>
 
         </div>

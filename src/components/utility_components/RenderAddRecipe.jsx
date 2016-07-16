@@ -1,14 +1,7 @@
 import React from 'react';
 
-class RenderAddRecipe extends React.Component {
-
-  render() {
-    return(
-      <div>
-        {/* glyphicon rendering RecipeNewEditPage */}
-      </div>
-    );
-  }
-}
-
-export default RenderAddRecipe;
+export default ({renderNewPage}) => (
+  <span className='icon is-large'>
+    <i className='fa fa-plus' onClick={ () => renderNewPage('RecipeNewEditPage')}></i>
+  </span>
+);

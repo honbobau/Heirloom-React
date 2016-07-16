@@ -5,7 +5,7 @@ import RecipeNewEditIngredients from './RecipeNewEditIngredients.jsx';
 import RecipeNewEditInstructions from './RecipeNewEditInstructions.jsx';
 import RecipeNewEditPhoto from './RecipeNewEditPhoto.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA'
+const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjIsInVzZXJuYW1lIjoiSGFtYnVyZ2VybWFuIiwicGFzc3dvcmQiOiIkMmEkMTAkd3lJVG5tdEVyMjBHZHRZZ0xBZDc5TzhKSnJqMTBzRFFlNUlmUWpOT3RJS0Q0MnlVR2trdXEiLCJlbWFpbCI6IjEyMzQ1NkAxMjM0NTYuMTIzNDU2IiwiYmx1cmIiOiJJIGFtIGEgaGFtYnVyZ2VyLiIsInVzZXJfcGhvdG8iOiJodHRwczovL3MzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tL2hlaXJsb29tLXRvcm9udG8vNjY1MWZhYTctN2ViYy00YWVkLWI2Y2YtNDQyOWIxZGYyNTk2X3VzZXIxLnBuZyIsImlhdCI6MTQ2ODYxNTk5OCwiZXhwIjoxNDY4NzAyMzk4fQ.JsGjIFFhxlvjuAxAQRIQvq_UF1LwP0iLbRfp5XbgcXI'
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -119,11 +119,12 @@ class RecipeForm extends React.Component {
 
   // makes ajax post to server with recipe for then with photo form
   submitForm = () => {
-    let ingredients = this.state.ingredients;
+    let user_id      = window.localStorage.current_id;
+    let ingredients  = this.state.ingredients;
     let instructions = this.state.instructions;
-    let description = this.state.description;
-    let photo = this.state.photo;
-    let currentDate = new Date();
+    let description  = this.state.description;
+    let photo        = this.state.photo;
+    let currentDate  = new Date();
     
     fetch('http://localhost:3000/recipes' + token, {
       method: 'POST',
@@ -132,6 +133,7 @@ class RecipeForm extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        user_id:      user_id,
         ingredients:  ingredients,
         instructions: instructions,
         description:  description,
@@ -140,6 +142,7 @@ class RecipeForm extends React.Component {
     })
     .then((object) => object.json())
     .then((object) => { this.submitPhoto(object[0].id, photo) })
+    .then(this.props.renderNewPage('UserFeedPage'))
     .catch(function(res){ console.log(res) })
   }
   

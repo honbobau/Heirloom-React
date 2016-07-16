@@ -3,7 +3,9 @@ import React from 'react';
 class SignupFormConfirm extends React.Component {
 
   componentDidMount() {
-    
+    setTimeout(() => {
+      this.props.renderNewPage('UserFeedPage')
+    }, 5000)
   }
 
   render() {

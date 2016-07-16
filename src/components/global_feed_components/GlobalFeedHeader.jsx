@@ -6,6 +6,8 @@ import RenderUserProfile from '../utility_components/RenderUserProfile.jsx';
 class GlobalFeedHeader extends React.Component {
   
     render() {
+      const renderNewPage = this.props.renderNewPage;
+
       return(
         <header className='global-feed-header container'>
           <img src='src/images/heirloom_logo.jpg' className='heirloom-logo' />
@@ -13,7 +15,8 @@ class GlobalFeedHeader extends React.Component {
           {/* render: profile page */}
           {/* render:  */}
           <div className='global-feed-header-nav'>
-            <RenderUserFeed renderNewPage={this.props.renderNewPage}/>
+            <RenderUserFeed renderNewPage={renderNewPage} />
+            <RenderUserProfile renderNewPage={renderNewPage} />
           </div>
         </header>
       );

@@ -22,7 +22,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      page: 'LandingPage'
+      page: 'UserFeedPage'
     }
   };
 
@@ -32,6 +32,8 @@ class App extends React.Component {
   }
 
   renderNewPage = page => this.setState({ page });
+  renderRecipePage = recipe_id => {
+  }
 }
 
 export default App;

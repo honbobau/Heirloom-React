@@ -6,23 +6,19 @@ import RenderUserProfile from '../utility_components/RenderUserProfile.jsx';
 class UserFeedHeader extends React.Component {
 
   render() {
+    const renderNewPage = this.props.renderNewPage
+
     return(
-        <div className="container">
-          <div className="row">
-
-            <section className="col s3">
-              User Feed
-              <RenderAddRecipe />
-            </section>
-
-            <section className="col s6">
-              {/* render: global feed */}
-              {/* render: user profile page */}
-              {/* render: add new recipe */}
-            </section>
-
+        <header className='user-feed-header container'>
+          <img src='src/images/heirloom_logo.jpg' className='heirloom-logo' />
+          {/* render: search bar */}
+          {/* render: profile page */}
+          {/* render:  */}
+          <div className='user-feed-header-nav'>
+            <RenderGlobalFeed renderNewPage={renderNewPage} />
+            <RenderUserProfile renderNewPage={renderNewPage} />
           </div>
-        </div>
+        </header>
     );
   }
 

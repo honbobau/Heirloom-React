@@ -1,6 +1,7 @@
 import React from 'react';
 import RenderGlobalFeed from '../utility_components/RenderGlobalFeed.jsx';
 import RenderUserFeed from '../utility_components/RenderUserFeed.jsx';
+import RenderAddRecipe from '../utility_components/RenderAddRecipe.jsx';
 import SearchRecipes from '../utility_components/SearchRecipes.jsx';
 // import SearchRecipesForm from './SearchRecipesForm.jsx';
 import FollowButton from './FollowButton.jsx';
@@ -17,12 +18,17 @@ class ProfileHeader extends React.Component {
     let username      = this.props.userInfo.username;
     let photoURL      = this.props.userInfo.user_photo;
     let blurb         = this.props.userInfo.blurb;
-    let renderNewPage = this.props.renderNewPage
-    let followButton;
+    let renderNewPage = this.props.renderNewPage;
+    let followUser;
+    let addRecipe;
 
     if (id !== parseInt(window.localStorage.current_id)) {
-      followButton = (
+      followUser = (
         <FollowButton followUser={ this.followUser } />
+      )
+    } else {
+      addRecipe = (
+        <RenderAddRecipe renderNewPage={renderNewPage} />
       )
     }
 
@@ -36,7 +42,8 @@ class ProfileHeader extends React.Component {
         </div>
 
         <div className='column is-6'>
-          { followButton }
+          { followUser }
+          { addRecipe }
           <RenderUserFeed renderNewPage={renderNewPage} />
           <RenderGlobalFeed renderNewPage={renderNewPage} />
           {/* <SearchRecipes displayRecipeSearch={this.displayRecipeSearch}/> */}

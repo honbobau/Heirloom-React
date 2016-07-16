@@ -15,8 +15,6 @@ class SignupFormPhoto extends React.Component {
           onProgress={this.onUploadProgress}
           onError={this.onUploadError}
           onFinish={this.onUploadFinish}
-          // signingUrlHeaders={{ additional: headers }}
-          // signingUrlQueryParams={{ additional: query-params }}
           uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
           contentDisposition="auto"
           server="http://localhost:3000" 
