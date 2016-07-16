@@ -14,14 +14,14 @@ class RecipePage extends React.Component {
     super(props);
     
     this.state = {
-      id: '',
+      id:           '',
       recipe:       [],
       ingredients:  [],
       instructions: [],
       description:  '',
       tags:         '',
       photoURL:     '',
-      user_id: ''
+      user_id:      ''
     }
   }
 
@@ -73,8 +73,9 @@ class RecipePage extends React.Component {
 
   // fetches the recipe from the database
   fetchRecipeComponents = () => {
+    let recipe_id = window.localStorage.recipe_id;
 
-    fetch('http://localhost:3000/recipes/223' + token, {
+    fetch(`http://localhost:3000/recipes/${recipe_id}` + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',

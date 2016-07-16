@@ -25,24 +25,24 @@ class GlobalFeedPage extends React.Component {
     const renderNewPage = this.props.renderNewPage;
 
     return(
-          <div className="global-feed-page container">
-            <div className="columns">
+      <div className="global-feed-page container">
+        <div className="columns">
 
-              <div className="column is-3 is-offset-4 global-feed-content">
-                <GlobalFeedHeader renderNewPage={renderNewPage}/>
+          <div className="column is-3 is-offset-4 global-feed-content">
+            <GlobalFeedHeader renderNewPage={renderNewPage}/>
 
-                <div className='recipe-container'>
-                  {recipes.map(recipe => <RecipeCard 
-                                          recipe={recipe} 
-                                          renderNewPage={renderNewPage}
-                                        />
-                  )}
-                </div>
-
-              </div>
-
+            <div className='recipe-container'>
+              {recipes.map(recipe => <RecipeCard 
+                                      recipe={recipe} 
+                                      renderNewPage={renderNewPage}
+                                    />
+              )}
             </div>
+
           </div>
+
+        </div>
+      </div>
     );
   }
 
