@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({ favRecipe }) => (
-  <div onClick={ favRecipe }>
-  Add Recipe to Favourites
-  </div>
+  <span className='icon is-medium'>
+    <i className='fa fa-heart' onClick={ favRecipe }></i>
+  </span>
 );

@@ -22,7 +22,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      page: 'UserFeedPage'
+      page: 'RecipePage'
     }
   };
 

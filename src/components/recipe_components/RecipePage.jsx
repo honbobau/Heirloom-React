@@ -31,42 +31,40 @@ class RecipePage extends React.Component {
 
   render() {
     return(
-      <div>
-        <header>
-          {/* header content */}
-        </header>
+      <div className='recipe-page container'>
+        <div className='columns'>
 
-        <section className="recipe-display-description">
-          <DescriptionTags description={this.state.description} />
-        </section>
+          <div className='column is-3 is-offset-4 recipe-page-content'>
+            <header>
+              {/* header content */}
+            </header>
 
-        <section className="recipe-display-photo">
-          <Image imageURL={this.state.photoURL} />
-        </section>
+            <section className="recipe-display-photo">
+              <Image imageURL={this.state.photoURL} />
+            </section>
 
-        <section className="recipe-display-ingredients">
-          <Ingredients ingredients={this.state.ingredients} />
-        </section>
+            <section className="recipe-display-description">
+              <DescriptionTags description={this.state.description} />
+            </section>
 
-        <section className="recipe-display-instructions">
-          <Instructions instructions={this.state.instructions} />
-        </section>
+            <section className="recipe-display-ingredients">
+              <Ingredients ingredients={this.state.ingredients} />
+            </section>
 
-        <section>
-          <button>
-          <LikeButton 
-            likeRecipe={this.likeRecipe}
-          />
-          </button>
-        </section>
+            <section className="recipe-display-instructions">
+              <Instructions instructions={this.state.instructions} />
+            </section>
 
-        <section>
-          <button>
-            <FavButton
-              favRecipe={this.favRecipe}
+            <section>
+              <LikeButton 
+                likeRecipe={this.likeRecipe}
               />
-          </button>    
-        </section>
+              <FavButton
+                  favRecipe={this.favRecipe}
+                  />
+            </section>
+          </div>
+        </div>
       </div>
     );
   }
@@ -93,6 +91,9 @@ class RecipePage extends React.Component {
     .then(this.fetchUserID)
     .catch(function(recipe){ console.log(recipe) })
   }
+
+  // fetches the user information associated with this recipe
+
 
   // fetches the ingredients from the recipe
   fetchRecipeIngredients = () => {
