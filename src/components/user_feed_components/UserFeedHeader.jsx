@@ -2,6 +2,7 @@ import React from 'react';
 import RenderAddRecipe from '../utility_components/RenderAddRecipe.jsx';
 import RenderGlobalFeed from '../utility_components/RenderGlobalFeed.jsx';
 import RenderUserProfile from '../utility_components/RenderUserProfile.jsx';
+import SearchRecipes from '../utility_components/SearchRecipes.jsx';
 
 class UserFeedHeader extends React.Component {
 
@@ -16,6 +17,8 @@ class UserFeedHeader extends React.Component {
           {/* render:  */}
           <div className='user-feed-header-nav'>
             <RenderGlobalFeed renderNewPage={renderNewPage} />
+            <SearchRecipes />
+            <RenderAddRecipe renderNewPage={renderNewPage} />
             <RenderUserProfile renderNewPage={renderNewPage} />
           </div>
         </header>

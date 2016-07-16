@@ -131,7 +131,6 @@ class RecipePage extends React.Component {
   this.setState({
     id: this.state.recipe[0].recipe.id
   })
-  console.log(this.state.recipe_id) 
   } 
 
   fetchUserID = () => {
