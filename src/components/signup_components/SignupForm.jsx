@@ -22,7 +22,8 @@ class SignupForm extends React.Component {
   };
 
   render() {
- 
+   const renderNewPage = this.props.renderNewPage
+
     switch(this.state.state) {
       case 1: 
         return <SignupFormInfo 
@@ -38,7 +39,10 @@ class SignupForm extends React.Component {
                   submitForm={this.submitForm} 
                />
       case 3:
-        return <SignupFormConfirm username={this.state.username} />
+        return <SignupFormConfirm 
+                 username={this.state.username} 
+                 renderNewPage={renderNewPage}
+               />
     }
   }
 

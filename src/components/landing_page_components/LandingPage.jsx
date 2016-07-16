@@ -19,7 +19,7 @@ class LandingPage extends React.Component {
 
             <div className="column is-3 landing-page-login">
               <div className="login-form"> 
-                <LoginForm />
+                <LoginForm renderNewPage={renderNewPage}/>
               </div>
 
               <div className="signup-button">

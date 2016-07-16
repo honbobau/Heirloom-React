@@ -2,6 +2,10 @@ import React from 'react';
 
 class SignupFormConfirm extends React.Component {
 
+  componentDidMount() {
+    
+  }
+
   render() {
     let username = this.props.username
 
@@ -11,7 +15,7 @@ class SignupFormConfirm extends React.Component {
       </div>
     );
   }
-  
+
 }
 
 export default SignupFormConfirm;

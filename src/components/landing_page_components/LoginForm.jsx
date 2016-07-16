@@ -73,6 +73,7 @@ class LoginForm extends React.Component {
       window.localStorage.setItem('token', user.token)
       window.localStorage.setItem('current_id', user.user)
     })
+    .then(this.props.renderNewPage('UserFeedPage'))
     .then((user) => console.log(user))
   }
 
