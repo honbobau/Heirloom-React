@@ -7,7 +7,7 @@ import Image from './Image.jsx';
 import LikeButton from './LikeButton.jsx';
 import FavButton from './FavButton.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjIsInVzZXJuYW1lIjoiSGFtYnVyZ2VybWFuIiwicGFzc3dvcmQiOiIkMmEkMTAkd3lJVG5tdEVyMjBHZHRZZ0xBZDc5TzhKSnJqMTBzRFFlNUlmUWpOT3RJS0Q0MnlVR2trdXEiLCJlbWFpbCI6IjEyMzQ1NkAxMjM0NTYuMTIzNDU2IiwiYmx1cmIiOiJJIGFtIGEgaGFtYnVyZ2VyLiIsInVzZXJfcGhvdG8iOiJodHRwczovL3MzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tL2hlaXJsb29tLXRvcm9udG8vNjY1MWZhYTctN2ViYy00YWVkLWI2Y2YtNDQyOWIxZGYyNTk2X3VzZXIxLnBuZyIsImlhdCI6MTQ2ODYxNTk5OCwiZXhwIjoxNDY4NzAyMzk4fQ.JsGjIFFhxlvjuAxAQRIQvq_UF1LwP0iLbRfp5XbgcXI'
+const token = '?token=' + window.localStorage.token;
 
 class RecipePage extends React.Component {
   constructor(props) {
@@ -48,14 +48,18 @@ class RecipePage extends React.Component {
             </section>
 
             <section className="recipe-display-ingredients">
+              <div>
+                <h5>Ingredients</h5>  
+              </div>
               <Ingredients ingredients={this.state.ingredients} />
             </section>
 
             <section className="recipe-display-instructions">
+              <h5>Instructions</h5>
               <Instructions instructions={this.state.instructions} />
             </section>
 
-            <section>
+            <section className='recipe-nav-buttons'>
               <LikeButton 
                 likeRecipe={this.likeRecipe}
               />
@@ -100,7 +104,6 @@ class RecipePage extends React.Component {
     this.setState({
       ingredients: this.state.recipe[0].recipe.ingredients
     })
-    console.log(this.state.ingredients)
   }
 
   // fetches the instructions from the recipe
@@ -108,7 +111,6 @@ class RecipePage extends React.Component {
     this.setState({
       instructions: this.state.recipe[0].recipe.instructions
     })
-    console.log(this.state.instructions) 
   }
 
   // fetches the description attached to the recipe
@@ -116,7 +118,6 @@ class RecipePage extends React.Component {
     this.setState({
       description: this.state.recipe[0].recipe.description
     })
-    console.log(this.state.description) 
   }
 
   // fetches the photo attached to the recipe from the database
@@ -124,7 +125,6 @@ class RecipePage extends React.Component {
     this.setState({
       photoURL: this.state.recipe[0].photos[0].filepath
     })
-    console.log(this.state.description) 
   }
 
   fetchRecipeID = () => {

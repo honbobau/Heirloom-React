@@ -7,10 +7,11 @@ class Ingredients extends React.Component {
 
     return(
       <ul>
-        <h5>Ingredients</h5>
         {ingredients.map(function(ingredient) {
           return(
-            <li>{ingredient}</li>
+            <li>
+              > {ingredient}
+            </li>
           );
         })}
       </ul>

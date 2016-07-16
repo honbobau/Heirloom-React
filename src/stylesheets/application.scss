@@ -1,5 +1,13 @@
 $primary-color: #e2562b;
-$secondary-color: #61af3e;
+$secondary-color: #c6eab6;
+$tertiary-color: #EDECEA;
+
+$dark-font-color: #43413f;
+
+* {
+  font-family: Circular;
+}
+
 /* ------------------------ landing page --------------------- */
 .landing-page {
   height: 35em;
@@ -145,54 +153,48 @@ $secondary-color: #61af3e;
 /* ------------------------ Recipe Page --------------------- */
 .recipe-page {
 
+  img {
+    border-radius: 5%;
+  }
   .recipe-page-content {
     width: 440px;
 
-    /* ------- global feed header ------ */
-    .global-feed-header {
-      position: fixed;
-      display: flex;
-      width: 400px;
-      height: 60px;
-      background-color: $secondary-color;
-      z-index: 100;
+    /* ------- recipe photo ------ */
 
-      .heirloom-logo {
+    /* -------- recipe description ------- */
+    .recipe-page-description {
+
+    }
+    /* -------- recipe ingredients ------- */
+    .recipe-page-ingredients {
+      
+      .recipe-page-ingredients-header {
+
+      }
+    }
+    /* -------- recipe instructions ------- */
+    .recipe-instruction-counter {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      border: 1px solid $dark-font-color;
+      border-radius: 100%;
+
+      h4 {
         display: block;
-        align-self: 50%;
-        width: 60px;
-        height: 60px;
-      }
-
-      .global-feed-header-nav {
-        align-self: center;
-        margin-left: auto;
+        font-size: 16px;
+        margin: 0 auto;
       }
     }
-    /* ------- recipe cards ------ */
-    .recipe-container {
-      margin-top: 60px;
-
-      .recipe-card {
-        display: flex;
-        flex-direction: column;
-        height: 400px;
-        width: 400px;
-
-        .recipe-card-image {
-          display: block;
-          margin: 0 auto;
-          border-radius: 2%;
-          height: 300px;
-          width: 300px;
-        }
-      }
-    }
-
+    /* -------- navigation buttons ------- */
   }
 }
 
 /* ------------------------ Signup Form --------------------- */
 .signup-page {
 
+}
+
+.icon {
+  color: $primary-color;
 }
