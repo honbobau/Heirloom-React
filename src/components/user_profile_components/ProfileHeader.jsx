@@ -6,6 +6,10 @@ import SearchRecipes from '../utility_components/SearchRecipes.jsx';
 import FollowButton from './FollowButton.jsx';
 
 
+// import SearchRecipes from '../utility_components/SearchRecipes.jsx';
+// import SearchRecipesForm from './SearchRecipesForm.jsx';
+
+
 class ProfileHeader extends React.Component {
 
   render() {
@@ -35,7 +39,7 @@ class ProfileHeader extends React.Component {
           { followButton }
           <RenderUserFeed renderNewPage={renderNewPage} />
           <RenderGlobalFeed renderNewPage={renderNewPage} />
-          <SearchRecipes displayRecipeSearch={this.displayRecipeSearch}/>
+          {/* <SearchRecipes displayRecipeSearch={this.displayRecipeSearch}/> */}
         </div>
       </header>
     );
