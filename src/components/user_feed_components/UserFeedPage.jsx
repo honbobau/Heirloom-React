@@ -24,7 +24,7 @@ class UserFeedPage extends React.Component {
     const renderNewPage = this.props.renderNewPage;
     let noRecipes;
 
-    if (this.props.recipes == null) {
+    if (this.props.recipes.length == 0) {
       noRecipes = (
         <p> You have no recipes </p>
       )
