@@ -4,7 +4,7 @@ class SignupFormConfirm extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      this.props.renderNewPage('UserFeedPage')
+      this.props.renderNewPage('LandingPage')
     }, 5000)
   }
 

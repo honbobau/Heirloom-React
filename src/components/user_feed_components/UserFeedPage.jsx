@@ -15,7 +15,7 @@ class UserFeedPage extends React.Component {
   }
 
   // fetches all recipes upon mount
-  componentWillMount() {
+  componentDidMount() {
     this.fetchAllRecipes()
   }
 

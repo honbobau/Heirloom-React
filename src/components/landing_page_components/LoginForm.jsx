@@ -69,12 +69,12 @@ class LoginForm extends React.Component {
       })
     })
     .then((user) => user.json())
+    .then((user) => { console.log(user); return user;})
     .then((user) => {
       window.localStorage.setItem('token', user.token)
       window.localStorage.setItem('current_id', user.user)
     })
-    .then(this.props.renderNewPage('UserFeedPage'))
-    .then((user) => console.log(user))
+    .then((user) => this.props.renderNewPage('UserFeedPage'))
   }
 
 }

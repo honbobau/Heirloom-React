@@ -5,7 +5,7 @@ import RecipeNewEditIngredients from './RecipeNewEditIngredients.jsx';
 import RecipeNewEditInstructions from './RecipeNewEditInstructions.jsx';
 import RecipeNewEditPhoto from './RecipeNewEditPhoto.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjIsInVzZXJuYW1lIjoiSGFtYnVyZ2VybWFuIiwicGFzc3dvcmQiOiIkMmEkMTAkd3lJVG5tdEVyMjBHZHRZZ0xBZDc5TzhKSnJqMTBzRFFlNUlmUWpOT3RJS0Q0MnlVR2trdXEiLCJlbWFpbCI6IjEyMzQ1NkAxMjM0NTYuMTIzNDU2IiwiYmx1cmIiOiJJIGFtIGEgaGFtYnVyZ2VyLiIsInVzZXJfcGhvdG8iOiJodHRwczovL3MzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tL2hlaXJsb29tLXRvcm9udG8vNjY1MWZhYTctN2ViYy00YWVkLWI2Y2YtNDQyOWIxZGYyNTk2X3VzZXIxLnBuZyIsImlhdCI6MTQ2ODYxNTk5OCwiZXhwIjoxNDY4NzAyMzk4fQ.JsGjIFFhxlvjuAxAQRIQvq_UF1LwP0iLbRfp5XbgcXI'
+const token = '?token=' + window.localStorage.token;
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -142,7 +142,7 @@ class RecipeForm extends React.Component {
     })
     .then((object) => object.json())
     .then((object) => { this.submitPhoto(object[0].id, photo) })
-    .then(this.props.renderNewPage('UserFeedPage'))
+    .then(this.props.renderNewPage('GlobalFeedPage'))
     .catch(function(res){ console.log(res) })
   }
   
