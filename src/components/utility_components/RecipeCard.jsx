@@ -13,12 +13,10 @@ class RecipeCard extends React.Component {
     console.log(recipe);
 
     return( 
-      <div className='box recipe-card'>
-        <section className='section'> 
-          <img src={imageURL} className="recipe-card-image" />
+        <section className='box recipe-card'> 
+          <img src={imageURL} className='recipe-card-image'/>
           <p>{description}</p>
         </section>
-      </div>
     )
   }
 }

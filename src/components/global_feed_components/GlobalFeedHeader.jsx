@@ -7,23 +7,15 @@ class GlobalFeedHeader extends React.Component {
   
     render() {
       return(
-        <div className="container">
-          <div className="row">
-
-            <section className="col s3">
-              Global Feed
-              {/* stats */}
-            </section>
-
-            <section className="col s6">
-              {/* RenderUserFeed */}
-              {/* RenderSearchRecipes */}
-              {/* RenderAddRecipe e */}
-            </section>
-
+        <header className='global-feed-header container'>
+          <img src='src/images/heirloom_logo.jpg' className='heirloom-logo' />
+          {/* render: search bar */}
+          {/* render: profile page */}
+          {/* render:  */}
+          <div className='global-feed-header-nav'>
+            <RenderUserFeed renderNewPage={this.props.renderNewPage}/>
           </div>
-        </div>
-
+        </header>
       );
     }
 }

@@ -26,17 +26,38 @@
       border-color: #e2562b; }
 
 /* ------------------------ Global Feed --------------------- */
-.recipe-card-image {
-  display: block;
-  width: 100%;
-  height: 100%; }
-
-.recipe-card {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  width: 340px;
-  height: 340px; }
+.global-feed-page .global-feed-content {
+  width: 440px;
+  /* ------- global feed header ------ */
+  /* ------- recipe cards ------ */ }
+  .global-feed-page .global-feed-content .global-feed-header {
+    position: fixed;
+    display: flex;
+    width: 400px;
+    height: 60px;
+    background-color: #61af3e;
+    z-index: 100; }
+    .global-feed-page .global-feed-content .global-feed-header .heirloom-logo {
+      display: block;
+      align-self: 50%;
+      width: 60px;
+      height: 60px; }
+    .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav {
+      align-self: center;
+      margin-left: auto; }
+  .global-feed-page .global-feed-content .recipe-container {
+    margin-top: 60px; }
+    .global-feed-page .global-feed-content .recipe-container .recipe-card {
+      display: flex;
+      flex-direction: column;
+      height: 400px;
+      width: 400px; }
+      .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-image {
+        display: block;
+        margin: 0 auto;
+        border-radius: 2%;
+        height: 300px;
+        width: 300px; }
 
 /* ------------------------ Signup Form --------------------- */
 
