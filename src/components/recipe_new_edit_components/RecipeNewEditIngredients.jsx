@@ -26,8 +26,8 @@ class RecipeNewEditIngredients extends React.Component {
           { this.renderNewInputs() }
         </ul>
 
-        <button onClick={ this.addIngredient }>+</button>
-        <button onClick={ (e) => this.saveAndContinue(e) }>Next</button>
+        <button className='button' onClick={ this.addIngredient }>+</button>
+        <button className='button' onClick={ (e) => this.saveAndContinue(e) }>Next</button>
       </form>
     );
   }

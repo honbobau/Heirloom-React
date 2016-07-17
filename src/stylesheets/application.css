@@ -3,11 +3,14 @@
   font-family: Circular; }
 
 .icon {
-  color: #b1b1b1;
+  color: #FFFFFF;
   transition: all 0.4s linear; }
 
 .icon:hover {
-  color: #e2562b; }
+  color: #226722; }
+
+.container {
+  max-width: 440px; }
 
 /* ------------------------ landing page --------------------- */
 .landing-page {
@@ -26,13 +29,13 @@
     justify-content: space-around;
     height: 30em; }
     .landing-page .landing-page-login .login-form, .landing-page .landing-page-login .signup-button {
-      border: 1px solid #c6eab6;
+      border: 1px solid #e2562b;
       border-radius: 5%;
       padding: 15px; }
       .landing-page .landing-page-login .login-form button, .landing-page .landing-page-login .login-form a, .landing-page .landing-page-login .signup-button button, .landing-page .landing-page-login .signup-button a {
         background-color: #e2562b; }
     .landing-page .landing-page-login .login-form input {
-      border-color: #c6eab6; }
+      border-color: #e2562b; }
     .landing-page .landing-page-login .login-form input:focus {
       border-color: #e2562b; }
 
@@ -46,7 +49,7 @@
     display: flex;
     width: 400px;
     height: 60px;
-    background-color: #c6eab6;
+    background-color: #e2562b;
     z-index: 100; }
     .user-feed-page .user-feed-content .user-feed-header .heirloom-logo {
       display: block;
@@ -81,7 +84,7 @@
     width: 402px;
     height: 60px;
     margin-right: 2px;
-    background-color: #c6eab6;
+    background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
     .global-feed-page .global-feed-content .global-feed-header .heirloom-logo {
@@ -150,9 +153,9 @@
       display: flex;
       align-items: center; }
   .recipe-search-form #search-icon {
-    color: #b1b1b1;
+    color: #FFFFFF;
     transition: all 0.4s linear; }
   .recipe-search-form #search-icon:hover {
-    color: #e2562b; }
+    color: #226722; }
 
 /*# sourceMappingURL=application.css.map */

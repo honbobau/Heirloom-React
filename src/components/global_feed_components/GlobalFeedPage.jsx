@@ -24,7 +24,7 @@ class GlobalFeedPage extends React.Component {
       <div className="global-feed-page container">
         <div className="columns">
 
-          <div className="column is-3 is-offset-4 global-feed-content">
+          <div className="column is-3 global-feed-content">
             <GlobalFeedHeader 
               renderNewPage={renderNewPage}
               setRecipesInState={this.setRecipesInState}

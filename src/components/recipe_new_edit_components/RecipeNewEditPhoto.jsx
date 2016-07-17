@@ -38,8 +38,8 @@ class RecipeNewEditPhoto extends React.Component {
           onBlur={ this.updateDescriptionState.bind(this) }
         />
 
-        <button onClick={ this.props.previousStep}>Previous</button>
-        <button onClick={ (e) => { this.updateParentState() } }>Submit</button>
+        <button className='button' onClick={ this.props.previousStep}>Previous</button>
+        <button className='button' onClick={ (e) => { this.updateParentState() } }>Submit</button>
       </div>
     );
   }

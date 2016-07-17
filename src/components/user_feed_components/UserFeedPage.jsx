@@ -31,7 +31,7 @@ class UserFeedPage extends React.Component {
     return(
       <div className="user-feed-page container">
         <div className="columns">
-          <div className="column is-3 is-offset-4 user-feed-content">
+          <div className="column is-3 user-feed-content">
             <UserFeedHeader renderNewPage={renderNewPage}/>
 
             <div className='recipe-container'>

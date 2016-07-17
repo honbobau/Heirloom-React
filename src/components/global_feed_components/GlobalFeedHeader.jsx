@@ -11,7 +11,7 @@ class GlobalFeedHeader extends React.Component {
 
       return(
         <header className='global-feed-header container'>
-          <img src='src/images/heirloom_logo.jpg' className='heirloom-logo' />
+          <img src='src/images/heirloom_logo_white.png' className='heirloom-logo' />
           
           <div className='global-feed-header-nav'>
             <RenderUserFeed renderNewPage={renderNewPage} />

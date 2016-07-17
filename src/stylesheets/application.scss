@@ -1,10 +1,10 @@
 $primary-color: #e2562b;
-$secondary-color: #c6eab6;
+$secondary-color: #226722;
 $tertiary-color: #EDECEA;
 
 $dark-font-color: #43413f;
 
-$icon-color: #b1b1b1;
+$icon-color: #FFFFFF;
 
 /* ------------------------ global styles --------------------- */ 
 
@@ -18,7 +18,11 @@ $icon-color: #b1b1b1;
 }
 
 .icon:hover {
-  color: $primary-color;
+  color: $secondary-color;
+}
+
+.container {
+  max-width: 440px;
 }
 
 /* ------------------------ landing page --------------------- */
@@ -44,7 +48,7 @@ $icon-color: #b1b1b1;
     height: 30em;
 
     .login-form, .signup-button {
-      border: 1px solid $secondary-color;
+      border: 1px solid $primary-color;
       border-radius: 5%;
       padding: 15px;
 
@@ -54,7 +58,7 @@ $icon-color: #b1b1b1;
     }
 
     .login-form input {
-      border-color: $secondary-color;
+      border-color: $primary-color;
     }
 
     .login-form input:focus {
@@ -75,7 +79,7 @@ $icon-color: #b1b1b1;
       display: flex;
       width: 400px;
       height: 60px;
-      background-color: $secondary-color;
+      background-color: $primary-color;
       z-index: 100;
 
       .heirloom-logo {
@@ -126,7 +130,7 @@ $icon-color: #b1b1b1;
       width: 402px;
       height: 60px;
       margin-right: 2px;
-      background-color: $secondary-color;
+      background-color: $primary-color;
       z-index: 100;
       border-radius: 3%;
 
@@ -251,6 +255,6 @@ $icon-color: #b1b1b1;
   }
 
   #search-icon:hover {
-    color: $primary-color;
+    color: $secondary-color;
   }
 }
