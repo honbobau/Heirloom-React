@@ -21,9 +21,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      page: 'UserFeedPage'
-    }
+    this.state = { page: 'UserFeedPage' }
   };
 
   render() {

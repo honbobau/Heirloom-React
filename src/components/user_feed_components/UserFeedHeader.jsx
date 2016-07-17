@@ -12,9 +12,7 @@ class UserFeedHeader extends React.Component {
     return(
         <header className='user-feed-header container'>
           <img src='src/images/heirloom_logo.jpg' className='heirloom-logo' />
-          {/* render: search bar */}
-          {/* render: profile page */}
-          {/* render:  */}
+
           <div className='user-feed-header-nav'>
             <RenderGlobalFeed renderNewPage={renderNewPage} />
             <SearchRecipes />

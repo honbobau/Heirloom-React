@@ -1,0 +1,7 @@
+import React from 'react';
+
+export default ({ followUser }) => (
+  <span className='icon'>
+    <i className='fa fa-user-plus' onClick={ () => followUser() }></i>
+  </span>
+);
