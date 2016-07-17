@@ -1,6 +1,7 @@
 /* ------------------------ global styles --------------------- */
 * {
-  font-family: Circular; }
+  font-family: Circular;
+  padding: 0; }
 
 .icon {
   color: #FFFFFF;
@@ -41,21 +42,24 @@
 
 /* ------------------------ User Feed ----------------------- */
 .user-feed-page .user-feed-content {
-  width: 440px;
+  width: 100%;
   /* ------- user feed header ------ */
   /* ------- recipe cards ------ */ }
   .user-feed-page .user-feed-content .user-feed-header {
     position: fixed;
     display: flex;
-    width: 400px;
+    width: 410px;
     height: 60px;
+    padding: 0;
     background-color: #e2562b;
-    z-index: 100; }
+    z-index: 100;
+    border-radius: 3%; }
     .user-feed-page .user-feed-content .user-feed-header .heirloom-logo {
       display: block;
       align-self: 50%;
       width: 60px;
-      height: 60px; }
+      height: 60px;
+      margin-left: 10px; }
     .user-feed-page .user-feed-content .user-feed-header .user-feed-header-nav {
       align-self: center;
       margin-left: auto; }
@@ -64,8 +68,8 @@
     .user-feed-page .user-feed-content .recipe-container .recipe-card {
       display: flex;
       flex-direction: column;
-      height: 400px;
-      width: 400px; }
+      height: 410px;
+      width: 410px; }
       .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-image {
         display: block;
         margin: 0 auto;
@@ -75,15 +79,15 @@
 
 /* ------------------------ Global Feed --------------------- */
 .global-feed-page .global-feed-content {
-  width: 440px;
+  width: 100%;
   /* ------- global feed header ------ */
   /* ------- recipe cards ------ */ }
   .global-feed-page .global-feed-content .global-feed-header {
     position: fixed;
     display: flex;
-    width: 402px;
+    width: 410px;
     height: 60px;
-    margin-right: 2px;
+    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -91,7 +95,8 @@
       display: block;
       align-self: 50%;
       width: 60px;
-      height: 60px; }
+      height: 60px;
+      margin-left: 10px; }
     .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav {
       align-self: center;
       margin-left: auto; }
@@ -100,8 +105,8 @@
     .global-feed-page .global-feed-content .recipe-container .recipe-card {
       display: flex;
       flex-direction: column;
-      height: 400px;
-      width: 400px; }
+      height: 410px;
+      width: 410px; }
       .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-image {
         display: block;
         margin: 0 auto;
@@ -157,5 +162,32 @@
     transition: all 0.4s linear; }
   .recipe-search-form #search-icon:hover {
     color: #226722; }
+
+/* ------------------------ New Recipe Page --------------------- */
+.new-recipe-page .new-recipe-content {
+  width: 100%;
+  /* ------- new recipe header ------ */
+  /* ------- new recipe form ------ */ }
+  .new-recipe-page .new-recipe-content .new-recipe-header {
+    position: fixed;
+    display: flex;
+    width: 410px;
+    height: 60px;
+    padding: 0;
+    background-color: #e2562b;
+    z-index: 100;
+    border-radius: 3%; }
+    .new-recipe-page .new-recipe-content .new-recipe-header .heirloom-logo {
+      display: block;
+      align-self: 50%;
+      width: 60px;
+      height: 60px;
+      margin-left: 10px; }
+    .new-recipe-page .new-recipe-content .new-recipe-header .new-recipe-header-return {
+      align-self: center;
+      margin-left: auto;
+      margin-right: 15px; }
+  .new-recipe-page .new-recipe-content .new-recipe-form {
+    margin-top: 60px; }
 
 /*# sourceMappingURL=application.css.map */

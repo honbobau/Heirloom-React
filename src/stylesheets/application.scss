@@ -10,6 +10,7 @@ $icon-color: #FFFFFF;
 
 * {
   font-family: Circular;
+  padding: 0;
 }
 
 .icon {
@@ -71,22 +72,25 @@ $icon-color: #FFFFFF;
 .user-feed-page {
 
   .user-feed-content {
-    width: 440px;
+    width: 100%;
 
     /* ------- user feed header ------ */
     .user-feed-header {
       position: fixed;
       display: flex;
-      width: 400px;
+      width: 410px;
       height: 60px;
+      padding: 0;
       background-color: $primary-color;
       z-index: 100;
+      border-radius: 3%;
 
       .heirloom-logo {
         display: block;
         align-self: 50%;
         width: 60px;
         height: 60px;
+        margin-left: 10px;
       }
 
       .user-feed-header-nav {
@@ -101,8 +105,8 @@ $icon-color: #FFFFFF;
       .recipe-card {
         display: flex;
         flex-direction: column;
-        height: 400px;
-        width: 400px;
+        height: 410px;
+        width: 410px;
 
         .recipe-card-image {
           display: block;
@@ -121,15 +125,15 @@ $icon-color: #FFFFFF;
 .global-feed-page {
 
   .global-feed-content {
-    width: 440px;
+    width: 100%;
 
     /* ------- global feed header ------ */
     .global-feed-header {
       position: fixed;
       display: flex;
-      width: 402px;
+      width: 410px;
       height: 60px;
-      margin-right: 2px;
+      padding: 0;
       background-color: $primary-color;
       z-index: 100;
       border-radius: 3%;
@@ -139,6 +143,7 @@ $icon-color: #FFFFFF;
         align-self: 50%;
         width: 60px;
         height: 60px;
+        margin-left: 10px;
       }
 
       .global-feed-header-nav {
@@ -153,8 +158,8 @@ $icon-color: #FFFFFF;
       .recipe-card {
         display: flex;
         flex-direction: column;
-        height: 400px;
-        width: 400px;
+        height: 410px;
+        width: 410px;
 
         .recipe-card-image {
           display: block;
@@ -256,5 +261,45 @@ $icon-color: #FFFFFF;
 
   #search-icon:hover {
     color: $secondary-color;
+  }
+}
+
+/* ------------------------ New Recipe Page --------------------- */
+.new-recipe-page {
+
+  .new-recipe-content {
+    width: 100%;
+
+    /* ------- new recipe header ------ */
+    .new-recipe-header {
+      position: fixed;
+      display: flex;
+      width: 410px;
+      height: 60px;
+      padding: 0;
+      background-color: $primary-color;
+      z-index: 100;
+      border-radius: 3%;
+
+      .heirloom-logo {
+        display: block;
+        align-self: 50%;
+        width: 60px;
+        height: 60px;
+        margin-left: 10px;
+      }
+
+      .new-recipe-header-return {
+        align-self: center;
+        margin-left: auto;
+        margin-right: 15px;
+      }
+    }
+
+    /* ------- new recipe form ------ */
+    .new-recipe-form {
+      margin-top: 60px;
+    }
+
   }
 }

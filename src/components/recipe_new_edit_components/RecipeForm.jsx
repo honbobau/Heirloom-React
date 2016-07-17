@@ -24,25 +24,37 @@ class RecipeForm extends React.Component {
 
     switch(this.state.state) {
       case 1: 
-        return(<RecipeNewEditIngredients 
-                  saveIngredients={this.saveIngredients}
-                  nextStep={this.nextStep} /> 
-              );
+        return(
+          <section className='new-recipe-form'>
+            <RecipeNewEditIngredients 
+              saveIngredients={this.saveIngredients}
+              nextStep={this.nextStep} 
+            /> 
+          </section>
+        );
 
       case 2:
-        return(<RecipeNewEditInstructions
-                  saveInstructions={this.saveInstructions}
-                  nextStep={this.nextStep}
-                  previousStep={this.previousStep} />
-              );
+        return(
+          <section className='new-recipe-form'>
+            <RecipeNewEditInstructions
+              saveInstructions={this.saveInstructions}
+              nextStep={this.nextStep}
+              previousStep={this.previousStep} 
+            />
+          </section>
+          );
 
       case 3:
-        return(<RecipeNewEditPhoto 
-                  savePhoto={this.savePhoto}
-                  saveDescription={this.saveDescription}
-                  submitForm={this.submitForm}
-                  previousStep={this.previousStep} />
-              );
+        return(
+          <section className='new-recipe-form'>
+            <RecipeNewEditPhoto 
+              savePhoto={this.savePhoto}
+              saveDescription={this.saveDescription}
+              submitForm={this.submitForm}
+              previousStep={this.previousStep} 
+            />
+          </section>
+          );
     }
   }
 
