@@ -38,6 +38,7 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.5.2",
-    "react-s3-uploader": "^3.2.1"
+    "react-s3-uploader": "^3.2.1",
+    "react-simple-dropdown": "^1.1.4"
   }
 }

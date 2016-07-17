@@ -4,8 +4,21 @@ $tertiary-color: #EDECEA;
 
 $dark-font-color: #43413f;
 
+$icon-color: #b1b1b1;
+
+/* ------------------------ global styles --------------------- */ 
+
 * {
   font-family: Circular;
+}
+
+.icon {
+  color: $icon-color;
+  transition: all 0.4s linear;
+}
+
+.icon:hover {
+  color: $primary-color;
 }
 
 /* ------------------------ landing page --------------------- */
@@ -110,10 +123,12 @@ $dark-font-color: #43413f;
     .global-feed-header {
       position: fixed;
       display: flex;
-      width: 400px;
+      width: 402px;
       height: 60px;
+      margin-right: 2px;
       background-color: $secondary-color;
       z-index: 100;
+      border-radius: 3%;
 
       .heirloom-logo {
         display: block;
@@ -191,10 +206,51 @@ $dark-font-color: #43413f;
 }
 
 /* ------------------------ Signup Form --------------------- */
-.signup-page {
 
-}
+.recipe-search-form {
+  display: inline-block;    
 
-.icon {
-  color: $primary-color;
+  .dropdown {
+    display: inline-block;    
+  }
+
+  .dropdown__content {
+    display: none;
+    position: absolute;
+    margin-top: 5px;
+    margin-right: 30px;
+  }
+
+  .dropdown--active .dropdown__content {
+    display: block;
+  }
+
+  .recipe-search-form-container {
+    display: flex;
+    height: 100px;
+    width: 160px;
+    background-color: $primary-color;
+    border-radius: 5%;
+
+    .recipe-search-form-package {
+      align-self: flex-end;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+
+  .recipe-search-form-input,
+  .recipe-search-form-icon {
+
+  }
+
+  #search-icon {
+    color: $icon-color;
+    transition: all 0.4s linear;
+  }
+
+  #search-icon:hover {
+    color: $primary-color;
+  }
 }

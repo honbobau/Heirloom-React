@@ -1,8 +1,29 @@
 import React from 'react';
+import SearchRecipesForm from './SearchRecipesForm.jsx';
+import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 
-export default ({displayRecipeSearch}) => (
-  <span className='icon is-large'>
-    <i className='fa fa-search' onClick={ () => displayRecipeSearch()}></i>
-  </span>
-);
+class SearchRecipes extends React.Component {
 
+  render() {
+    return(
+      <div className='recipe-search-form'>
+        <Dropdown>
+
+          <DropdownTrigger>
+            <span className='icon is-large'>
+              <i className='fa fa-search' id='search-icon'></i>
+            </span>
+          </DropdownTrigger>
+
+          <DropdownContent>
+            <SearchRecipesForm />
+          </DropdownContent>
+
+        </Dropdown>
+      </div>
+    );
+  }
+
+}
+
+export default SearchRecipes;
