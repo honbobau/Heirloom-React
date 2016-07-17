@@ -25,7 +25,10 @@ class GlobalFeedPage extends React.Component {
         <div className="columns">
 
           <div className="column is-3 is-offset-4 global-feed-content">
-            <GlobalFeedHeader renderNewPage={renderNewPage}/>
+            <GlobalFeedHeader 
+              renderNewPage={renderNewPage}
+              setRecipesInState={this.setRecipesInState}
+            />
 
             <div className='recipe-container'>
               {recipes.map(recipe => <RecipeCard 
@@ -59,9 +62,7 @@ class GlobalFeedPage extends React.Component {
 
   // stores the recipes in state
   setRecipesInState = (recipes) => {
-    this.setState({
-      recipes: recipes
-    })
+    this.setState({ recipes: recipes })
     console.log(this.state.recipes)
   }
 

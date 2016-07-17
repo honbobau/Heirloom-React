@@ -1,5 +1,7 @@
 import React from 'react';
 
+const token = '?token=' + window.localStorage.token;
+
 class SearchRecipesForm extends React.Component {
   constructor(props) {
     super(props);
@@ -27,19 +29,20 @@ class SearchRecipesForm extends React.Component {
   }
 
   // makes ajax call to filter through the recipes
-  // filterRecipes = (query) => {
-  //   let query = this.state.query
+  filterRecipes = () => {
+    let id;
+    let query = this.state.query;
 
-  //   fetch(`http://localhost:3000/recipes/${:id}/${:query}`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Accept'      : 'application/json',
-  //       'Content-Type': 'application/json' 
-  //     }
-  //   })    
-  //   .then((recipes) => recipes.json())
-
-  // }
+    fetch(`http://localhost:3000/recipes/${id}/${query}token`, {
+      method: 'POST',
+      headers: {
+        'Accept'      : 'application/json',
+        'Content-Type': 'application/json' 
+      }
+    })    
+    .then((filteredRecipes) => recipes.json())
+    .then((filteredRecipes) => this.props.setRecipesInState(filteredRecipes))
+  }
 
 }
 
