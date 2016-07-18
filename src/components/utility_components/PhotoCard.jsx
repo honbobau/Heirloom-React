@@ -24,4 +24,8 @@ class PhotoCard extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 export default PhotoCard;
+=======
+export default PhotoCard;
+>>>>>>> development

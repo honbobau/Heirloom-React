@@ -1,16 +1,16 @@
 import React from 'react';
 import RecipePage from '../recipe_components/RecipePage.jsx';
 
-class RecipeCard extends React.Component {
+class UserFeedRecipeCard extends React.Component {
 
   render() {
     const renderNewPage = this.props.renderNewPage;
-    const recipe        = this.props.recipe[0];
-    const recipeID      = recipe.recipe.id;
-    const instructions  = recipe.recipe.instructions;
-    const ingredients   = recipe.recipe.ingredients;
-    const description   = recipe.recipe.description;
-    const imageURL      = recipe[0].photos[0].filepath;
+    const recipe        = this.props.recipe;
+    const recipeID      = recipe.id;
+    const instructions  = recipe.instructions;
+    const ingredients   = recipe.ingredients;
+    const description   = recipe.description;
+    const imageURL      = recipe.photos[0].filepath;
 
     return( 
         <section className='box recipe-card'> 
@@ -29,4 +29,4 @@ class RecipeCard extends React.Component {
   }
 }
 
-export default RecipeCard;
+export default UserFeedRecipeCard;

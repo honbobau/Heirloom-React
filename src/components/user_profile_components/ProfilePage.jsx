@@ -39,14 +39,13 @@ class ProfilePage extends React.Component {
 
             <section>
               <div className='photo-container'>
-              {recipes.map(recipe => <PhotoCard 
-                                      recipe={recipe} 
-                                      renderNewPage={renderNewPage}
-                                     />
-              )}
-            </div>
-              
-          
+
+                {recipes.map(recipe => <PhotoCard 
+                                        recipe={recipe} 
+                                        renderNewPage={renderNewPage}
+                                       />
+                )}
+              </div>
             </section>
           </div>
 
@@ -55,6 +54,7 @@ class ProfilePage extends React.Component {
     );
   }
 
+  // fetches user components
   fetchUserComponents = () => {
     const current_id = window.localStorage.current_id
     const token = window.localStorage.token

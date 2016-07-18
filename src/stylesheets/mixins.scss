@@ -17,6 +17,11 @@
   margin-left: 10px;
 }
 
+@mixin primary-button-style {
+  background-color: $primary-color;
+  color: $light-font-color; 
+}
+
 // used to offset fixed header
 @mixin header-height($header-height) {
   margin-top: $header-height;

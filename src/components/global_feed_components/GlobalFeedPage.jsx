@@ -1,7 +1,7 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 import GlobalFeedHeader from './GlobalFeedHeader.jsx';
-import RecipeCard from '../utility_components/RecipeCard.jsx'
+import GlobalFeedRecipeCard from './GlobalFeedRecipeCard.jsx';
 
 const token = '?token=' + window.localStorage.token;
 
@@ -17,7 +17,9 @@ class GlobalFeedPage extends React.Component {
   componentDidMount() { this.fetchAllRecipes() }
 
   render() {
-    const { recipes } = this.state;
+    console.log('test1')
+
+    let { recipes } = this.state;
     const renderNewPage = this.props.renderNewPage;
 
     return(
@@ -31,14 +33,14 @@ class GlobalFeedPage extends React.Component {
             />
 
             <div className='recipe-container'>
-              {recipes.map(recipe => <RecipeCard 
+              {recipes.map(recipe => <GlobalFeedRecipeCard 
                                       recipe={recipe} 
                                       renderNewPage={renderNewPage}
                                     />
               )}
             </div>
 
-          </div>k
+          </div>
 
         </div>
       </div>
@@ -47,6 +49,7 @@ class GlobalFeedPage extends React.Component {
 
   // fetches all recipes upon mount
   fetchAllRecipes = () => {
+    console.log('test4');
     fetch('http://localhost:3000/recipes' + token, {
       method: 'GET',
       headers: {
@@ -55,16 +58,19 @@ class GlobalFeedPage extends React.Component {
       }
     })
     .then((recipes) => recipes.json())
-    .then((recipes) => { console.log(recipes); return recipes; })
     .then((recipes) => this.setRecipesInState(recipes))
+    .then((recipes) => { console.log(recipes); return recipes; })
     .catch(function(res){ console.log(res) })
   }
 
   // stores the recipes in state
   setRecipesInState = (recipes) => {
+    console.log('test2');
     recipes.reverse()
-    this.setState({ recipes: recipes })
-    console.log(this.state.recipes)
+    this.setState({
+      recipes: recipes
+    })
+    return this.state.recipes
   }
 
 }

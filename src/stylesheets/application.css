@@ -22,25 +22,27 @@
   height: 35em;
   margin-top: 20px; }
   .landing-page .landing-page-content {
-    margin: 0 auto;
     width: 100%; }
-  .landing-page .landing-page-login {
-    display: -ms-flex;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 30em; }
-    .landing-page .landing-page-login .login-form, .landing-page .landing-page-login .signup-button {
+    .landing-page .landing-page-content hr {
+      border-color: #e2562b;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto; }
+    .landing-page .landing-page-content .landing-page-forms {
       border: 1px solid #e2562b;
-      border-radius: 5%;
-      padding: 15px; }
-      .landing-page .landing-page-login .login-form button, .landing-page .landing-page-login .login-form a, .landing-page .landing-page-login .signup-button button, .landing-page .landing-page-login .signup-button a {
-        background-color: #e2562b; }
-    .landing-page .landing-page-login .login-form input {
-      border-color: #e2562b; }
-    .landing-page .landing-page-login .login-form input:focus {
-      border-color: #e2562b; }
+      border-radius: 2%;
+      text-align: center; }
+      .landing-page .landing-page-content .landing-page-forms .login-form button, .landing-page .landing-page-content .landing-page-forms .login-form a, .landing-page .landing-page-content .landing-page-forms .signup-button button, .landing-page .landing-page-content .landing-page-forms .signup-button a {
+        background-color: #e2562b;
+        color: #FFFFFF; }
+      .landing-page .landing-page-content .landing-page-forms .login-form {
+        margin-top: 10px; }
+        .landing-page .landing-page-content .landing-page-forms .login-form input {
+          border-color: #e2562b; }
+        .landing-page .landing-page-content .landing-page-forms .login-form button {
+          margin-top: 15px; }
+      .landing-page .landing-page-content .landing-page-forms .signup-button button {
+        margin: 15px 0; }
 
 /* ------------------------ User Feed ----------------------- */
 .user-feed-page .user-feed-content {
@@ -102,6 +104,8 @@
     .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav {
       align-self: center;
       margin-left: auto; }
+      .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav .icon {
+        display: inline-block; }
   .global-feed-page .global-feed-content .recipe-container {
     margin-top: 60px; }
     .global-feed-page .global-feed-content .recipe-container .recipe-card {
@@ -250,6 +254,11 @@
       margin-left: auto;
       margin-right: 15px; }
   .profile-page .profile-content .profile-page-user-info {
-    margin-top: 60px; }
+    margin-top: 60px;
+    padding-top: 20px; }
+    .profile-page .profile-content .profile-page-user-info img {
+      border: 1px solid;
+      border-radius: 10% 35%;
+      box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3); }
 
 /*# sourceMappingURL=application.css.map */

@@ -1,6 +1,6 @@
 import React from 'react';
 import UserFeedHeader from './UserFeedHeader.jsx'
-import RecipeCard from '../utility_components/RecipeCard.jsx'
+import UserFeedRecipeCard from './UserFeedRecipeCard.jsx'
 
 const token = '?token=' + window.localStorage.token;
 
@@ -32,7 +32,7 @@ class UserFeedPage extends React.Component {
 
             <div className='recipe-container'>
             { noRecipes }
-              {recipes.map(recipe => <RecipeCard 
+              {recipes.map(recipe => <UserFeedRecipeCard 
                                       recipe={recipe} 
                                       renderNewPage={renderNewPage}
                                      />
@@ -48,7 +48,7 @@ class UserFeedPage extends React.Component {
 
   // fetches all recipes upon mount
   fetchAllRecipes = () => {
-    fetch(`http://localhost:3000/user/${window.localStorage.current_id}/recipes` + token, {
+    fetch(`http://localhost:3000/user/${window.localStorage.current_id}/follows/recipes` + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -56,13 +56,33 @@ class UserFeedPage extends React.Component {
       }
     })
     .then((recipes) => recipes.json())
+    .then((recipes) => this.consolidateRecipeArrays(recipes[0], recipes[1]) )
+    .then((recipes) => this.sortRecipesByDate(recipes))
     .then((recipes) => this.setRecipesInState(recipes))
     .catch(function(res){ console.log(res) })
   }
 
+  // consolidate recipe results 
+  consolidateRecipeArrays = (arr1, arr2) => {
+    for (let i = 0; i < arr2.length; i++) {
+      arr1.push(arr2[i])
+    }
+    return arr1
+  }
+
+  // sorts the recipes by date, newest first
+  sortRecipesByDate = (recipes) => {
+    return recipes.sort(function(a, b){
+      a = new Date(a.created_at);
+      b = new Date(b.created_at);
+      return a>b ? -1 : a<b ? 1 : 0;
+    });
+  }
+
   // stores the recipes in state
   setRecipesInState = (recipes) => {
-    recipes.reverse()
+    console.log(recipes);
+
     this.setState({ recipes: recipes })
   }
 
