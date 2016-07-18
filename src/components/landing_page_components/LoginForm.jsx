@@ -27,8 +27,8 @@ class LoginForm extends React.Component {
           <input type="text" onBlur={ this.setPasswordState.bind(this) }/>
         </div>
 
-        <button className="button" onClick={ this.submitLogin }>Log In</button>
-        {/* upon successful login, page rerenders to UserFeedPage */}
+        <button className="button" onClick={ this.submitLogin }>Log In
+        </button>
       </form>  
 
     );

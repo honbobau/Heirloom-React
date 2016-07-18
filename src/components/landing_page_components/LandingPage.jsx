@@ -14,12 +14,19 @@ class LandingPage extends React.Component {
             <div className="column is-3 landing-page-content">
               <img src="src/images/heirloom_logo.jpg" />
 
-              <div className="login-form"> 
-                <LoginForm renderNewPage={renderNewPage} />
-              </div>
+              <div className='landing-page-forms'>
+                <section className="login-form"> 
+                  <LoginForm renderNewPage={renderNewPage} />
+                </section>
 
-              <div className="signup-button">
-                <SignupButton renderNewPage={renderNewPage} />
+                <hr />
+
+                <section className="signup-button">
+                  <div className='smaller-container'>
+                    <p>Tired of looking through shit sites for shit recipes? Join the Heirloom family.</p>
+                    <SignupButton renderNewPage={renderNewPage} />
+                  </div>
+                </section>
               </div>
             </div>
             

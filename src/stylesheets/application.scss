@@ -4,6 +4,7 @@ $primary-color: #e2562b;
 $secondary-color: #226722;
 $tertiary-color: #EDECEA;
 
+$light-font-color: #FFFFFF;
 $dark-font-color: #43413f;
 
 $icon-color: #FFFFFF;
@@ -43,34 +44,50 @@ $header-height: 60px;
   margin-top: 20px;
 
   .landing-page-content {
-    margin: 0 auto;
     width: 100%;
-  }
 
-  .landing-page-login {
-    display: -ms-flex;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 30em;
+    hr {
+      border-color: $primary-color;
+      // border-style: dotted;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-    .login-form, .signup-button {
+    .landing-page-forms {
       border: 1px solid $primary-color;
-      border-radius: 5%;
-      padding: 15px;
+      border-radius: 2%;
+      text-align: center;
 
-      button, a {
-        background-color: $primary-color;
+      // setting button style for both forms
+      .login-form, .signup-button {
+        button, a {
+          @include primary-button-style 
+        }
       }
-    }
 
-    .login-form input {
-      border-color: $primary-color;
-    }
+      // login form
+      .login-form {
+        margin-top: 10px;
 
-    .login-form input:focus {
-      border-color: $primary-color;
+        input {
+          border-color: $primary-color;
+        }
+
+        button {
+          margin-top: 15px;          
+        }
+      }
+
+      // signup form
+      .signup-button {
+
+        button {
+          margin: 15px 0;
+        }
+      }
+
+      
     }
   }
 }

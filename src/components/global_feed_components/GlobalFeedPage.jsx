@@ -38,7 +38,7 @@ class GlobalFeedPage extends React.Component {
               )}
             </div>
 
-          </div>k
+          </div>
 
         </div>
       </div>
