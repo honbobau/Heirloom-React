@@ -1,10 +1,10 @@
 import React from 'react';
-import ProfilePage from '../user_profile_componenets/ProfilePage.jsx';
 
-class RecipeCard extends React.Component {
+class PhotoCard extends React.Component {
 
   render() {
     const renderNewPage = this.props.renderNewPage;
+    const recipe        = this.props.recipe
     const recipeID      = recipe[0].recipe.id;
     const imageURL      = recipe[0].photos[0].filepath;
     

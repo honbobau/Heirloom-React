@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileHeader from './ProfileHeader.jsx';
-import PhotoCard from '../utility_components.jsx';
+import PhotoCard from '../utility_components/PhotoCard.jsx';
 
 class ProfilePage extends React.Component {
   
@@ -19,6 +19,7 @@ class ProfilePage extends React.Component {
 
   render() {
     const renderNewPage = this.props.renderNewPage;
+    let { recipes } = this.state;
     
     return(
       <div className='container'>
@@ -45,7 +46,7 @@ class ProfilePage extends React.Component {
               )}
             </div>
               
-            </div>
+          
             </section>
           </div>
 
@@ -67,9 +68,7 @@ class ProfilePage extends React.Component {
     })
     .then((user) => user.json())
     .then((user) => this.setUserInState(user) )
-    .then(() => this.fetchRecipeComponents)
-    .then((recipes) => recipes.json())
-    .then((recipes) => this.setRecipeInState(recipe))
+    .then((user) => this.fetchRecipeComponents() )
   }
 
   fetchRecipeComponents = () => {
@@ -83,6 +82,8 @@ class ProfilePage extends React.Component {
         'Content-Type': 'application/json'
       }
     })
+    .then((recipes) => recipes.json())
+    .then((recipes) => this.setRecipeInState(recipes))
   }
 
   setUserInState = (user) => { this.setState({ userInfo: user }) }
