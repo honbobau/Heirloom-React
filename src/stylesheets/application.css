@@ -211,10 +211,8 @@
     display: inline;
     font-size: 20px;
     line-height: -10px; }
-  .recipe-page .recipe-content .recipe-nav-buttons .icon {
-    color: #e2562b; }
   .recipe-page .recipe-content .recipe-nav-buttons .icon:hover {
-    color: #226722; }
+    color: #E34329; }
   .recipe-page .recipe-content .recipe-display-ingredients {
     margin: 0 auto; }
   .recipe-page .recipe-content .recipe-instruction-counter {

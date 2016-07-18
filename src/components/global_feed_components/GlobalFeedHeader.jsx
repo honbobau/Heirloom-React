@@ -14,8 +14,8 @@ class GlobalFeedHeader extends React.Component {
           <img src='src/images/heirloom_logo_white.png' className='heirloom-logo' />
           
           <div className='global-feed-header-nav'>
+            <SearchRecipes setRecipesInState={this.props.setRecipesInState}/>
             <RenderUserFeed renderNewPage={renderNewPage} />
-            <SearchRecipes />
             <RenderAddRecipe renderNewPage={renderNewPage} />
             <RenderUserProfile renderNewPage={renderNewPage} />
           </div>

@@ -6,6 +6,7 @@ import SearchRecipes from '../utility_components/SearchRecipes.jsx';
 import Return from '../utility_components/Return.jsx';
 // import SearchRecipesForm from './SearchRecipesForm.jsx';
 import FollowButton from './FollowButton.jsx';
+import Logout from './Logout.jsx';
 
 
 // import SearchRecipes from '../utility_components/SearchRecipes.jsx';
@@ -34,7 +35,7 @@ class ProfileHeader extends React.Component {
           { followUser }
           { addRecipe }
           <Return renderNewPage={renderNewPage} />
-          {/* <SearchRecipes displayRecipeSearch={this.displayRecipeSearch}/> */}
+          <Logout renderNewPage={renderNewPage} />
         </div>
       </header>
     );

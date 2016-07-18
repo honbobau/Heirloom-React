@@ -15,7 +15,6 @@ class UserFeedHeader extends React.Component {
 
           <div className='user-feed-header-nav'>
             <RenderGlobalFeed renderNewPage={renderNewPage} />
-            <SearchRecipes />
             <RenderAddRecipe renderNewPage={renderNewPage} />
             <RenderUserProfile renderNewPage={renderNewPage} />
           </div>

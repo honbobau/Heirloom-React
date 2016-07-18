@@ -38,7 +38,7 @@ class GlobalFeedPage extends React.Component {
               )}
             </div>
 
-          </div>
+          </div>k
 
         </div>
       </div>
@@ -62,6 +62,7 @@ class GlobalFeedPage extends React.Component {
 
   // stores the recipes in state
   setRecipesInState = (recipes) => {
+    recipes.reverse()
     this.setState({ recipes: recipes })
     console.log(this.state.recipes)
   }

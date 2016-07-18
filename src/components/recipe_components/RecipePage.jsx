@@ -31,7 +31,9 @@ class RecipePage extends React.Component {
   componentDidMount() { this.fetchRecipeComponents() }
 
   render() {
+    // if () {
 
+    // }
     return(
       <div className='container'>
         <div className='columns recipe-page'>

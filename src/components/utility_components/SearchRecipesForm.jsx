@@ -30,18 +30,18 @@ class SearchRecipesForm extends React.Component {
 
   // makes ajax call to filter through the recipes
   filterRecipes = () => {
-    let id;
     let query = this.state.query;
 
-    fetch(`http://localhost:3000/recipes/${id}/${query}token`, {
-      method: 'POST',
+    fetch(`http://localhost:3000/recipes/search/${query}${token}`, {
+      method: 'GET',
       headers: {
         'Accept'      : 'application/json',
         'Content-Type': 'application/json' 
       }
     })    
-    .then((filteredRecipes) => recipes.json())
+    .then((filteredRecipes) => filteredRecipes.json())
     .then((filteredRecipes) => this.props.setRecipesInState(filteredRecipes))
+    .catch((filteredRecipes) => console.log(filteredRecipes))
   }
 
 }

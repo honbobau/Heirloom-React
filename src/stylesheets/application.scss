@@ -8,6 +8,7 @@ $dark-font-color: #43413f;
 
 $icon-color: #FFFFFF;
 $icon-color-secondary: $primary-color;
+$icon-liked-color: #E34329;
 
 $header-height: 60px;
 
@@ -275,10 +276,10 @@ $header-height: 60px;
         line-height: -10px;
       }
       .icon {
-        color: $icon-color-secondary;
+        
       }
       .icon:hover {
-        color: $secondary-color;
+        color: $icon-liked-color;
       }
     }
 

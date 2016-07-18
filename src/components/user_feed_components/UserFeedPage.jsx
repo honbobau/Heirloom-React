@@ -62,6 +62,7 @@ class UserFeedPage extends React.Component {
 
   // stores the recipes in state
   setRecipesInState = (recipes) => {
+    recipes.reverse()
     this.setState({ recipes: recipes })
   }
 

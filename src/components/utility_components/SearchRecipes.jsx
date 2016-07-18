@@ -16,7 +16,8 @@ class SearchRecipes extends React.Component {
           </DropdownTrigger>
 
           <DropdownContent>
-            <SearchRecipesForm />
+            <SearchRecipesForm setRecipesInState={this.props.setRecipesInState}
+            />
           </DropdownContent>
 
         </Dropdown>
