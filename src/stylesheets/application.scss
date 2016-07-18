@@ -48,7 +48,6 @@ $header-height: 60px;
 
     hr {
       border-color: $primary-color;
-      // border-style: dotted;
       width: 90%;
       margin-left: auto;
       margin-right: auto;
@@ -87,7 +86,6 @@ $header-height: 60px;
         }
       }
 
-      
     }
   }
 }
@@ -151,6 +149,10 @@ $header-height: 60px;
       .global-feed-header-nav {
         align-self: center;
         margin-left: auto;
+
+        .icon {
+          display: inline-block;
+        }
       }
     }
     /* ------- recipe cards ------ */
@@ -348,7 +350,6 @@ $header-height: 60px;
     .profile-page-user-info {
       @include header-height($header-height);
     }
-
     
   }
 }

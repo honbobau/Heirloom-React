@@ -104,6 +104,8 @@
     .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav {
       align-self: center;
       margin-left: auto; }
+      .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav .icon {
+        display: inline-block; }
   .global-feed-page .global-feed-content .recipe-container {
     margin-top: 60px; }
     .global-feed-page .global-feed-content .recipe-container .recipe-card {
