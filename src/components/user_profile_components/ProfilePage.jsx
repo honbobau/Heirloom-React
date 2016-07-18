@@ -7,12 +7,15 @@ class ProfilePage extends React.Component {
     super(props);
 
     this.state = { userInfo: {} }
+    this.state = { recipes: [] }
   }
 
-  componentDidMount() { this.fetchUserComponents() }
+  componentDidMount() { 
+    this.fetchUserComponents() 
+  }
 
   render() {
-
+    
     return(
       <div className='container'>
         <div className='profile-page columns'>
@@ -30,7 +33,13 @@ class ProfilePage extends React.Component {
             </section>
 
             <section>
-              {/* recipes owned by user */}
+              <div className='recipe-container'>
+              {recipes.map(recipe => <RecipeCard 
+                                      recipe={recipe} 
+                                      renderNewPage={renderNewPage}
+                                     />
+              )}
+            </div>
             </section>
           </div>
 
@@ -52,10 +61,26 @@ class ProfilePage extends React.Component {
     })
     .then((user) => user.json())
     .then((user) => this.setUserInState(user) )
+    .then(() => this.fetchRecipeComponents)
+    .then((recipes) => recipes.json())
+    .then((recipes) => this.setRecipeInState(recipe))
+  }
+
+  fetchRecipeComponents = () => {
+    const current_id = window.localStorage.current_id
+    const token = window.localStorage.token
+
+    fetch(`http://localhost:3000/user/${current_id}/recipes?token=${token}`,{
+      method: 'GET',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
   }
 
   setUserInState = (user) => { this.setState({ userInfo: user }) }
-
+  setRecipeInState = (recipes) => { this.setState({ recipes: recipes}) }
 }
 
 export default ProfilePage;
