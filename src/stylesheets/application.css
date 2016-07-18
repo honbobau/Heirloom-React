@@ -13,6 +13,10 @@
 .container {
   max-width: 440px; }
 
+.smaller-container {
+  max-width: 300px;
+  margin: 0 auto; }
+
 /* ------------------------ landing page --------------------- */
 .landing-page {
   height: 35em;
@@ -114,27 +118,6 @@
         height: 300px;
         width: 300px; }
 
-/* ------------------------ Recipe Page --------------------- */
-.recipe-page img {
-  border-radius: 5%; }
-.recipe-page .recipe-page-content {
-  width: 440px;
-  /* ------- recipe photo ------ */
-  /* -------- recipe description ------- */
-  /* -------- recipe ingredients ------- */
-  /* -------- recipe instructions ------- */
-  /* -------- navigation buttons ------- */ }
-  .recipe-page .recipe-page-content .recipe-instruction-counter {
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    border: 1px solid #43413f;
-    border-radius: 100%; }
-    .recipe-page .recipe-page-content .recipe-instruction-counter h4 {
-      display: block;
-      font-size: 16px;
-      margin: 0 auto; }
-
 /* ------------------------ Signup Form --------------------- */
 .recipe-search-form {
   display: inline-block; }
@@ -188,6 +171,89 @@
       margin-left: auto;
       margin-right: 15px; }
   .new-recipe-page .new-recipe-content .new-recipe-form {
+    margin-top: 60px; }
+
+/* ------------------------ Display Recipe Page --------------------- */
+.recipe-page .recipe-content {
+  width: 100%;
+  /* ------- recipe header ------ */
+  /* ------- recipe photo ------ */
+  /* ------- recipe nav buttons ------ */
+  /* ------- recipe ingredients ------ */
+  /* ------- recipe instructions ------ */ }
+  .recipe-page .recipe-content .recipe-header {
+    position: fixed;
+    display: flex;
+    width: 410px;
+    height: 60px;
+    padding: 0;
+    background-color: #e2562b;
+    z-index: 100;
+    border-radius: 3%; }
+    .recipe-page .recipe-content .recipe-header .heirloom-logo {
+      display: block;
+      align-self: 50%;
+      width: 60px;
+      height: 60px;
+      margin-left: 10px; }
+    .recipe-page .recipe-content .recipe-header .recipe-header-return {
+      align-self: center;
+      margin-left: auto;
+      margin-right: 15px; }
+  .recipe-page .recipe-content .recipe-display-photo {
+    margin-top: 60px; }
+    .recipe-page .recipe-content .recipe-display-photo img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 2%;
+      height: 300px;
+      width: 300px;
+      border-radius: 5%; }
+  .recipe-page .recipe-content .recipe-nav-buttons h4 {
+    display: inline;
+    font-size: 20px;
+    line-height: -10px; }
+  .recipe-page .recipe-content .recipe-nav-buttons .icon {
+    color: #e2562b; }
+  .recipe-page .recipe-content .recipe-nav-buttons .icon:hover {
+    color: #226722; }
+  .recipe-page .recipe-content .recipe-display-ingredients {
+    margin: 0 auto; }
+  .recipe-page .recipe-content .recipe-instruction-counter {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #43413f;
+    border-radius: 100%; }
+    .recipe-page .recipe-content .recipe-instruction-counter h4 {
+      display: block;
+      font-size: 16px;
+      margin: 0 auto; }
+
+/* ------------------------ Profile Page --------------------- */
+.profile-page .profile-content {
+  width: 100%;
+  /* ------- profile header ------ */ }
+  .profile-page .profile-content .profile-header {
+    position: fixed;
+    display: flex;
+    width: 410px;
+    height: 60px;
+    padding: 0;
+    background-color: #e2562b;
+    z-index: 100;
+    border-radius: 3%; }
+    .profile-page .profile-content .profile-header .heirloom-logo {
+      display: block;
+      align-self: 50%;
+      width: 60px;
+      height: 60px;
+      margin-left: 10px; }
+    .profile-page .profile-content .profile-header .profile-header-icons {
+      align-self: center;
+      margin-left: auto;
+      margin-right: 15px; }
+  .profile-page .profile-content .profile-page-user-info {
     margin-top: 60px; }
 
 /*# sourceMappingURL=application.css.map */

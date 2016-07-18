@@ -3,6 +3,7 @@ import RenderGlobalFeed from '../utility_components/RenderGlobalFeed.jsx';
 import RenderUserFeed from '../utility_components/RenderUserFeed.jsx';
 import RenderAddRecipe from '../utility_components/RenderAddRecipe.jsx';
 import SearchRecipes from '../utility_components/SearchRecipes.jsx';
+import Return from '../utility_components/Return.jsx';
 // import SearchRecipesForm from './SearchRecipesForm.jsx';
 import FollowButton from './FollowButton.jsx';
 
@@ -15,37 +16,24 @@ class ProfileHeader extends React.Component {
 
   render() {
     let id            = this.props.userInfo.id
-    let username      = this.props.userInfo.username;
-    let photoURL      = this.props.userInfo.user_photo;
-    let blurb         = this.props.userInfo.blurb;
     let renderNewPage = this.props.renderNewPage;
     let followUser;
     let addRecipe;
 
     if (id !== parseInt(window.localStorage.current_id)) {
-      followUser = (
-        <FollowButton followUser={ this.followUser } />
-      )
+      followUser = ( <FollowButton followUser={ this.followUser } /> )
     } else {
-      addRecipe = (
-        <RenderAddRecipe renderNewPage={renderNewPage} />
-      )
+      addRecipe = ( <RenderAddRecipe renderNewPage={renderNewPage} /> )
     }
 
 
     return( 
-      <header className='columns'>
-        <div className='column is-3 is-offset-2'>
-          <img src={photoURL} className='user-photo'/>
-          <p>{username}</p>
-          <p>{blurb}</p>
-        </div>
-
-        <div className='column is-6'>
+      <header className='profile-header'>
+        <img src='src/images/heirloom_logo_white.png' className='heirloom-logo'/>
+        <div className='profile-header-icons'>
           { followUser }
           { addRecipe }
-          <RenderUserFeed renderNewPage={renderNewPage} />
-          <RenderGlobalFeed renderNewPage={renderNewPage} />
+          <Return renderNewPage={renderNewPage} />
           {/* <SearchRecipes displayRecipeSearch={this.displayRecipeSearch}/> */}
         </div>
       </header>

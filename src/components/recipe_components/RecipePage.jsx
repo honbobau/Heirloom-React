@@ -3,11 +3,12 @@ import fetch from 'isomorphic-fetch';
 import Ingredients from './Ingredients.jsx';
 import Instructions from './Instructions.jsx';
 import DescriptionTags from './DescriptionTags.jsx';
-import Image from './Image.jsx';
 import LikeButton from './LikeButton.jsx';
 import FavButton from './FavButton.jsx';
 import FollowUser from './FollowUser.jsx';
 import Return from '../utility_components/Return.jsx';
+import Header from './Header.jsx';
+
 
 const token = '?token=' + window.localStorage.token;
 
@@ -34,39 +35,44 @@ class RecipePage extends React.Component {
   render() {
 
     return(
-      <div className='recipe-page container'>
-        <div className='columns'>
+      <div className='container'>
+        <div className='columns recipe-page'>
 
-          <div className='column is-3 is-offset-4 recipe-page-content'>
+          <div className='column is-3 recipe-content'>
+            <Header renderNewPage={this.props.renderNewPage} />
 
-            <section className="recipe-display-photo">
-              <Image imageURL={this.state.photoURL} />
-            </section>
+            <div className='smaller-container'>
+              <section className="recipe-display-photo">
+                <img src={this.state.photoURL} />
+              </section>
 
-            <section className="recipe-display-description">
-              <h6>Recipe by: {this.state.recipeUsername}</h6>
-              <DescriptionTags description={this.state.description} />
-            </section>
+              <section className='recipe-nav-buttons'>
+                <h4>Recipe by: {this.state.recipeUsername}</h4>
+                <LikeButton likeRecipe   ={this.likeRecipe} />
+                <FavButton  favRecipe    ={this.favRecipe} />
+                <FollowUser followUser   ={this.followUser} />
+              </section>
 
-            <section className="recipe-display-ingredients">
-              <div>
-                <h5>Ingredients</h5>  
-              </div>
-              <Ingredients ingredients={this.state.ingredients} />
-            </section>
 
-            <section className="recipe-display-instructions">
-              <h5>Instructions</h5>
-              <Instructions instructions={this.state.instructions} />
-            </section>
+              <section className="recipe-display-description">
+                <DescriptionTags description={this.state.description} />
+              </section>
 
-            <section className='recipe-nav-buttons'>
-              <LikeButton likeRecipe={this.likeRecipe} />
-              <FavButton favRecipe={this.favRecipe} />
-              <Return renderNewPage={this.props.renderNewPage}/>
-              <FollowUser followUser={this.followUser}/>
-            </section>
+              <section className="recipe-display-ingredients">
+                <div>
+                  <h5>Ingredients</h5>  
+                </div>
+                <Ingredients ingredients={this.state.ingredients} />
+              </section>
+
+              <section className="recipe-display-instructions">
+                <h4>Instructions</h4>
+                <Instructions instructions={this.state.instructions} />
+              </section>
+
+            </div>           
           </div>
+
         </div>
       </div>
     );

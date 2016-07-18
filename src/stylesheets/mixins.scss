@@ -1,15 +1,23 @@
-// styling for form inputs
-@mixin file-input-style {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  margin: 0;
+@mixin header-style {
+  position: fixed;
+  display: flex;
+  width: 410px;
+  height: 60px;
   padding: 0;
-  font-size: 20px;
-  cursor: pointer;
-  opacity: 0;
-  filter: alpha(opacity=0);
+  background-color: $primary-color;
+  z-index: 100;
+  border-radius: 3%;
+}
+
+@mixin heirloom-logo {
+  display: block;
+  align-self: 50%;
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+}
+
+// used to offset fixed header
+@mixin header-height($header-height) {
+  margin-top: $header-height;
 }
