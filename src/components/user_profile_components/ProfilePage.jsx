@@ -1,13 +1,16 @@
 import React from 'react';
 import ProfileHeader from './ProfileHeader.jsx';
+import PhotoCard from '../utility_components.jsx';
 
 class ProfilePage extends React.Component {
   
   constructor(props) {
     super(props);
 
-    this.state = { userInfo: {} }
-    this.state = { recipes: [] }
+    this.state = { 
+      userInfo: {},
+      recipes: []
+    }
   }
 
   componentDidMount() { 
@@ -15,6 +18,7 @@ class ProfilePage extends React.Component {
   }
 
   render() {
+    const renderNewPage = this.props.renderNewPage;
     
     return(
       <div className='container'>
@@ -33,12 +37,14 @@ class ProfilePage extends React.Component {
             </section>
 
             <section>
-              <div className='recipe-container'>
-              {recipes.map(recipe => <RecipeCard 
+              <div className='photo-container'>
+              {recipes.map(recipe => <PhotoCard 
                                       recipe={recipe} 
                                       renderNewPage={renderNewPage}
                                      />
               )}
+            </div>
+              
             </div>
             </section>
           </div>
