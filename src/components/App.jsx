@@ -21,11 +21,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { page: 'ProfilePage' }
+    this.state = { page: 'UserFeedPage' }
   };
 
   render() {
     const View = routes[this.state.page];
+    console.log('test3')
     return <View renderNewPage={this.renderNewPage} />;
   }
 

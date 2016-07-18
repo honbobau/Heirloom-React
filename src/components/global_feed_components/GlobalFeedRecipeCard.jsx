@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipePage from '../recipe_components/RecipePage.jsx';
 
-class RecipeCard extends React.Component {
+class GlobalFeedRecipeCard extends React.Component {
 
   render() {
     const renderNewPage = this.props.renderNewPage;
@@ -10,7 +10,7 @@ class RecipeCard extends React.Component {
     const instructions  = recipe.recipe.instructions;
     const ingredients   = recipe.recipe.ingredients;
     const description   = recipe.recipe.description;
-    const imageURL      = recipe[0].photos[0].filepath;
+    const imageURL      = recipe.photos[0].filepath;
 
     return( 
         <section className='box recipe-card'> 
@@ -29,4 +29,4 @@ class RecipeCard extends React.Component {
   }
 }
 
-export default RecipeCard;
+export default GlobalFeedRecipeCard;
