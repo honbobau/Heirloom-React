@@ -47,7 +47,8 @@ class RecipeNewEditInstructions extends React.Component {
             <Instruction 
               key={new_input.ic} 
               ic={new_input.ic}
-              updateState={updateState} />
+              updateState={updateState} 
+            />
           );
         })}
       </div>
@@ -71,14 +72,12 @@ class RecipeNewEditInstructions extends React.Component {
     this.setState({
       instructions: [...instructions.slice(0, ic), data, ...instructions.slice(ic + 1)]
     }) 
-    console.log(this.state.instructions)
   }
 
   // saves the instructions and renders instruction page
   saveAndContinue = (ev) => {
     ev.preventDefault();
 
-    console.log(this.state.instructions)
     this.props.saveInstructions(this.state.instructions)
     this.props.nextStep()
   }

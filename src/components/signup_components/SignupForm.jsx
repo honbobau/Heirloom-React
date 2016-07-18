@@ -56,36 +56,25 @@ class SignupForm extends React.Component {
 
   // saves the blurb
   saveBlurb = (data) => {
-    console.log(data)
-    this.setState({
-      blurb: data
-    })
-    console.log(this.state)
+    this.setState({ blurb: data })
   }
 
   // saves the photo url
   savePhotoURL = (url) => {
-    this.setState({
-      photoURL: url
-    })
+    this.setState({ photoURL: url })
   }
 
   // renders the next step of the form
   nextStep = () => {
-    this.setState({
-      state : this.state.state + 1
-    })
+    this.setState({ state : this.state.state + 1 })
   }
 
   // renders the previous step of the form
   previousStep = () => {
-    this.setState({
-      state : this.state.state - 1
-    })
+    this.setState({ state : this.state.state - 1 })
   }
 
   submitForm = (callback) => {
-    console.log(this.state);
     const username = this.state.username;
     const password = this.state.password;
     const email    = this.state.email;
@@ -107,7 +96,6 @@ class SignupForm extends React.Component {
       })
     })
     .then((user) => user.json())
-    .then((user) => { console.log(user); return user; })
     .then((user) => {
       window.localStorage.setItem('token', user.token)
       window.localStorage.setItem('current_id', user.id)

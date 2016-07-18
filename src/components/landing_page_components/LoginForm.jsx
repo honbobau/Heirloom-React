@@ -27,7 +27,7 @@ class LoginForm extends React.Component {
           <input type="text" onBlur={ this.setPasswordState.bind(this) }/>
         </div>
 
-        <button className="btn" onClick={ this.submitLogin }>Log In</button>
+        <button className="button" onClick={ this.submitLogin }>Log In</button>
         {/* upon successful login, page rerenders to UserFeedPage */}
       </form>  
 
@@ -37,17 +37,13 @@ class LoginForm extends React.Component {
   // sets username state
   setUsernameState = (e) => {
     let username = e.target.value
-    this.setState({
-      username: username
-    })
+    this.setState({ username: username })
   }
 
   // sets password state
   setPasswordState = (e) => {
     let password = e.target.value
-    this.setState({
-      password: password
-    })
+    this.setState({ password: password })
   }
 
   // submits the form to backend

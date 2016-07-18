@@ -8,18 +8,14 @@ class LandingPage extends React.Component {
     const renderNewPage = this.props.renderNewPage;
 
     return (
-      <section className="landing-page">
         <div className="container">
-          <div className="columns">
+          <div className="landing-page columns">
 
-            <div className="column is-6 is-offset-1 landing-page-filler">
-                <img src="src/images/heirloom_logo.jpg" />
-              
-            </div>
+            <div className="column is-3 landing-page-content">
+              <img src="src/images/heirloom_logo.jpg" />
 
-            <div className="column is-3 landing-page-login">
               <div className="login-form"> 
-                <LoginForm renderNewPage={renderNewPage}/>
+                <LoginForm renderNewPage={renderNewPage} />
               </div>
 
               <div className="signup-button">
@@ -29,8 +25,6 @@ class LandingPage extends React.Component {
             
           </div>
         </div>
-      </section>
-
     );
   }
 }

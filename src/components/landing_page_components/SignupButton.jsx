@@ -7,10 +7,10 @@ class SignupButton extends React.Component {
     return (
       <div>
         <p>Tired of looking through shit sites for shit recipes? Join the Heirloom family.</p>
-        <a className="waves-effect waves-light btn" 
+        <button className="waves-effect waves-light button" 
            onClick={ () => this.props.renderNewPage('SignupPage') }>
            Join
-        </a>
+        </button>
       </div>
     );
   }

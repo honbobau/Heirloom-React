@@ -62,60 +62,39 @@ class RecipeForm extends React.Component {
   previousStep = (ev) => {
     ev.preventDefault()
 
-    this.setState({
-      state: this.state.state - 1
-    })
+    this.setState({ state: this.state.state - 1 })
   }
 
   // renders the next form component
   nextStep = () => {
-    this.setState({
-      state: this.state.state + 1
-    })
+    this.setState({ state: this.state.state + 1 })
   }
 
   // save form ingredients to state
   saveIngredients = (data) => {
-    console.log(data)
     let ingredients = this.state.ingredients
-
-    this.setState({
-      ingredients: [...ingredients, ...data]
-    })
-    console.log(this.state.ingredients)
+    this.setState({ ingredients: [...ingredients, ...data] })
   }
 
   // save form instructions to state
   saveInstructions = (data) => {
     let instructions = this.state.instructions
-    this.setState({
-      instructions: [...instructions, ...data]
-    })
-    console.log(this.state.instructions)
+    this.setState({ instructions: [...instructions, ...data] })
   }
 
   // save photo upload to state
   savePhoto = (data) => {
-    this.setState({
-      photo: data
-    })
-    console.log(this.state.photo)
+    this.setState({ photo: data })
   }
 
   // save description to state
   saveDescription = (data) => {
     let description = this.state.description
-    this.setState({
-      description: data
-    })
-    console.log(this.state.description)
-
+    this.setState({ description: data })
   }
 
   // makes photo ajax call using 
   submitPhoto = (id, url) => {
-    console.log(url)
-
     fetch('http://localhost:3000/recipes/photos' + token, { 
       method: 'POST',
       headers: {
@@ -157,7 +136,6 @@ class RecipeForm extends React.Component {
     .then(this.props.renderNewPage('GlobalFeedPage'))
     .catch(function(res){ console.log(res) })
   }
-  
 
 }
 

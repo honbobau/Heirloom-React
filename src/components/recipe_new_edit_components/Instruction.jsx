@@ -10,7 +10,8 @@ class Instruction extends React.Component {
         <label htmlFor={'instruction' + ic} ></label>
         <input 
           type='text' 
-          onChange={this.handleChange.bind(this)} />
+          onChange={this.handleChange.bind(this)} 
+        />
       </li> 
     ); 
   }

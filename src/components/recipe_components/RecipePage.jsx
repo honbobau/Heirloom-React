@@ -28,9 +28,7 @@ class RecipePage extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.fetchRecipeComponents()
-  }
+  componentDidMount() { this.fetchRecipeComponents() }
 
   render() {
 
@@ -90,7 +88,6 @@ class RecipePage extends React.Component {
       }
     })
     .then((recipe) => recipe.json())
-    .then((recipe) => { console.log(recipe); return recipe; })
     .then((recipe) => this.setState({ recipe: recipe }))
     .then((recipe) => this.saveRecipeData()) 
     .then((recipe) => this.saveUserData())
@@ -109,16 +106,13 @@ class RecipePage extends React.Component {
       }
     })  
     .then((recipeUser) => recipeUser.json())
-    .then((recipeUser) => { console.log(recipeUser); return recipeUser; })
     .then((recipeUser) => this.fetchRecipeUser(recipeUser))
 
   }
 
   // saves the recipe's user to state
   fetchRecipeUser = (recipeUser) => {
-    this.setState({
-      recipeUsername: recipeUser.username
-    })
+    this.setState({ recipeUsername: recipeUser.username })
   }
 
   // saves all data from the recipe to state
@@ -132,44 +126,33 @@ class RecipePage extends React.Component {
   }
 
   fetchRecipeIngredients = () => {
-    this.setState({
-      ingredients: this.state.recipe[0].recipe.ingredients
-    })
+    this.setState({ ingredients: this.state.recipe[0].recipe.ingredients })
   }
 
   fetchRecipeInstructions = () => {
-    this.setState({
-      instructions: this.state.recipe[0].recipe.instructions
-    })
+    this.setState({ instructions: this.state.recipe[0].recipe.instructions })
   }
 
   fetchRecipeDescription = () => {
-    this.setState({
-      description: this.state.recipe[0].recipe.description
-    })
+    this.setState({ description: this.state.recipe[0].recipe.description })
   }
 
   fetchRecipePhoto = () => {
-    this.setState({
-      photoURL: this.state.recipe[0].photos[0].filepath
-    })
+    this.setState({ photoURL: this.state.recipe[0].photos[0].filepath })
   }
 
   fetchRecipeID = () => {
-    this.setState({
-      id: this.state.recipe[0].recipe.id
-    })
+    this.setState({ id: this.state.recipe[0].recipe.id })
   } 
 
   fetchUserID = () => {
-    this.setState({
-      userID: this.state.recipe[0].recipe.user_id
-    })
+    this.setState({ userID: this.state.recipe[0].recipe.user_id })
   }  
 
   // attaches the current user id to this recipe id in likes
   likeRecipe = () => {
     const { userID, id } = this.state;
+
     fetch(`http://localhost:3000/user/${userID}/recipe/${id}/likes${token}`, {
       method: 'POST',
       headers: {
@@ -182,6 +165,7 @@ class RecipePage extends React.Component {
   // attaches the current user id to this recipe id in favourites
   favRecipe = () => {
     const {userID, id} = this.state;
+
     fetch(`http://localhost:3000/user/${userID}/recipe/${id}/favourites${token}`, {
       method:  'POST',
       headers: {
@@ -195,6 +179,7 @@ class RecipePage extends React.Component {
   followUser = () => {
     let current_user = window.localStorage.current_id;
     let userID       = this.state.userID;
+
     fetch(`http://localhost:3000/user/${current_user}/followUser/${userID}/follows${token}`, {
       method:  'POST',
       headers: {
@@ -203,7 +188,6 @@ class RecipePage extends React.Component {
       }
     })
   }
-
 
 };
 

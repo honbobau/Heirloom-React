@@ -39,11 +39,13 @@ class SignupFormPhoto extends React.Component {
 
   saveBlurb = () => {
     let blurb =  ReactDOM.findDOMNode(this.refs.blurb).value
+    
     this.props.saveBlurb(blurb)
   }
 
   saveAndFinish = (ev) => {
     ev.preventDefault();
+
     this.props.submitForm(this.props.nextStep)
   }
 

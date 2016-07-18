@@ -44,10 +44,7 @@ class RecipeNewEditPhoto extends React.Component {
 
  // updates photo state
   updatePhotoState = (data) => {
-    this.setState({
-      photoURL: data
-    })
-
+    this.setState({ photoURL: data })
   }
 
   // updates description state
@@ -55,10 +52,7 @@ class RecipeNewEditPhoto extends React.Component {
     let data = e.target.value
     let description = this.state.description
 
-    this.setState({
-      description: data
-    })
-    // console.debug(data)
+    this.setState({ description: data })
     this.props.saveDescription(this.state.description)
   }
 
@@ -74,7 +68,6 @@ class RecipeNewEditPhoto extends React.Component {
   onUploadFinish = (url) => {
     let setURL = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.filename
     this.props.savePhoto(setURL)
-    console.log(setURL)
   }
 
 }

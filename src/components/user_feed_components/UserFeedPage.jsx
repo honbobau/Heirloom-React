@@ -9,15 +9,11 @@ class UserFeedPage extends React.Component {
   constructor(props) {
     super(props);
     
-    this.state = {
-      recipes: []
-    }
+    this.state = { recipes: [] }
   }
 
   // fetches all recipes upon mount
-  componentDidMount() {
-    this.fetchAllRecipes()
-  }
+  componentDidMount() { this.fetchAllRecipes() }
 
   render() {
     const { recipes } = this.state;
@@ -66,10 +62,7 @@ class UserFeedPage extends React.Component {
 
   // stores the recipes in state
   setRecipesInState = (recipes) => {
-    this.setState({
-      recipes: recipes
-    })
-    console.log(this.state.recipes)
+    this.setState({ recipes: recipes })
   }
 
 }

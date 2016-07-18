@@ -41,13 +41,9 @@ $header-height: 60px;
   height: 35em;
   margin-top: 20px;
 
-  .landing-page-filler {
-    height: 100%;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
+  .landing-page-content {
+    margin: 0 auto;
+    width: 100%;
   }
 
   .landing-page-login {

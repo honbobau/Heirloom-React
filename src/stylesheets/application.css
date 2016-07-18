@@ -21,11 +21,9 @@
 .landing-page {
   height: 35em;
   margin-top: 20px; }
-  .landing-page .landing-page-filler {
-    height: 100%; }
-    .landing-page .landing-page-filler img {
-      width: 100%;
-      height: auto; }
+  .landing-page .landing-page-content {
+    margin: 0 auto;
+    width: 100%; }
   .landing-page .landing-page-login {
     display: -ms-flex;
     display: -webkit-flex;
