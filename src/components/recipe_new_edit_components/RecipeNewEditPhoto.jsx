@@ -26,7 +26,7 @@ class RecipeNewEditPhoto extends React.Component {
           onFinish={this.onUploadFinish}
           uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
           contentDisposition="auto"
-          server="http://localhost:3000" 
+          server="http://localhost:3000"
         />
 
         <label>Input Description</label>
