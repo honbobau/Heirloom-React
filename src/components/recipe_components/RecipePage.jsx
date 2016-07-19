@@ -56,7 +56,7 @@ class RecipePage extends React.Component {
       if (this.state.ifFav == 'false') {
         favourite = <FavButton  favRecipe    ={this.favRecipe} />
       }
-    } 
+    }
     
     return(
       <div className='container'>
