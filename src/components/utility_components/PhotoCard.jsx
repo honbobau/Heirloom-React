@@ -9,12 +9,12 @@ class PhotoCard extends React.Component {
     const imageURL      = recipe[0].photos[0].filepath;
     
     return( 
-        <section className='box photo-card'> 
-          <img 
-            src={imageURL} 
-            onClick={ () => this.renderRecipePage(recipeID, renderNewPage('RecipePage')) }
-            className='photo-card-image'/>
-        </section>
+      <div className='profile-recipe-card'> 
+        <img 
+          src={imageURL} 
+          onClick={ () => this.renderRecipePage(recipeID, renderNewPage('RecipePage')) }
+          className='profile-recipe-image'/>
+      </div>
     )
   }
 

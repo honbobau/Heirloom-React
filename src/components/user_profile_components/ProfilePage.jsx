@@ -1,6 +1,7 @@
 import React from 'react';
 import ProfileHeader from './ProfileHeader.jsx';
 import PhotoCard from '../utility_components/PhotoCard.jsx';
+import ProfileTabPhotos from '../utility_components/ProfileTabPhotos.jsx';
 
 class ProfilePage extends React.Component {
   
@@ -9,7 +10,8 @@ class ProfilePage extends React.Component {
 
     this.state = { 
       userInfo: {},
-      recipes: []
+      userRecipes: [],
+      favRecipes: []
     }
   }
 
@@ -19,7 +21,7 @@ class ProfilePage extends React.Component {
 
   render() {
     const renderNewPage = this.props.renderNewPage;
-    let { recipes } = this.state;
+    let { userRecipes } = this.state;
     
     return(
       <div className='container'>
@@ -37,14 +39,18 @@ class ProfilePage extends React.Component {
               <p>{ this.state.userInfo.blurb }</p>
             </section>
 
-            <section>
-              <div className='photo-container'>
-                {recipes.map(recipe => <PhotoCard 
+            <section className='profile-recipe-container'>
+              <div className='profile-photo-container'>
+                {userRecipes.map(recipe => <PhotoCard 
                                         recipe={recipe} 
                                         renderNewPage={renderNewPage}
                                        />
                 )}
               </div>
+            </section>
+
+            <section>
+              <ProfileTabPhotos />
             </section>
           </div>
 
@@ -66,10 +72,12 @@ class ProfilePage extends React.Component {
       }
     })
     .then((user) => user.json())
-    .then((user) => this.setUserInState(user) )
-    .then((user) => this.fetchRecipeComponents() )
+    .then((user) => this.setUserInState(user))
+    .then((user) => this.fetchRecipeComponents())
+    .then((user) => this.fetchFavouriteRecipes())
   }
 
+  // fetches recipes owned by user
   fetchRecipeComponents = () => {
     const current_id = window.localStorage.current_id
     const token = window.localStorage.token
@@ -81,12 +89,36 @@ class ProfilePage extends React.Component {
         'Content-Type': 'application/json'
       }
     })
-    .then((recipes) => recipes.json())
-    .then((recipes) => this.setRecipeInState(recipes))
+    .then((userRecipes) => userRecipes.json())
+    .then((userRecipes) => this.setUserRecipes(userRecipes))
   }
 
+  // fetches favourited by user
+  fetchFavouriteRecipes = () => {
+    const current_id = window.localStorage.current_id
+    const token = window.localStorage.token
+
+    fetch(`http://localhost:3000/user/${current_id}/favourites?token=${token}`, {
+      method: 'GET',
+      header: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((favRecipes) => favRecipes.json())
+    .then((favRecipes) => console.log(favRecipes))
+    .then((favRecipes) => this.setFavRecipes(favRecipes))
+    .catch((res) => console.log(res))
+  }
+
+  // sets user info into state
   setUserInState = (user) => { this.setState({ userInfo: user }) }
-  setRecipeInState = (recipes) => { this.setState({ recipes: recipes}) }
+
+  // sets user recipes into state
+  setUserRecipes = (userRecipes) => { this.setState({ userRecipes: userRecipes}) }
+
+  // sets favourite recipes into state
+  setFavRecipes = (favRecipes) => { this.setState({ favRecipes: favRecipes}) }
 }
 
 export default ProfilePage;
