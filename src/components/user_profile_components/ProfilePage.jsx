@@ -22,7 +22,7 @@ class ProfilePage extends React.Component {
   render() {
     // this looks so gross
     const renderNewPage = this.props.renderNewPage;
-    let userInfo = this.state.userInfo
+    let { userInfo }    = this.state;
     let { userRecipes } = this.state;
     let { favRecipes }  = this.state;
     let displayUserRecipes = <RecipeGallery 
@@ -78,7 +78,7 @@ class ProfilePage extends React.Component {
       }
     })
     .then((user) => user.json())
-    .then((user) => this.setUserInState(user))
+    .then((user) => this.setUser(user))
     .then((user) => this.fetchRecipeComponents())
     .then((user) => this.fetchFavouriteRecipes())
     .catch((res) => console.log(res))
@@ -114,25 +114,28 @@ class ProfilePage extends React.Component {
       }
     })
     .then((favRecipes) => favRecipes.json())
-    .then((favRecipes) => console.log(favRecipes))
     .then((favRecipes) => this.setFavRecipes(favRecipes))
     .catch((res) => console.log(res))
   }
 
   // sets user info into state
-  setUserInState = (user) => { this.setState({ userInfo: user }) }
+  setUser = (user) => { this.setState({ userInfo: user }) }
 
   // sets user recipes into state
   setUserRecipes = (userRecipes) => { this.setState({ userRecipes: userRecipes}) }
 
   // sets favourite recipes into state
-  setFavRecipes = (favRecipes) => { this.setState({ favRecipes: favRecipes}) }
+  setFavRecipes = (favRecipes) => { 
+    this.setState({ favRecipes: favRecipes }) 
+  }
 
   // toggles the gallery showing state
   toggleGallery = (state) => {
-    this.setState({
-      recipeDisplay: state
-    })
+    this.setState({ recipeDisplay: state })
+  }
+
+  debuggerTest = () => {
+    debugger;
   }
 
 }

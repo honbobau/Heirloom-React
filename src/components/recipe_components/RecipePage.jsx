@@ -9,9 +9,6 @@ import FollowUser from './FollowUser.jsx';
 import Return from '../utility_components/Return.jsx';
 import Header from './Header.jsx';
 
-
-const token = '?token=' + window.localStorage.token;
-
 class RecipePage extends React.Component {
   constructor(props) {
     super(props);
@@ -81,6 +78,7 @@ class RecipePage extends React.Component {
   // fetches the recipe from the database
   fetchRecipeComponents = () => {
     let recipe_id = window.localStorage.recipe_id;
+    let token = '?token=' + window.localStorage.token;
 
     fetch(`http://localhost:3000/recipes/${recipe_id}` + token, {
       method: 'GET',
@@ -99,6 +97,7 @@ class RecipePage extends React.Component {
   // fetches the user information associated with this recipe
   saveUserData = () => {
     let recipeUserID = this.state.userID
+    let token = '?token=' + window.localStorage.token;
 
     fetch(`http://localhost:3000/user/${recipeUserID}` + token, {
       method: 'GET',
@@ -153,9 +152,11 @@ class RecipePage extends React.Component {
 
   // attaches the current user id to this recipe id in likes
   likeRecipe = () => {
-    const { userID, id } = this.state;
+    const current_id = window.localStorage.current_id
+    const { id } = this.state;
+    let token = '?token=' + window.localStorage.token;
 
-    fetch(`http://localhost:3000/user/${userID}/recipe/${id}/likes${token}`, {
+    fetch(`http://localhost:3000/user/${current_id}/recipe/${id}/likes${token}`, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
@@ -166,9 +167,11 @@ class RecipePage extends React.Component {
 
   // attaches the current user id to this recipe id in favourites
   favRecipe = () => {
-    const {userID, id} = this.state;
+    let token = '?token=' + window.localStorage.token;
+    const current_id = window.localStorage.current_id
+    const { id } = this.state;
 
-    fetch(`http://localhost:3000/user/${userID}/recipe/${id}/favourites${token}`, {
+    fetch(`http://localhost:3000/user/${current_id}/recipe/${id}/favourites${token}`, {
       method:  'POST',
       headers: {
         'Accept':       'application/json',
