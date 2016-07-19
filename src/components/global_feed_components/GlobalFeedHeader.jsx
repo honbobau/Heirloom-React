@@ -8,6 +8,7 @@ class GlobalFeedHeader extends React.Component {
   
     render() {
       const renderNewPage = this.props.renderNewPage;
+      const returnPage = 'GlobalFeedPage';
 
       return(
         <header className='global-feed-header container'>

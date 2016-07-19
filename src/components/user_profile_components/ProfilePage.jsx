@@ -1,6 +1,8 @@
 import React from 'react';
 import ProfileHeader from './ProfileHeader.jsx';
 import PhotoCard from '../utility_components/PhotoCard.jsx';
+import RecipeGallery from './RecipeGallery.jsx';
+import RecipeGalleryNav from './RecipeGalleryNav.jsx';
 
 class ProfilePage extends React.Component {
   
@@ -9,32 +11,46 @@ class ProfilePage extends React.Component {
 
     this.state = { 
       userInfo: {},
-      recipes: []
+      userRecipes: [],
+      favRecipes: [],
+      recipeDisplay: 'user'
     }
   }
 
-  componentDidMount() { 
-    this.fetchUserComponents() 
-  }
+  componentDidMount() { this.fetchUserComponents() }
 
   render() {
+    // this looks so gross
     const renderNewPage = this.props.renderNewPage;
-    let { recipes } = this.state;
-    
+    let userInfo = this.state.userInfo
+    let { userRecipes } = this.state;
+    let { favRecipes }  = this.state;
+    let displayUserRecipes = <RecipeGallery 
+                              recipes={userRecipes}
+                              renderNewPage={renderNewPage}
+                             />;
+    let displayFavRecipes = <RecipeGallery 
+                              recipes={favRecipes}
+                              renderNewPage={renderNewPage}
+                            />;
+    let recipeGallery;
+
+    this.state.recipeDisplay === 'user' ? recipeGallery = displayUserRecipes : recipeGallery = displayFavRecipes;
+
     return(
       <div className='container'>
         <div className='profile-page columns'>
 
           <div className='profile-content column is-3'> 
             <ProfileHeader 
-              userInfo={ this.state.userInfo } 
+              userInfo={ userInfo } 
               renderNewPage={ this.props.renderNewPage }
             />
 
             <section className='profile-page-user-info'>
-              <img src={ this.state.userInfo.user_photo } className='user-photo'/>
-              <p>{ this.state.userInfo.username }</p>
-              <p>{ this.state.userInfo.blurb }</p>
+              <img src={ userInfo.user_photo } className='user-photo'/>
+              <p>{ userInfo.username }</p>
+              <p>{ userInfo.blurb }</p>
             </section>
 
             <section>
@@ -46,7 +62,12 @@ class ProfilePage extends React.Component {
                                        />
                 )}
               </div>
+
+            <section className='profile-recipe-container'>
+              <RecipeGalleryNav toggleGallery={this.toggleGallery}/>
+              { recipeGallery }
             </section>
+
           </div>
 
         </div>
@@ -56,9 +77,9 @@ class ProfilePage extends React.Component {
 
   // fetches user components
   fetchUserComponents = () => {
-    const current_id = window.localStorage.current_id
-    const token = window.localStorage.token
-
+    const current_id = window.localStorage.current_id;
+    const token      = window.localStorage.token;
+    
     fetch(`http://localhost:3000/user/${current_id}?token=${token}`, {
       method: 'GET',
       headers: {
@@ -67,13 +88,16 @@ class ProfilePage extends React.Component {
       }
     })
     .then((user) => user.json())
-    .then((user) => this.setUserInState(user) )
-    .then((user) => this.fetchRecipeComponents() )
+    .then((user) => this.setUserInState(user))
+    .then((user) => this.fetchRecipeComponents())
+    .then((user) => this.fetchFavouriteRecipes())
+    .catch((res) => console.log(res))
   }
 
+  // fetches recipes owned by user
   fetchRecipeComponents = () => {
-    const current_id = window.localStorage.current_id
-    const token = window.localStorage.token
+    const current_id = window.localStorage.current_id;
+    const token      = window.localStorage.token;
 
     fetch(`http://localhost:3000/user/${current_id}/recipes?token=${token}`,{
       method: 'GET',
@@ -82,12 +106,45 @@ class ProfilePage extends React.Component {
         'Content-Type': 'application/json'
       }
     })
-    .then((recipes) => recipes.json())
-    .then((recipes) => this.setRecipeInState(recipes))
+    .then((userRecipes) => userRecipes.json())
+    .then((userRecipes) => this.setUserRecipes(userRecipes))
+    .catch((res) => console.log(res))
   }
 
+  // fetches favourited by user
+  fetchFavouriteRecipes = () => {
+    const current_id = window.localStorage.current_id;
+    const token      = window.localStorage.token;
+
+    fetch(`http://localhost:3000/user/${current_id}/favourites?token=${token}`, {
+      method: 'GET',
+      header: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((favRecipes) => favRecipes.json())
+    .then((favRecipes) => console.log(favRecipes))
+    .then((favRecipes) => this.setFavRecipes(favRecipes))
+    .catch((res) => console.log(res))
+  }
+
+  // sets user info into state
   setUserInState = (user) => { this.setState({ userInfo: user }) }
-  setRecipeInState = (recipes) => { this.setState({ recipes: recipes}) }
+
+  // sets user recipes into state
+  setUserRecipes = (userRecipes) => { this.setState({ userRecipes: userRecipes}) }
+
+  // sets favourite recipes into state
+  setFavRecipes = (favRecipes) => { this.setState({ favRecipes: favRecipes}) }
+
+  // toggles the gallery showing state
+  toggleGallery = (state) => {
+    this.setState({
+      recipeDisplay: state
+    })
+  }
+
 }
 
 export default ProfilePage;

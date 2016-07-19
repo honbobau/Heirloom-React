@@ -15,6 +15,7 @@ class GlobalFeedPage extends React.Component {
 
   // fetches all recipes upon mount
   componentDidMount() { this.fetchAllRecipes() }
+  componentWillUnmount() {window.localStorage.setItem('prevPage', 'GlobalFeedPage'); }
 
   render() {
     console.log('test1')
@@ -65,11 +66,8 @@ class GlobalFeedPage extends React.Component {
 
   // stores the recipes in state
   setRecipesInState = (recipes) => {
-    console.log('test2');
     recipes.reverse()
-    this.setState({
-      recipes: recipes
-    })
+    this.setState({ recipes: recipes })
     return this.state.recipes
   }
 

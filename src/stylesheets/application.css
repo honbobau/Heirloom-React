@@ -11,7 +11,12 @@
   color: #226722; }
 
 .container {
-  max-width: 440px; }
+  width: 420px; }
+
+.columns, .column {
+  max-width: 100%;
+  margin: 0;
+  padding: 0; }
 
 .smaller-container {
   max-width: 300px;
@@ -52,7 +57,7 @@
   .user-feed-page .user-feed-content .user-feed-header {
     position: fixed;
     display: flex;
-    width: 410px;
+    width: 420px;
     height: 60px;
     padding: 0;
     background-color: #e2562b;
@@ -89,7 +94,7 @@
   .global-feed-page .global-feed-content .global-feed-header {
     position: fixed;
     display: flex;
-    width: 410px;
+    width: 420px;
     height: 60px;
     padding: 0;
     background-color: #e2562b;
@@ -156,7 +161,7 @@
   .new-recipe-page .new-recipe-content .new-recipe-header {
     position: fixed;
     display: flex;
-    width: 410px;
+    width: 420px;
     height: 60px;
     padding: 0;
     background-color: #e2562b;
@@ -186,7 +191,7 @@
   .recipe-page .recipe-content .recipe-header {
     position: fixed;
     display: flex;
-    width: 410px;
+    width: 420px;
     height: 60px;
     padding: 0;
     background-color: #e2562b;
@@ -237,7 +242,7 @@
   .profile-page .profile-content .profile-header {
     position: fixed;
     display: flex;
-    width: 410px;
+    width: 420px;
     height: 60px;
     padding: 0;
     background-color: #e2562b;
@@ -255,10 +260,20 @@
       margin-right: 15px; }
   .profile-page .profile-content .profile-page-user-info {
     margin-top: 60px;
-    padding-top: 20px; }
+    padding-top: 20px;
+    max-width: 100%; }
     .profile-page .profile-content .profile-page-user-info img {
       border: 1px solid;
       border-radius: 10% 35%;
       box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3); }
+  .profile-page .profile-content .profile-photo-container .profile-recipe-card {
+    display: inline-block;
+    max-width: 30%;
+    height: 126px;
+    padding: 6px; }
+    .profile-page .profile-content .profile-photo-container .profile-recipe-card .profile-recipe-image {
+      height: 100%;
+      width: 100%;
+      border-radius: 4%; }
 
 /*# sourceMappingURL=application.css.map */
