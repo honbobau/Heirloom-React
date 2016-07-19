@@ -365,13 +365,29 @@ $header-height: 60px;
       }
     }
 
-    .profile-photo-container {
+    .profile-recipe-container {
+
+      .profile-gallery-nav {
+        display: flex;
+        padding: 10px 0;
+
+        .profile-gallery-nav-btn {
+          text-align: center;
+          width: 50%;
+
+          span {
+            color: $primary-color;
+            border-bottom: 1px solid $primary-color;
+          }
+
+        }
+      }
 
       .profile-recipe-card {
         display: inline-block;
-        max-width: 30%;
-        height: 126px;
-        padding: 6px;
+        max-width: 32%;
+        height: 130.19px;
+        padding-left: 16px;
 
         .profile-recipe-image {
           height: 100%;
