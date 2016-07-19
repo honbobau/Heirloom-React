@@ -44,7 +44,7 @@ class ProfilePage extends React.Component {
           <div className='profile-content column is-3'> 
             <ProfileHeader 
               userInfo={ userInfo } 
-              renderNewPage={ this.props.renderNewPage }
+              renderNewPage={ renderNewPage }
             />
 
             <section className='profile-page-user-info'>

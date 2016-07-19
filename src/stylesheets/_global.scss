@@ -1,0 +1,29 @@
+/* ------------------------ global styles --------------------- */
+* {
+  font-family: Circular;
+  padding: 0;
+}
+
+.icon {
+  color: $icon-color;
+  transition: all 0.4s linear;
+}
+
+.icon:hover {
+  color: $secondary-color;
+}
+
+.container {
+  width: 420px;
+}
+
+.columns, .column {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.smaller-container {
+  max-width: 300px;
+  margin: 0 auto;
+}

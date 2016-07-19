@@ -15,7 +15,6 @@ class RecipeNewEditIngredients extends React.Component {
 
   // rendering
   render() {
-
     const input = this.state.newInputs
 
     return(
