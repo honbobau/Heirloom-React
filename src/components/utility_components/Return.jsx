@@ -1,17 +1,17 @@
 import React from 'react';
 
-class Return extends React.Component {
+// class Return extends React.Component {
 
-  constructor(props) {
-    super(props);
+//   constructor(props) {
+//     super(props);
 
-    this.state = { page: window.localStorage.prevPage }
-  };
+//     this.state = { page: window.localStorage.prevPage }
+//   };
 
 
-}
+// }
 
-export default Return;
+// export default Return;
 
 
 
