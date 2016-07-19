@@ -14,6 +14,7 @@ class UserFeedPage extends React.Component {
 
   // fetches all recipes upon mount
   componentDidMount() { this.fetchAllRecipes() }
+  componentWillUnmount() { window.localStorage.setItem('prevPage', 'UserFeedPage'); }
 
   render() {
     const { recipes } = this.state;

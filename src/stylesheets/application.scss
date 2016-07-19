@@ -118,7 +118,7 @@ $header-height: 60px;
     /* ------- recipe cards ------ */
     .recipe-container {
       @include header-height($header-height);
-
+      
       .recipe-card {
         display: flex;
         flex-direction: column;
