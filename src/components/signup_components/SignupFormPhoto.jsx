@@ -15,8 +15,6 @@ class SignupFormPhoto extends React.Component {
           onProgress={this.onUploadProgress}
           onError={this.onUploadError}
           onFinish={this.onUploadFinish}
-          // signingUrlHeaders={{ additional: headers }}
-          // signingUrlQueryParams={{ additional: query-params }}
           uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
           contentDisposition="auto"
           server="http://localhost:3000" 
@@ -41,11 +39,13 @@ class SignupFormPhoto extends React.Component {
 
   saveBlurb = () => {
     let blurb =  ReactDOM.findDOMNode(this.refs.blurb).value
+    
     this.props.saveBlurb(blurb)
   }
 
   saveAndFinish = (ev) => {
     ev.preventDefault();
+
     this.props.submitForm(this.props.nextStep)
   }
 

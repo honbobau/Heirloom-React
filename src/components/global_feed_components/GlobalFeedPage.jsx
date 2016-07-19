@@ -1,33 +1,48 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 import GlobalFeedHeader from './GlobalFeedHeader.jsx';
-import RecipeCard from '../utility_components/RecipeCard.jsx'
+import GlobalFeedRecipeCard from './GlobalFeedRecipeCard.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA'
+const token = '?token=' + window.localStorage.token;
 
 class GlobalFeedPage extends React.Component {
 
   constructor(props) {
     super(props);
     
-    this.state = {
-      recipes: []
-    }
+    this.state = { recipes: [] }
   }
 
   // fetches all recipes upon mount
-  componentDidMount() {
-    this.fetchAllRecipes()
-  }
+  componentDidMount() { this.fetchAllRecipes() }
+  componentWillUnmount() {window.localStorage.setItem('prevPage', 'GlobalFeedPage'); }
 
   render() {
-    console.log(this.state)
-    const { recipes } = this.state;
+    console.log('test1')
+
+    let { recipes } = this.state;
+    const renderNewPage = this.props.renderNewPage;
 
     return(
-      <div>
-        <div className="recipe-card-container">
-          {recipes.map(recipe => <RecipeCard recipe={recipe} />)}
+      <div className="global-feed-page container">
+        <div className="columns">
+
+          <div className="column is-3 global-feed-content">
+            <GlobalFeedHeader 
+              renderNewPage={renderNewPage}
+              setRecipesInState={this.setRecipesInState}
+            />
+
+            <div className='recipe-container'>
+              {recipes.map(recipe => <GlobalFeedRecipeCard 
+                                      recipe={recipe} 
+                                      renderNewPage={renderNewPage}
+                                    />
+              )}
+            </div>
+
+          </div>
+
         </div>
       </div>
     );
@@ -35,6 +50,7 @@ class GlobalFeedPage extends React.Component {
 
   // fetches all recipes upon mount
   fetchAllRecipes = () => {
+    console.log('test4');
     fetch('http://localhost:3000/recipes' + token, {
       method: 'GET',
       headers: {
@@ -44,15 +60,15 @@ class GlobalFeedPage extends React.Component {
     })
     .then((recipes) => recipes.json())
     .then((recipes) => this.setRecipesInState(recipes))
+    .then((recipes) => { console.log(recipes); return recipes; })
     .catch(function(res){ console.log(res) })
   }
 
   // stores the recipes in state
   setRecipesInState = (recipes) => {
-    this.setState({
-      recipes: recipes
-    })
-    console.log(this.state.recipes)
+    recipes.reverse()
+    this.setState({ recipes: recipes })
+    return this.state.recipes
   }
 
 }

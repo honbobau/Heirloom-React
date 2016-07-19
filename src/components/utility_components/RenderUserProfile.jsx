@@ -1,14 +1,7 @@
 import React from 'react';
 
-class RenderUserProfile extends React.Component {
-
-    render() {
-      return (
-        <div>
-          {/* glyphicon rendering ProfilePage */}
-        </div>
-      )
-    }
-}
-
-export default RenderUserProfile;
+export default ({renderNewPage}) => (
+  <span className='icon is-large'>
+    <i className='fa fa-user' onClick={ () => renderNewPage('ProfilePage')}></i>
+  </span>
+);

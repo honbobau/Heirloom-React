@@ -5,7 +5,7 @@ import RecipeNewEditIngredients from './RecipeNewEditIngredients.jsx';
 import RecipeNewEditInstructions from './RecipeNewEditInstructions.jsx';
 import RecipeNewEditPhoto from './RecipeNewEditPhoto.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA'
+const token = '?token=' + window.localStorage.token;
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -24,25 +24,37 @@ class RecipeForm extends React.Component {
 
     switch(this.state.state) {
       case 1: 
-        return(<RecipeNewEditIngredients 
-                  saveIngredients={this.saveIngredients}
-                  nextStep={this.nextStep} /> 
-              );
+        return(
+          <section className='new-recipe-form'>
+            <RecipeNewEditIngredients 
+              saveIngredients={this.saveIngredients}
+              nextStep={this.nextStep} 
+            /> 
+          </section>
+        );
 
       case 2:
-        return(<RecipeNewEditInstructions
-                  saveInstructions={this.saveInstructions}
-                  nextStep={this.nextStep}
-                  previousStep={this.previousStep} />
-              );
+        return(
+          <section className='new-recipe-form'>
+            <RecipeNewEditInstructions
+              saveInstructions={this.saveInstructions}
+              nextStep={this.nextStep}
+              previousStep={this.previousStep} 
+            />
+          </section>
+          );
 
       case 3:
-        return(<RecipeNewEditPhoto 
-                  savePhoto={this.savePhoto}
-                  saveDescription={this.saveDescription}
-                  submitForm={this.submitForm}
-                  previousStep={this.previousStep} />
-              );
+        return(
+          <section className='new-recipe-form'>
+            <RecipeNewEditPhoto 
+              savePhoto={this.savePhoto}
+              saveDescription={this.saveDescription}
+              submitForm={this.submitForm}
+              previousStep={this.previousStep} 
+            />
+          </section>
+          );
     }
   }
 
@@ -50,60 +62,39 @@ class RecipeForm extends React.Component {
   previousStep = (ev) => {
     ev.preventDefault()
 
-    this.setState({
-      state: this.state.state - 1
-    })
+    this.setState({ state: this.state.state - 1 })
   }
 
   // renders the next form component
   nextStep = () => {
-    this.setState({
-      state: this.state.state + 1
-    })
+    this.setState({ state: this.state.state + 1 })
   }
 
   // save form ingredients to state
   saveIngredients = (data) => {
-    console.log(data)
     let ingredients = this.state.ingredients
-
-    this.setState({
-      ingredients: [...ingredients, ...data]
-    })
-    console.log(this.state.ingredients)
+    this.setState({ ingredients: [...ingredients, ...data] })
   }
 
   // save form instructions to state
   saveInstructions = (data) => {
     let instructions = this.state.instructions
-    this.setState({
-      instructions: [...instructions, ...data]
-    })
-    console.log(this.state.instructions)
+    this.setState({ instructions: [...instructions, ...data] })
   }
 
   // save photo upload to state
   savePhoto = (data) => {
-    this.setState({
-      photo: data
-    })
-    console.log(this.state.photo)
+    this.setState({ photo: data })
   }
 
   // save description to state
   saveDescription = (data) => {
     let description = this.state.description
-    this.setState({
-      description: data
-    })
-    console.log(this.state.description)
-
+    this.setState({ description: data })
   }
 
   // makes photo ajax call using 
   submitPhoto = (id, url) => {
-    console.log(url)
-
     fetch('http://localhost:3000/recipes/photos' + token, { 
       method: 'POST',
       headers: {
@@ -119,11 +110,12 @@ class RecipeForm extends React.Component {
 
   // makes ajax post to server with recipe for then with photo form
   submitForm = () => {
-    let ingredients = this.state.ingredients;
+    let user_id      = window.localStorage.current_id;
+    let ingredients  = this.state.ingredients;
     let instructions = this.state.instructions;
-    let description = this.state.description;
-    let photo = this.state.photo;
-    let currentDate = new Date();
+    let description  = this.state.description;
+    let photo        = this.state.photo;
+    let currentDate  = new Date();
     
     fetch('http://localhost:3000/recipes' + token, {
       method: 'POST',
@@ -132,6 +124,7 @@ class RecipeForm extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        user_id:      user_id,
         ingredients:  ingredients,
         instructions: instructions,
         description:  description,
@@ -140,9 +133,9 @@ class RecipeForm extends React.Component {
     })
     .then((object) => object.json())
     .then((object) => { this.submitPhoto(object[0].id, photo) })
+    .then(this.props.renderNewPage('GlobalFeedPage'))
     .catch(function(res){ console.log(res) })
   }
-  
 
 }
 

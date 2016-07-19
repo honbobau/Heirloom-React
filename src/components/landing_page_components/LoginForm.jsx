@@ -27,8 +27,8 @@ class LoginForm extends React.Component {
           <input type="text" onBlur={ this.setPasswordState.bind(this) }/>
         </div>
 
-        <button className="btn" onClick={ this.submitLogin }>Log In</button>
-        {/* upon successful login, page rerenders to UserFeedPage */}
+        <button className="button" onClick={ this.submitLogin }>Log In
+        </button>
       </form>  
 
     );
@@ -37,17 +37,13 @@ class LoginForm extends React.Component {
   // sets username state
   setUsernameState = (e) => {
     let username = e.target.value
-    this.setState({
-      username: username
-    })
+    this.setState({ username: username })
   }
 
   // sets password state
   setPasswordState = (e) => {
     let password = e.target.value
-    this.setState({
-      password: password
-    })
+    this.setState({ password: password })
   }
 
   // submits the form to backend
@@ -69,11 +65,12 @@ class LoginForm extends React.Component {
       })
     })
     .then((user) => user.json())
+    .then((user) => { console.log(user); return user;})
     .then((user) => {
       window.localStorage.setItem('token', user.token)
       window.localStorage.setItem('current_id', user.user)
     })
-    .then((user) => console.log(user))
+    .then((user) => this.props.renderNewPage('UserFeedPage'))
   }
 
 }

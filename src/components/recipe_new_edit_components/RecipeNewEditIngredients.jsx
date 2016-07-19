@@ -26,8 +26,8 @@ class RecipeNewEditIngredients extends React.Component {
           { this.renderNewInputs() }
         </ul>
 
-        <button onClick={ this.addIngredient }>+</button>
-        <button onClick={ (e) => this.saveAndContinue(e) }>Next</button>
+        <button className='button' onClick={ this.addIngredient }>+</button>
+        <button className='button' onClick={ (e) => this.saveAndContinue(e) }>Next</button>
       </form>
     );
   }
@@ -70,14 +70,12 @@ class RecipeNewEditIngredients extends React.Component {
     this.setState({
       ingredients: [...ingredients.slice(0, ic), data, ...ingredients.slice(ic + 1)]
     }) 
-    console.log(this.state.ingredients)
   }
 
   // saves the ingredients and renders instruction page
   saveAndContinue = (ev) => {
     ev.preventDefault();
 
-    console.log(this.state.ingredients)
     this.props.saveIngredients(this.state.ingredients)
     this.props.nextStep()
   }

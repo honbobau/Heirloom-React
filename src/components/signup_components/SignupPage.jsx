@@ -7,13 +7,15 @@ import SignupForm from './SignupForm.jsx'
 class SignupPage extends React.Component {
 
   render() {
+    const renderNewPage = this.props.renderNewPage;
+
     return (
 
       <div className="container signup-page">
         <div className="columns">
 
           <div className="column is-4 is-offset-2">
-            <SignupForm />
+            <SignupForm renderNewPage={renderNewPage}/>
           </div>
 
           <div className="column is-4">

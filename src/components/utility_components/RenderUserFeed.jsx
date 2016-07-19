@@ -1,14 +1,7 @@
 import React from 'react';
 
-class RenderUserFeed extends React.Component {
-
-  render() {
-    return( 
-      <div>
-        {/* glyphicon rendering UserFeedPage */}
-      </div>
-    );
-  }
-}
-
-export default RenderUserFeed;
+export default ({renderNewPage}) => (
+  <span className='icon is-large'>
+    <i className='fa fa-feed' onClick={ () => renderNewPage('UserFeedPage')}></i>
+  </span>
+);

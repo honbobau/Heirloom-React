@@ -3,77 +3,84 @@ import fetch from 'isomorphic-fetch';
 import Ingredients from './Ingredients.jsx';
 import Instructions from './Instructions.jsx';
 import DescriptionTags from './DescriptionTags.jsx';
-import Image from './Image.jsx';
 import LikeButton from './LikeButton.jsx';
 import FavButton from './FavButton.jsx';
-
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInVzZXJuYW1lIjoid3NoYW5rczAxIiwicGFzc3dvcmQiOiIkMmEkMTAkLzNEekpRbnNVMWd6eE1PVFdrLkc2T3ljN011WVBrUlRDNzFnN0lXZUxPbHpPQnQ5R1IxNnEiLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODYwNjE1NywiZXhwIjoxNDY4NjkyNTU3fQ.y9Vul1LuG0ofnRPsCR270VT970cXT2bKedrgVn_UTKc'
+import FollowUser from './FollowUser.jsx';
+import Return from '../utility_components/Return.jsx';
+import Header from './Header.jsx';
 
 class RecipePage extends React.Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      id: '',
-      recipe:       [],
-      ingredients:  [],
-      instructions: [],
-      description:  '',
-      tags:         '',
-      photoURL:     '',
-      user_id: ''
+      id:              '',
+      recipe:          [],
+      ingredients:     [],
+      instructions:    [],
+      description:     '',
+      photoURL:        '',
+      userID:          '',
+      recipeUsername:  ''
     }
   }
 
-  componentDidMount() {
-    this.fetchRecipeComponents()
-  }
+  componentDidMount() { this.fetchRecipeComponents() }
 
   render() {
+    // if () {
+
+    // }
     return(
-      <div>
-        <header>
-          {/* header content */}
-        </header>
+      <div className='container'>
+        <div className='columns recipe-page'>
 
-        <section className="recipe-display-description">
-          <DescriptionTags description={this.state.description} />
-        </section>
+          <div className='column is-3 recipe-content'>
+            <Header renderNewPage={this.props.renderNewPage} />
 
-        <section className="recipe-display-photo">
-          <Image imageURL={this.state.photoURL} />
-        </section>
+            <div className='smaller-container'>
+              <section className="recipe-display-photo">
+                <img src={this.state.photoURL} />
+              </section>
 
-        <section className="recipe-display-ingredients">
-          <Ingredients ingredients={this.state.ingredients} />
-        </section>
+              <section className='recipe-nav-buttons'>
+                <h4>Recipe by: {this.state.recipeUsername}</h4>
+                <LikeButton likeRecipe   ={this.likeRecipe} />
+                <FavButton  favRecipe    ={this.favRecipe} />
+                <FollowUser followUser   ={this.followUser} />
+              </section>
 
-        <section className="recipe-display-instructions">
-          <Instructions instructions={this.state.instructions} />
-        </section>
 
-        <section>
-          <button>
-          <LikeButton 
-            likeRecipe={this.likeRecipe}
-          />
-          </button>
-        </section>
+              <section className="recipe-display-description">
+                <DescriptionTags description={this.state.description} />
+              </section>
 
-        <section>
-          <button>
-            <FavButton
-              favRecipe={this.favRecipe}
-              />
-          </button>    
-        </section>
+              <section className="recipe-display-ingredients">
+                <div>
+                  <h5>Ingredients</h5>  
+                </div>
+                <Ingredients ingredients={this.state.ingredients} />
+              </section>
+
+              <section className="recipe-display-instructions">
+                <h4>Instructions</h4>
+                <Instructions instructions={this.state.instructions} />
+              </section>
+
+            </div>           
+          </div>
+
+        </div>
       </div>
     );
   }
 
   // fetches the recipe from the database
   fetchRecipeComponents = () => {
-    fetch('http://localhost:3000/recipes/2' + token, {
+    let recipe_id = window.localStorage.recipe_id;
+    let token = '?token=' + window.localStorage.token;
+
+    fetch(`http://localhost:3000/recipes/${recipe_id}` + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -81,65 +88,75 @@ class RecipePage extends React.Component {
       }
     })
     .then((recipe) => recipe.json())
-    .then((recipe) => this.setState({ recipe: recipe }) )
-    .then(this.fetchRecipeIngredients)
-    .then(this.fetchRecipeInstructions)
-    .then(this.fetchRecipeDescription)
-    .then(this.fetchRecipePhoto)
-    .then(this.fetchRecipeID)
-    .then(this.fetchUserID)
+    .then((recipe) => this.setState({ recipe: recipe }))
+    .then((recipe) => this.saveRecipeData()) 
+    .then((recipe) => this.saveUserData())
     .catch(function(recipe){ console.log(recipe) })
   }
 
-  // fetches the ingredients from the recipe
+  // fetches the user information associated with this recipe
+  saveUserData = () => {
+    let recipeUserID = this.state.userID
+    let token = '?token=' + window.localStorage.token;
+
+    fetch(`http://localhost:3000/user/${recipeUserID}` + token, {
+      method: 'GET',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json' 
+      }
+    })  
+    .then((recipeUser) => recipeUser.json())
+    .then((recipeUser) => this.fetchRecipeUser(recipeUser))
+
+  }
+
+  // saves the recipe's user to state
+  fetchRecipeUser = (recipeUser) => {
+    this.setState({ recipeUsername: recipeUser.username })
+  }
+
+  // saves all data from the recipe to state
+  saveRecipeData = () => {
+    this.fetchRecipeIngredients()
+    this.fetchRecipeInstructions()
+    this.fetchRecipeDescription()
+    this.fetchRecipePhoto()
+    this.fetchRecipeID()
+    this.fetchUserID()
+  }
+
   fetchRecipeIngredients = () => {
-    this.setState({
-      ingredients: this.state.recipe[0].recipe.ingredients
-    })
-    console.log(this.state.ingredients)
+    this.setState({ ingredients: this.state.recipe[0].recipe.ingredients })
   }
 
-  // fetches the instructions from the recipe
   fetchRecipeInstructions = () => {
-    this.setState({
-      instructions: this.state.recipe[0].recipe.instructions
-    })
-    console.log(this.state.instructions) 
+    this.setState({ instructions: this.state.recipe[0].recipe.instructions })
   }
 
-  // fetches the description attached to the recipe
   fetchRecipeDescription = () => {
-    this.setState({
-      description: this.state.recipe[0].recipe.description
-    })
-    console.log(this.state.description) 
+    this.setState({ description: this.state.recipe[0].recipe.description })
   }
 
-  // fetches the photo attached to the recipe from the database
   fetchRecipePhoto = () => {
-    this.setState({
-      photoURL: this.state.recipe[0].photos[0].filepath
-    })
-    console.log(this.state.description) 
+    this.setState({ photoURL: this.state.recipe[0].photos[0].filepath })
   }
 
   fetchRecipeID = () => {
-  this.setState({
-    id: this.state.recipe[0].recipe.id
-  })
-  console.log(this.state.recipe_id) 
+    this.setState({ id: this.state.recipe[0].recipe.id })
   } 
 
   fetchUserID = () => {
-  this.setState({
-    user_id: this.state.recipe[0].recipe.user_id
-  })
-  console.log(this.state.user_id) 
+    this.setState({ userID: this.state.recipe[0].recipe.user_id })
   }  
 
+  // attaches the current user id to this recipe id in likes
   likeRecipe = () => {
-    const { user_id, id } = this.state;
-    fetch(`http://localhost:3000/user/${user_id}/recipe/${id}/likes${token}`, {
+    const current_id = window.localStorage.current_id
+    const { id } = this.state;
+    let token = '?token=' + window.localStorage.token;
+
+    fetch(`http://localhost:3000/user/${current_id}/recipe/${id}/likes${token}`, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
@@ -148,16 +165,35 @@ class RecipePage extends React.Component {
     })
   }
 
+  // attaches the current user id to this recipe id in favourites
   favRecipe = () => {
-    const {user_id, id} = this.state;
-    fetch(`http://localhost:3000/user/${user_id}/recipe/${id}/favourites${token}`, {
-      method: 'POST',
+    let token = '?token=' + window.localStorage.token;
+    const current_id = window.localStorage.current_id
+    const { id } = this.state;
+
+    fetch(`http://localhost:3000/user/${current_id}/recipe/${id}/favourites${token}`, {
+      method:  'POST',
       headers: {
         'Accept':       'application/json',
         'Content-Type': 'application/json' 
       }
     })
   }
+
+  // current user follows the user of the recipe being shown
+  followUser = () => {
+    let current_user = window.localStorage.current_id;
+    let userID       = this.state.userID;
+
+    fetch(`http://localhost:3000/user/${current_user}/followUser/${userID}/follows${token}`, {
+      method:  'POST',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json' 
+      }
+    })
+  }
+
 };
 
 export default RecipePage;

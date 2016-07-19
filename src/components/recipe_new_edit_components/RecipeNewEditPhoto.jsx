@@ -24,11 +24,9 @@ class RecipeNewEditPhoto extends React.Component {
           onProgress={this.onUploadProgress}
           onError={this.onUploadError}
           onFinish={this.onUploadFinish}
-          // signingUrlHeaders={{ additional: headers }}
-          // signingUrlQueryParams={{ additional: query-params }}
           uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
           contentDisposition="auto"
-          server="http://localhost:3000" 
+          server="http://localhost:3000"
         />
 
         <label>Input Description</label>
@@ -38,18 +36,15 @@ class RecipeNewEditPhoto extends React.Component {
           onBlur={ this.updateDescriptionState.bind(this) }
         />
 
-        <button onClick={ this.props.previousStep}>Previous</button>
-        <button onClick={ (e) => { this.updateParentState() } }>Submit</button>
+        <button className='button' onClick={ this.props.previousStep}>Previous</button>
+        <button className='button' onClick={ (e) => { this.updateParentState() } }>Submit</button>
       </div>
     );
   }
 
  // updates photo state
   updatePhotoState = (data) => {
-    this.setState({
-      photoURL: data
-    })
-
+    this.setState({ photoURL: data })
   }
 
   // updates description state
@@ -57,10 +52,7 @@ class RecipeNewEditPhoto extends React.Component {
     let data = e.target.value
     let description = this.state.description
 
-    this.setState({
-      description: data
-    })
-    // console.debug(data)
+    this.setState({ description: data })
     this.props.saveDescription(this.state.description)
   }
 
@@ -76,7 +68,6 @@ class RecipeNewEditPhoto extends React.Component {
   onUploadFinish = (url) => {
     let setURL = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.filename
     this.props.savePhoto(setURL)
-    console.log(setURL)
   }
 
 }

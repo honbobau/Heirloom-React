@@ -4,37 +4,34 @@ import SignupButton from './SignupButton.jsx'
 
 class LandingPage extends React.Component {
 
-  componentWillMount() {
-    
-  }
-
   render() {
     const renderNewPage = this.props.renderNewPage;
 
     return (
-      <section className="landing-page">
         <div className="container">
-          <div className="columns">
+          <div className="landing-page columns">
 
-            <div className="column is-6 is-offset-1 landing-page-filler">
-                <img src="src/images/heirloom_logo.jpg" />
-              
-            </div>
+            <div className="column is-3 landing-page-content">
+              <img src="src/images/heirloom_logo.jpg" />
 
-            <div className="column is-3 landing-page-login">
-              <div className="login-form"> 
-                <LoginForm />
-              </div>
+              <div className='landing-page-forms'>
+                <section className="login-form"> 
+                  <LoginForm renderNewPage={renderNewPage} />
+                </section>
 
-              <div className="signup-button">
-                <SignupButton renderNewPage={renderNewPage} />
+                <hr />
+
+                <section className="signup-button">
+                  <div className='smaller-container'>
+                    <p>Tired of looking through shit sites for shit recipes? Join the Heirloom family.</p>
+                    <SignupButton renderNewPage={renderNewPage} />
+                  </div>
+                </section>
               </div>
             </div>
             
           </div>
         </div>
-      </section>
-
     );
   }
 }

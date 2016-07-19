@@ -5,9 +5,7 @@ class Ingredient extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      ingredient: ''
-    }
+    this.state = { ingredient: '' }
   };
 
   render() {
@@ -18,7 +16,8 @@ class Ingredient extends React.Component {
         <label htmlFor={'ingredient' + ic} ></label>
         <input 
           type='text' 
-          onChange={ this.handleChange.bind(this) } />
+          onChange={ this.handleChange.bind(this) } 
+        />
       </li> 
     ); 
   }

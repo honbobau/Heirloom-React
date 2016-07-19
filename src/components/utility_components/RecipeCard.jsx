@@ -4,22 +4,28 @@ import RecipePage from '../recipe_components/RecipePage.jsx';
 class RecipeCard extends React.Component {
 
   render() {
-    const recipe = this.props.recipe;
-    const instructions = recipe[0].recipe.instructions;
-    const ingredients = recipe[0].recipe.ingredients;
-    const description = recipe[0].recipe.description;
-    const imageURL = recipe[0].photos[0].filepath;
-
-    console.log(recipe);
+    const renderNewPage = this.props.renderNewPage;
+    const recipe        = this.props.recipe[0];
+    const recipeID      = recipe.recipe.id;
+    const instructions  = recipe.recipe.instructions;
+    const ingredients   = recipe.recipe.ingredients;
+    const description   = recipe.recipe.description;
+    const imageURL      = recipe[0].photos[0].filepath;
 
     return( 
-      <div className='box recipe-card'>
-        <section className='section'> 
-          <img src={imageURL} className="recipe-card-image" />
+        <section className='box recipe-card'> 
+          <img 
+            src={imageURL} 
+            onClick={ () => this.renderRecipePage(recipeID, renderNewPage('RecipePage')) }
+            className='recipe-card-image'/>
           <p>{description}</p>
         </section>
-      </div>
     )
+  }
+
+  renderRecipePage = (recipe_id, callback) => {
+    window.localStorage.setItem('recipe_id', recipe_id) 
+    callback
   }
 }
 

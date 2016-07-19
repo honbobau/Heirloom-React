@@ -8,11 +8,10 @@ class Instructions extends React.Component {
 
     return(
       <ul>
-        <h5>Instructions</h5>
         {instructions.map(function(instruction) {
           counter += 1
           return(
-            <li>{counter}) {instruction}</li>
+            <li><div className='recipe-instruction-counter'><h4>{counter}</h4></div> {instruction}</li>
           );
         })}
       </ul>

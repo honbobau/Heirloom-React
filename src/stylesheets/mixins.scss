@@ -1,0 +1,28 @@
+@mixin header-style {
+  position: fixed;
+  display: flex;
+  width: 420px;
+  height: 60px;
+  padding: 0;
+  background-color: $primary-color;
+  z-index: 100;
+  border-radius: 3%;
+}
+
+@mixin heirloom-logo {
+  display: block;
+  align-self: 50%;
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+}
+
+@mixin primary-button-style {
+  background-color: $primary-color;
+  color: $light-font-color; 
+}
+
+// used to offset fixed header
+@mixin header-height($header-height) {
+  margin-top: $header-height;
+}

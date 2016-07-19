@@ -1,16 +1,19 @@
 import React from 'react';
-import RecipeForm from './RecipeForm.jsx'
+import RecipeForm from './RecipeForm.jsx';
+import Header from './Header.jsx';
 
 class RecipeNewEditPage extends React.Component {
 
   render() {
-    return(
-      <section className="container new-recipe">
-        <div className="row">
+    const renderNewPage = this.props.renderNewPage;
 
-          <section className="col-sm-5 col-sm-offset-3">
-            <h4>New Recipe</h4> 
-            <RecipeForm />
+    return(
+      <section className="container">
+        <div className="columns new-recipe-page">
+
+          <section className="column is-3 new-recipe-content">
+            <Header renderNewPage={renderNewPage} />
+            <RecipeForm renderNewPage={renderNewPage}/>
           </section>
 
         </div>
