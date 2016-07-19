@@ -25,6 +25,13 @@ class SearchRecipesForm extends React.Component {
   // stores query in state
   storeQuery = (e) => {
     let query = e.target.value
+    let result = query.match(/#\w+/)
+
+    if (result) {
+      let search = result.replace('#', '')
+      query = search
+    }
+
     this.setState({ query: query })
   }
 
