@@ -24,16 +24,40 @@ class RecipePage extends React.Component {
       description:     '',
       photoURL:        '',
       userID:          '',
-      recipeUsername:  ''
+      recipeUsername:  '',
+      ifFollowing: '',
+      ifLiked: '',
+      ifFav: ''
+
     }
   }
 
   componentDidMount() { this.fetchRecipeComponents() }
 
   render() {
-    // if () {
 
-    // }
+    let follow;
+    let like;
+    let favourite;
+
+    if (this.state.userID !== parseInt(window.localStorage.current_id)) {
+      if (this.state.ifFollowing == 'false') {
+        follow = <FollowUser followUser   ={this.followUser} />
+      }
+    }
+
+    if (this.state.userID !== parseInt(window.localStorage.current_id)) {
+      if (this.state.ifLiked == 'false') {
+        like = <LikeButton likeRecipe   ={this.likeRecipe} />
+      }
+    }
+
+    if (this.state.userID !== parseInt(window.localStorage.current_id)) {
+      if (this.state.ifFav == 'false') {
+        favourite = <FavButton  favRecipe    ={this.favRecipe} />
+      }
+    } 
+    
     return(
       <div className='container'>
         <div className='columns recipe-page'>
@@ -48,9 +72,9 @@ class RecipePage extends React.Component {
 
               <section className='recipe-nav-buttons'>
                 <h4>Recipe by: {this.state.recipeUsername}</h4>
-                <LikeButton likeRecipe   ={this.likeRecipe} />
-                <FavButton  favRecipe    ={this.favRecipe} />
-                <FollowUser followUser   ={this.followUser} />
+                { like }
+                { favourite }
+                { follow }
               </section>
 
 
@@ -94,6 +118,12 @@ class RecipePage extends React.Component {
     .then((recipe) => this.saveRecipeData()) 
     .then((recipe) => this.saveUserData())
     .catch(function(recipe){ console.log(recipe) })
+    .then((follow) => this.checkFollow())
+    .then((follow) => this.setState({ ifFollowing: follow }))
+    .then((like) => this.checkLike())
+    .then((like) => this.setState({ ifLiked: like }))
+    .then((fav) => this.checkFav())
+    .then((fav) => this.setState({ ifFav: fav }))
   }
 
   // fetches the user information associated with this recipe
@@ -191,6 +221,44 @@ class RecipePage extends React.Component {
     })
   }
 
+  checkLike = () => {
+      let current_user = window.localStorage.current_id;
+      let userID       = this.state.userID
+
+      fetch(`http://localhost:3000/user/${current_user}/recipe/${userID}/likes${token}`, {
+        method: 'GET',
+        headers: {
+          'Accept':       'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+    }
+
+  checkFollow = () => {
+    let current_user = window.localStorage.current_id;
+    let userID       = this.state.userID
+
+    fetch(`http://localhost:3000/user/${current_user}/follows/${userID}/follows${token}`, {
+      method: 'GET',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
+  checkFav = () => {
+    let current_user = window.localStorage.current_id;
+    let userID       = this.state.userID
+
+    fetch(`http://localhost:3000/user/${current_user}/recipe/${userID}/favourites${token}`, {
+      method: 'GET',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+  }
 };
 
 export default RecipePage;
