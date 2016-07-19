@@ -79,7 +79,7 @@ class ProfilePage extends React.Component {
     })
     .then((user) => user.json())
     .then((user) => this.setUserInState(user))
-    .then((user) => this.fetchRecipeComponents())
+    .then((user) => Promise.all(this.fetchRecipeComponents()))
     .then((user) => this.fetchFavouriteRecipes())
     .catch((res) => console.log(res))
   }
