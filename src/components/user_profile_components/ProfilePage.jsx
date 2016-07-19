@@ -4,9 +4,6 @@ import PhotoCard from '../utility_components/PhotoCard.jsx';
 import RecipeGallery from './RecipeGallery.jsx';
 import RecipeGalleryNav from './RecipeGalleryNav.jsx';
 
-const current_id = window.localStorage.current_id
-const token      = window.localStorage.token
-
 class ProfilePage extends React.Component {
   
   constructor(props) {
@@ -70,6 +67,9 @@ class ProfilePage extends React.Component {
 
   // fetches user components
   fetchUserComponents = () => {
+    const current_id = window.localStorage.current_id;
+    const token      = window.localStorage.token;
+    
     fetch(`http://localhost:3000/user/${current_id}?token=${token}`, {
       method: 'GET',
       headers: {
@@ -86,6 +86,9 @@ class ProfilePage extends React.Component {
 
   // fetches recipes owned by user
   fetchRecipeComponents = () => {
+    const current_id = window.localStorage.current_id;
+    const token      = window.localStorage.token;
+
     fetch(`http://localhost:3000/user/${current_id}/recipes?token=${token}`,{
       method: 'GET',
       headers: {
@@ -100,6 +103,9 @@ class ProfilePage extends React.Component {
 
   // fetches favourited by user
   fetchFavouriteRecipes = () => {
+    const current_id = window.localStorage.current_id;
+    const token      = window.localStorage.token;
+
     fetch(`http://localhost:3000/user/${current_id}/favourites?token=${token}`, {
       method: 'GET',
       header: {
