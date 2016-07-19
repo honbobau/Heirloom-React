@@ -1,7 +1,11 @@
 import React from 'react';
 import ProfileHeader from './ProfileHeader.jsx';
 import PhotoCard from '../utility_components/PhotoCard.jsx';
-import ProfileTabPhotos from '../utility_components/ProfileTabPhotos.jsx';
+import RecipeGallery from './RecipeGallery.jsx';
+import RecipeGalleryNav from './RecipeGalleryNav.jsx';
+
+const current_id = window.localStorage.current_id
+const token      = window.localStorage.token
 
 class ProfilePage extends React.Component {
   
@@ -11,47 +15,52 @@ class ProfilePage extends React.Component {
     this.state = { 
       userInfo: {},
       userRecipes: [],
-      favRecipes: []
+      favRecipes: [],
+      recipeDisplay: 'user'
     }
   }
 
-  componentDidMount() { 
-    this.fetchUserComponents() 
-  }
+  componentDidMount() { this.fetchUserComponents() }
 
   render() {
+    // this looks so gross
     const renderNewPage = this.props.renderNewPage;
+    let userInfo = this.state.userInfo
     let { userRecipes } = this.state;
-    
+    let { favRecipes }  = this.state;
+    let displayUserRecipes = <RecipeGallery 
+                              recipes={userRecipes}
+                              renderNewPage={renderNewPage}
+                             />;
+    let displayFavRecipes = <RecipeGallery 
+                              recipes={favRecipes}
+                              renderNewPage={renderNewPage}
+                            />;
+    let recipeGallery;
+
+    this.state.recipeDisplay === 'user' ? recipeGallery = displayUserRecipes : recipeGallery = displayFavRecipes;
+
     return(
       <div className='container'>
         <div className='profile-page columns'>
 
           <div className='profile-content column is-3'> 
             <ProfileHeader 
-              userInfo={ this.state.userInfo } 
+              userInfo={ userInfo } 
               renderNewPage={ this.props.renderNewPage }
             />
 
             <section className='profile-page-user-info'>
-              <img src={ this.state.userInfo.user_photo } className='user-photo'/>
-              <p>{ this.state.userInfo.username }</p>
-              <p>{ this.state.userInfo.blurb }</p>
+              <img src={ userInfo.user_photo } className='user-photo'/>
+              <p>{ userInfo.username }</p>
+              <p>{ userInfo.blurb }</p>
             </section>
 
             <section className='profile-recipe-container'>
-              <div className='profile-photo-container'>
-                {userRecipes.map(recipe => <PhotoCard 
-                                        recipe={recipe} 
-                                        renderNewPage={renderNewPage}
-                                       />
-                )}
-              </div>
+              <RecipeGalleryNav toggleGallery={this.toggleGallery}/>
+              { recipeGallery }
             </section>
 
-            <section>
-              <ProfileTabPhotos />
-            </section>
           </div>
 
         </div>
@@ -61,9 +70,6 @@ class ProfilePage extends React.Component {
 
   // fetches user components
   fetchUserComponents = () => {
-    const current_id = window.localStorage.current_id
-    const token = window.localStorage.token
-
     fetch(`http://localhost:3000/user/${current_id}?token=${token}`, {
       method: 'GET',
       headers: {
@@ -75,13 +81,11 @@ class ProfilePage extends React.Component {
     .then((user) => this.setUserInState(user))
     .then((user) => this.fetchRecipeComponents())
     .then((user) => this.fetchFavouriteRecipes())
+    .catch((res) => console.log(res))
   }
 
   // fetches recipes owned by user
   fetchRecipeComponents = () => {
-    const current_id = window.localStorage.current_id
-    const token = window.localStorage.token
-
     fetch(`http://localhost:3000/user/${current_id}/recipes?token=${token}`,{
       method: 'GET',
       headers: {
@@ -91,13 +95,11 @@ class ProfilePage extends React.Component {
     })
     .then((userRecipes) => userRecipes.json())
     .then((userRecipes) => this.setUserRecipes(userRecipes))
+    .catch((res) => console.log(res))
   }
 
   // fetches favourited by user
   fetchFavouriteRecipes = () => {
-    const current_id = window.localStorage.current_id
-    const token = window.localStorage.token
-
     fetch(`http://localhost:3000/user/${current_id}/favourites?token=${token}`, {
       method: 'GET',
       header: {
@@ -119,6 +121,14 @@ class ProfilePage extends React.Component {
 
   // sets favourite recipes into state
   setFavRecipes = (favRecipes) => { this.setState({ favRecipes: favRecipes}) }
+
+  // toggles the gallery showing state
+  toggleGallery = (state) => {
+    this.setState({
+      recipeDisplay: state
+    })
+  }
+
 }
 
 export default ProfilePage;
