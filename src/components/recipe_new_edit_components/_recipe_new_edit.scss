@@ -25,7 +25,40 @@
     /* ------- new recipe form ------ */
     .new-recipe-form {
       @include header-height($header-height);
-    }
 
+      #ingredients-header {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      #photo-header {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      #add-ingredients {
+        
+        .control {
+          padding-bottom: 0.5em;
+        }
+      }
+
+      #add-instructions {
+
+        .control {
+          padding-bottom: 0.5em;
+        }
+      }
+
+      #control-description {
+        padding-bottom: 0.5em;
+        padding-top: 0.5em; 
+      }
+
+      .button {
+        margin-top: 0.5em;
+        margin-right: 0.5em;
+      }
+    }
   }
 }

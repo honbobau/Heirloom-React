@@ -18,16 +18,14 @@ class RecipeNewEditIngredients extends React.Component {
     const input = this.state.newInputs
 
     return(
-      <form className="new-recipe-form">
-        <h4 className="ingredients-header">Add ingredients</h4>
-
-        <ul id="add-ingredients">
-          { this.renderNewInputs() }
-        </ul>
-
-        <button className='button' onClick={ this.addIngredient }>+</button>
-        <button className='button' onClick={ (e) => this.saveAndContinue(e) }>Next</button>
-      </form>
+        <form className="new-recipe-form">
+          <h2 id="ingredients-header">ADD INGREDIENTS</h2>
+          <ul id="add-ingredients">
+            { this.renderNewInputs() }
+          </ul>
+            <button className='button is-success' onClick={ this.addIngredient }>+</button>
+            <button className='button is-success' onClick={ (e) => this.saveAndContinue(e) }>Next</button>
+        </form>   
     );
   }
 

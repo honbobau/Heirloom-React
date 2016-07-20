@@ -14,10 +14,14 @@ class Ingredient extends React.Component {
     return(
       <li>
         <label htmlFor={'ingredient' + ic} ></label>
-        <input 
-          type='text' 
-          onChange={ this.handleChange.bind(this) } 
-        />
+        <p className="control">
+          <input 
+            className="input"
+            placeholder="Add Ingredient"
+            type='text' 
+            onChange={ this.handleChange.bind(this) } 
+          />
+        </p>
       </li> 
     ); 
   }

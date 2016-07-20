@@ -8,10 +8,14 @@ class Instruction extends React.Component {
     return(
       <li>
         <label htmlFor={'instruction' + ic} ></label>
-        <input 
-          type='text' 
-          onChange={this.handleChange.bind(this)} 
+        <p className="control">
+          <input 
+            placeholder="Add Instructions"
+            className="input" 
+            type='text' 
+            onChange={this.handleChange.bind(this)} 
         />
+        </p>
       </li> 
     ); 
   }

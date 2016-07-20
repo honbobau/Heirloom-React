@@ -8,7 +8,7 @@
   transition: all 0.4s linear; }
 
 .icon:hover {
-  color: #226722; }
+  color: #97CD76; }
 
 .container {
   width: 420px; }
@@ -23,45 +23,43 @@
   margin: 0 auto; }
 
 /* ------------------------ Global Feed --------------------- */
-.global-feed-page {
-  font-size: 100px; }
-  .global-feed-page .global-feed-content {
-    width: 100%;
-    /* ------- global feed header ------ */
-    /* ------- recipe cards ------ */ }
-    .global-feed-page .global-feed-content .global-feed-header {
-      position: fixed;
-      display: flex;
-      width: 420px;
+.global-feed-page .global-feed-content {
+  width: 100%;
+  /* ------- global feed header ------ */
+  /* ------- recipe cards ------ */ }
+  .global-feed-page .global-feed-content .global-feed-header {
+    position: fixed;
+    display: flex;
+    width: 420px;
+    height: 60px;
+    padding: 0;
+    background-color: #e2562b;
+    z-index: 100;
+    border-radius: 3%; }
+    .global-feed-page .global-feed-content .global-feed-header .heirloom-logo {
+      display: block;
+      align-self: 50%;
+      width: 60px;
       height: 60px;
-      padding: 0;
-      background-color: #e2562b;
-      z-index: 100;
-      border-radius: 3%; }
-      .global-feed-page .global-feed-content .global-feed-header .heirloom-logo {
+      margin-left: 10px; }
+    .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav {
+      align-self: center;
+      margin-left: auto; }
+      .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav .icon {
+        display: inline-block; }
+  .global-feed-page .global-feed-content .recipe-container {
+    margin-top: 60px; }
+    .global-feed-page .global-feed-content .recipe-container .recipe-card {
+      display: flex;
+      flex-direction: column;
+      height: 410px;
+      width: 410px; }
+      .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-image {
         display: block;
-        align-self: 50%;
-        width: 60px;
-        height: 60px;
-        margin-left: 10px; }
-      .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav {
-        align-self: center;
-        margin-left: auto; }
-        .global-feed-page .global-feed-content .global-feed-header .global-feed-header-nav .icon {
-          display: inline-block; }
-    .global-feed-page .global-feed-content .recipe-container {
-      margin-top: 60px; }
-      .global-feed-page .global-feed-content .recipe-container .recipe-card {
-        display: flex;
-        flex-direction: column;
-        height: 410px;
-        width: 410px; }
-        .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-image {
-          display: block;
-          margin: 0 auto;
-          border-radius: 2%;
-          height: 300px;
-          width: 300px; }
+        margin: 0 auto;
+        border-radius: 2%;
+        height: 300px;
+        width: 300px; }
 
 /* ------------------------ landing page --------------------- */
 .landing-page {
@@ -79,7 +77,7 @@
       border-radius: 2%;
       text-align: center; }
       .landing-page .landing-page-content .landing-page-forms .login-form button, .landing-page .landing-page-content .landing-page-forms .login-form a, .landing-page .landing-page-content .landing-page-forms .signup-button button, .landing-page .landing-page-content .landing-page-forms .signup-button a {
-        background-color: #e2562b;
+        background-color: #7BBF51;
         color: #FFFFFF; }
       .landing-page .landing-page-content .landing-page-forms .login-form {
         margin-top: 10px; }
@@ -171,6 +169,22 @@
       margin-right: 15px; }
   .new-recipe-page .new-recipe-content .new-recipe-form {
     margin-top: 60px; }
+    .new-recipe-page .new-recipe-content .new-recipe-form #ingredients-header {
+      font-size: 30px;
+      text-align: center; }
+    .new-recipe-page .new-recipe-content .new-recipe-form #photo-header {
+      font-size: 30px;
+      text-align: center; }
+    .new-recipe-page .new-recipe-content .new-recipe-form #add-ingredients .control {
+      padding-bottom: 0.5em; }
+    .new-recipe-page .new-recipe-content .new-recipe-form #add-instructions .control {
+      padding-bottom: 0.5em; }
+    .new-recipe-page .new-recipe-content .new-recipe-form #control-description {
+      padding-bottom: 0.5em;
+      padding-top: 0.5em; }
+    .new-recipe-page .new-recipe-content .new-recipe-form .button {
+      margin-top: 0.5em;
+      margin-right: 0.5em; }
 
 /* ------------------------ Signup Form --------------------- */
 .recipe-search-form {
@@ -198,7 +212,7 @@
     color: #FFFFFF;
     transition: all 0.4s linear; }
   .recipe-search-form #search-icon:hover {
-    color: #226722; }
+    color: #97CD76; }
 
 /* ------------------------ User Feed ----------------------- */
 .user-feed-page .user-feed-content {

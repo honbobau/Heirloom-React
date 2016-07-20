@@ -21,15 +21,14 @@ class RecipeNewEditInstructions extends React.Component {
 
     return(
       <form className="new-recipe-form">
-        <h4 className="instructions-header">Add instructions</h4>
-
+        <h2 id="ingredients-header">ADD INSTRUCTIONS</h2>
         <ul id="add-instructions">
           { this.renderNewInputs() }
         </ul>
 
-        <button className='button' onClick={ this.addInstruction }>+</button>
-        <button className='button' onClick={ this.props.previousStep }>Previous</button>
-        <button className='button' onClick={ (e) => this.saveAndContinue(e) }>Next</button>
+        <button className='button is-success' onClick={ this.addInstruction }>+</button>
+        <button className='button is-success' onClick={ this.props.previousStep }>Previous</button>
+        <button className='button is-success' onClick={ (e) => this.saveAndContinue(e) }>Next</button>
       </form>
     );
   }

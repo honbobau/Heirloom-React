@@ -17,27 +17,30 @@ class RecipeNewEditPhoto extends React.Component {
 
     return(
       <div>
-        <label>Input Photo</label>
-        <ReactS3Uploader
-          signingUrl="/s3/sign"
-          accept="image/*"
-          onProgress={this.onUploadProgress}
-          onError={this.onUploadError}
-          onFinish={this.onUploadFinish}
-          uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
-          contentDisposition="auto"
-          server="http://localhost:3000"
-        />
-
-        <label>Input Description</label>
-        <input 
-          type="text"
-          onChange={ this.updateDescriptionState.bind(this) }
-          onBlur={ this.updateDescriptionState.bind(this) }
-        />
-
-        <button className='button' onClick={ this.props.previousStep}>Previous</button>
-        <button className='button' onClick={ (e) => { this.updateParentState() } }>Submit</button>
+        <h2 id="photo-header">ADD PHOTO & DESCRIPTION</h2>
+        <div>
+          <ReactS3Uploader
+            signingUrl="/s3/sign"
+            accept="image/*"
+            onProgress={this.onUploadProgress}
+            onError={this.onUploadError}
+            onFinish={this.onUploadFinish}
+            uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
+            contentDisposition="auto"
+            server="http://localhost:3000"
+          />
+        </div>
+          <p className="control" id="control-description">
+            <textarea 
+              className="textarea"
+              placeholder="Add Description"
+              type="text"
+              onChange={ this.updateDescriptionState.bind(this) }
+              onBlur={ this.updateDescriptionState.bind(this) }
+          />
+          </p>
+        <button className='button is-success' onClick={ this.props.previousStep}>Previous</button>
+        <button className='button is-success' onClick={ (e) => { this.updateParentState() } }>Submit</button>
       </div>
     );
   }
