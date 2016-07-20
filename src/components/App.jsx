@@ -21,7 +21,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { page: 'RecipeNewEditPage' }
+    this.state = { page: 'LandingPage' }
   };
 
   render() {
