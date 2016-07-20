@@ -24,7 +24,6 @@ class Ingredient extends React.Component {
         </p>
       </li> 
     ); 
-
   }
 
   // updates the parent state with the input data

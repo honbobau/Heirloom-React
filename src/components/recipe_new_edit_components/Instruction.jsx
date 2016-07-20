@@ -8,6 +8,7 @@ class Instruction extends React.Component {
     return(
       <li>
         <label htmlFor={'instruction' + ic} ></label>
+
         <p className="control">
           <input 
             placeholder="Add Instructions"

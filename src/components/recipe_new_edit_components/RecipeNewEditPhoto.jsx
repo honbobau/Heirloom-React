@@ -17,6 +17,7 @@ class RecipeNewEditPhoto extends React.Component {
 
     return(
       <div>
+
         <h2 id="photo-header">ADD PHOTO & DESCRIPTION</h2>
         <div>
           <ReactS3Uploader
