@@ -48,13 +48,15 @@ class ProfilePage extends React.Component {
             />
 
             <section className='profile-page-user-info'>
-              <img src={ userInfo.user_photo } className='user-photo'/>
+              <div className='profile-page-user-info-photo'>
+                <img src={ userInfo.user_photo } className='user-photo'/>
+              </div>
               <p>{ userInfo.username }</p>
               <p>{ userInfo.blurb }</p>
             </section>
 
             <section className='profile-recipe-container'>
-              <RecipeGalleryNav toggleGallery={this.toggleGallery}/>
+              <RecipeGalleryNav toggleGallery={this.toggleGallery} />
               { recipeGallery }
             </section>
 
@@ -70,7 +72,7 @@ class ProfilePage extends React.Component {
     const current_id = window.localStorage.current_id;
     const token      = window.localStorage.token;
     
-    fetch(`http://localhost:3000/user/${current_id}?token=${token}`, {
+    fetch(`https://heirloom-api.herokuapp.com/user/${current_id}?token=${token}`, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -89,7 +91,7 @@ class ProfilePage extends React.Component {
     const current_id = window.localStorage.current_id;
     const token      = window.localStorage.token;
 
-    fetch(`http://localhost:3000/user/${current_id}/recipes?token=${token}`,{
+    fetch(`https://heirloom-api.herokuapp.com/user/${current_id}/recipes?token=${token}`,{
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -106,7 +108,7 @@ class ProfilePage extends React.Component {
     const current_id = window.localStorage.current_id;
     const token      = window.localStorage.token;
 
-    fetch(`http://localhost:3000/user/${current_id}/favourites?token=${token}`, {
+    fetch(`https://heirloom-api.herokuapp.com/user/${current_id}/favourites?token=${token}`, {
       method: 'GET',
       header: {
         'Accept':       'application/json',
@@ -115,7 +117,7 @@ class ProfilePage extends React.Component {
     })
     .then((favRecipes) => favRecipes.json())
     .then((favRecipes) => this.setFavRecipes(favRecipes))
-    .catch((res) => console.log(res))
+    .catch((res) => console.log(res));
   }
 
   // sets user info into state

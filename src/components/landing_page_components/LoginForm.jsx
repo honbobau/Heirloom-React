@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
     const username = this.state.username;
     const password = this.state.password;
 
-    fetch('http://localhost:3000/login' + token, {
+    fetch('https://heirloom-api.herokuapp.com/login' + token, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',

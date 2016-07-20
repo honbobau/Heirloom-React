@@ -17,7 +17,7 @@ class SignupFormPhoto extends React.Component {
           onFinish={this.onUploadFinish}
           uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
           contentDisposition="auto"
-          server="http://localhost:3000" 
+          server="https://heirloom-api.herokuapp.com" 
         />
 
         <label htmlFor="signup-blurb">Blurb</label>

@@ -8,6 +8,7 @@ import FavButton from './FavButton.jsx';
 import FollowUser from './FollowUser.jsx';
 import Return from '../utility_components/Return.jsx';
 import Header from './Header.jsx';
+let classNames = require('classnames');
 
 class RecipePage extends React.Component {
   constructor(props) {
@@ -28,46 +29,48 @@ class RecipePage extends React.Component {
   componentDidMount() { this.fetchRecipeComponents() }
 
   render() {
-    // if () {
 
-    // }
     return(
       <div className='container'>
         <div className='columns recipe-page'>
 
           <div className='column is-3 recipe-content'>
+            {/* header */}
             <Header renderNewPage={this.props.renderNewPage} />
 
-            <div className='smaller-container'>
-              <section className="recipe-display-photo">
+            {/* photo */}
+            <div className='recipe-display'>
+              <div className="recipe-display-photo">
                 <img src={this.state.photoURL} />
-              </section>
+              </div>
+
+              <div className='recipe-display-icons'>
+                <LikeButton likeRecipe={this.likeRecipe} />
+                <FavButton  favRecipe={this.favRecipe} />
+                <FollowUser followUser={this.followUser} />
+              </div>
+            </div>
 
               <section className='recipe-nav-buttons'>
                 <h4>Recipe by: {this.state.recipeUsername}</h4>
-                <LikeButton likeRecipe   ={this.likeRecipe} />
-                <FavButton  favRecipe    ={this.favRecipe} />
-                <FollowUser followUser   ={this.followUser} />
               </section>
 
-
+              {/* description */}
               <section className="recipe-display-description">
                 <DescriptionTags description={this.state.description} />
               </section>
 
+              {/* ingredients */}
               <section className="recipe-display-ingredients">
-                <div>
-                  <h5>Ingredients</h5>  
-                </div>
                 <Ingredients ingredients={this.state.ingredients} />
               </section>
 
+              {/* instructions */}
               <section className="recipe-display-instructions">
                 <h4>Instructions</h4>
                 <Instructions instructions={this.state.instructions} />
               </section>
-
-            </div>           
+           
           </div>
 
         </div>
@@ -80,7 +83,7 @@ class RecipePage extends React.Component {
     let recipe_id = window.localStorage.recipe_id;
     let token = '?token=' + window.localStorage.token;
 
-    fetch(`http://localhost:3000/recipes/${recipe_id}` + token, {
+    fetch(`https://heirloom-api.herokuapp.com/recipes/${recipe_id}` + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -99,7 +102,7 @@ class RecipePage extends React.Component {
     let recipeUserID = this.state.userID
     let token = '?token=' + window.localStorage.token;
 
-    fetch(`http://localhost:3000/user/${recipeUserID}` + token, {
+    fetch(`https://heirloom-api.herokuapp.com/user/${recipeUserID}` + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -156,7 +159,7 @@ class RecipePage extends React.Component {
     const { id } = this.state;
     let token = '?token=' + window.localStorage.token;
 
-    fetch(`http://localhost:3000/user/${current_id}/recipe/${id}/likes${token}`, {
+    fetch(`https://heirloom-api.herokuapp.com/user/${current_id}/recipe/${id}/likes${token}`, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
@@ -171,7 +174,7 @@ class RecipePage extends React.Component {
     const current_id = window.localStorage.current_id
     const { id } = this.state;
 
-    fetch(`http://localhost:3000/user/${current_id}/recipe/${id}/favourites${token}`, {
+    fetch(`https://heirloom-api.herokuapp.com/user/${current_id}/recipe/${id}/favourites${token}`, {
       method:  'POST',
       headers: {
         'Accept':       'application/json',
@@ -182,10 +185,11 @@ class RecipePage extends React.Component {
 
   // current user follows the user of the recipe being shown
   followUser = () => {
+    let token = '?token=' + window.localStorage.token;
     let current_user = window.localStorage.current_id;
     let userID       = this.state.userID;
 
-    fetch(`http://localhost:3000/user/${current_user}/followUser/${userID}/follows${token}`, {
+    fetch(`https://heirloom-api.herokuapp.com/user/${current_user}/followUser/${userID}/follows${token}`, {
       method:  'POST',
       headers: {
         'Accept':       'application/json',

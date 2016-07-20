@@ -50,7 +50,7 @@ class ProfileHeader extends React.Component {
     const current_id = window.localStorage.current_id
     const following_id = this.props.userInfo.id
     const token = window.localStorage.token
-    fetch(`http://localhost:3000/user/${current_id}/followUser/${following_id}/follows?token=${token}`, {
+    fetch(`https://heirloom-api.herokuapp.com/user/${current_id}/followUser/${following_id}/follows?token=${token}`, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',

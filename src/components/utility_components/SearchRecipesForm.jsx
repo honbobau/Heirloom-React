@@ -32,7 +32,7 @@ class SearchRecipesForm extends React.Component {
   filterRecipes = () => {
     let query = this.state.query;
 
-    fetch(`http://localhost:3000/recipes/search/${query}${token}`, {
+    fetch(`https://heirloom-api.herokuapp.com/recipes/search/${query}${token}`, {
       method: 'GET',
       headers: {
         'Accept'      : 'application/json',

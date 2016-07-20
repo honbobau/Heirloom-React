@@ -81,7 +81,7 @@ class SignupForm extends React.Component {
     const photoURL = this.state.photoURL;
     const blurb    = this.state.blurb;
 
-    fetch('http://localhost:3000/users' + token, {
+    fetch('https://heirloom-api.herokuapp.com/users' + token, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',

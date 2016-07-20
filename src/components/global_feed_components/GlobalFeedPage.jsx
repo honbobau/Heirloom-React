@@ -51,7 +51,7 @@ class GlobalFeedPage extends React.Component {
   // fetches all recipes upon mount
   fetchAllRecipes = () => {
     console.log('test4');
-    fetch('http://localhost:3000/recipes' + token, {
+    fetch('https://heirloom-api.herokuapp.com/recipes' + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',

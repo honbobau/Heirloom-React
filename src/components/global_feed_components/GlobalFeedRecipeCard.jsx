@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipePage from '../recipe_components/RecipePage.jsx';
+import RecipeCardStats from './RecipeCardStats.jsx';
 
 class GlobalFeedRecipeCard extends React.Component {
 
@@ -17,8 +18,13 @@ class GlobalFeedRecipeCard extends React.Component {
           <img 
             src={imageURL} 
             onClick={ () => this.renderRecipePage(recipeID, renderNewPage('RecipePage')) }
-            className='recipe-card-image'/>
-          <p>{description}</p>
+            className='recipe-card-image'
+          />
+          <RecipeCardStats 
+            ingredientsQty  = {ingredients.length}
+            instructionsQty = {instructions.length}
+            description     = {description}
+          />
         </section>
     )
   }

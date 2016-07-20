@@ -95,7 +95,7 @@ class RecipeForm extends React.Component {
 
   // makes photo ajax call using 
   submitPhoto = (id, url) => {
-    fetch('http://localhost:3000/recipes/photos' + token, { 
+    fetch('https://heirloom-api.herokuapp.com/recipes/photos' + token, { 
       method: 'POST',
       headers: {
         'Accept':       'application/json',
@@ -117,7 +117,7 @@ class RecipeForm extends React.Component {
     let photo        = this.state.photo;
     let currentDate  = new Date();
     
-    fetch('http://localhost:3000/recipes' + token, {
+    fetch('https://heirloom-api.herokuapp.com/recipes' + token, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',

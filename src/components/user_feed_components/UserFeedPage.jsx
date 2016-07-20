@@ -49,7 +49,7 @@ class UserFeedPage extends React.Component {
 
   // fetches all recipes upon mount
   fetchAllRecipes = () => {
-    fetch(`http://localhost:3000/user/${window.localStorage.current_id}/follows/recipes` + token, {
+    fetch(`https://heirloom-api.herokuapp.com/user/${window.localStorage.current_id}/follows/recipes` + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
@@ -57,6 +57,7 @@ class UserFeedPage extends React.Component {
       }
     })
     .then((recipes) => recipes.json())
+    .then((recipes) => { console.log(recipes); return recipes; })
     .then((recipes) => this.consolidateRecipeArrays(recipes[0], recipes[1]) )
     .then((recipes) => this.sortRecipesByDate(recipes))
     .then((recipes) => this.setRecipesInState(recipes))
