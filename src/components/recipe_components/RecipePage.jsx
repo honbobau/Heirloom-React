@@ -62,10 +62,14 @@ class RecipePage extends React.Component {
                 <DescriptionTags description={this.state.description} />
               </section>
 
+               <hr/>
+
               {/* ingredients */}
               <section className="recipe-display-ingredients">
                 <Ingredients ingredients={this.state.ingredients} />
               </section>
+
+               <hr/>
 
               {/* instructions */}
               <section className="recipe-display-instructions">

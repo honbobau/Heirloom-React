@@ -7,9 +7,6 @@
   color: #FFFFFF;
   transition: all 0.4s linear; }
 
-.icon:hover {
-  color: #97CD76; }
-
 .container {
   width: 420px; }
 
@@ -106,6 +103,14 @@
         margin: 15px 0; }
 
 /* ------------------------ Display Recipe Page --------------------- */
+.recipe-page p, .recipe-page li {
+  font-size: 18px; }
+.recipe-page .button {
+  margin-bottom: 10px; }
+.recipe-page .button.active {
+  background-color: #97CD76; }
+.recipe-page .hidden {
+  display: none; }
 .recipe-page .recipe-content {
   width: 100%;
   /* ------- recipe header ------ */

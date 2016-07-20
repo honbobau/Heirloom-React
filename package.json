@@ -50,6 +50,7 @@
     "react-dom": "^15.1.0",
     "react-router": "^2.5.2",
     "react-s3-uploader": "^3.2.1",
+    "react-sanfona": "0.0.13",
     "react-simple-dropdown": "^1.1.4",
     "react-simpletabs": "^0.7.0"
   }

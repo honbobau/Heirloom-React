@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
 
         <label htmlFor="login-password" >Password</label>
         <div>
-          <input type="text" onBlur={ this.setPasswordState.bind(this) }/>
+          <input type="password" onBlur={ this.setPasswordState.bind(this) }/>
         </div>
 
         <button className="button" onClick={ this.submitLogin }>Log In

@@ -11,12 +11,13 @@ class Instructions extends React.Component {
   render() {
     const instructions = this.props.instructions;
     let display        = this.state.display;
-    const isDisplayed  = display ? 'panel show' : 'panel hidden';
+    const isDisplayed = display ? 'show' : 'hidden';
+    const isActive    = display ? 'button active' : 'button inactive';
     let counter = 0;
 
     return(
       <div>
-        <button className='button accordian' onClick={this.handleclick}>Instructions</button>
+        <button className='button' onClick={this.handleclick}><strong>Instructions</strong></button>
         <ul className={isDisplayed}>
           {instructions.map(function(instruction) {
             counter += 1;

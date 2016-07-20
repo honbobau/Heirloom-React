@@ -1,4 +1,9 @@
 import React from 'react';
+import { Accordian, AccordionItem } from 'react-sanfona';
+
+function random() {
+  return parseInt(Math.random() * 10, 10) + 1;
+}
 
 class Ingredients extends React.Component {
 
@@ -11,11 +16,12 @@ class Ingredients extends React.Component {
   render() {
     const ingredients = this.props.ingredients;
     let display       = this.state.display;
-    const isDisplayed = display ? '' : 'hidden';
+    const isDisplayed = display ? 'show' : 'hidden';
+    const isActive    = display ? 'button active' : 'button inactive';
 
     return(
       <div>
-        <button className='button accordian' onClick={this.handleClick}>Ingredients</button>
+        <button className={isActive} onClick={this.handleClick}><strong>Ingredients</strong></button>
         <ul className={isDisplayed}>
           {ingredients.map(function(ingredient) {
             return(<li> > {ingredient}</li>);

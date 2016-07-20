@@ -37,3 +37,5 @@ https://s3-us-west-2.amazonaws.com/heirloom-toronto/ + publicURL
 
 
 ./node_modules/.bin/eslint --ext .js --ext .jsx src --fix
+
+https://heirloom-web.herokuapp.com/

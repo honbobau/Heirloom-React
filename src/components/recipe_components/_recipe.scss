@@ -3,6 +3,21 @@
 
 /* ------------------------ Display Recipe Page --------------------- */
 .recipe-page {
+  p, li {
+    font-size: 18px;
+  }
+
+  .button {
+    margin-bottom: 10px;
+  }
+
+  .button.active {
+    background-color: $secondary-color;
+  }
+
+  .hidden {
+    display: none;
+  }
 
   .recipe-content {
     width: 100%;
