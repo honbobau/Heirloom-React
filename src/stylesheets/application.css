@@ -30,9 +30,8 @@
   .global-feed-page .global-feed-content .global-feed-header {
     position: fixed;
     display: flex;
-    width: 414px;
+    width: 420px;
     height: 60px;
-    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -113,9 +112,8 @@
   .recipe-page .recipe-content .recipe-header {
     position: fixed;
     display: flex;
-    width: 414px;
+    width: 420px;
     height: 60px;
-    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -185,9 +183,8 @@
   .new-recipe-page .new-recipe-content .new-recipe-header {
     position: fixed;
     display: flex;
-    width: 414px;
+    width: 420px;
     height: 60px;
-    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -266,9 +263,8 @@
   .user-feed-page .user-feed-content .user-feed-header {
     position: fixed;
     display: flex;
-    width: 414px;
+    width: 420px;
     height: 60px;
-    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -302,9 +298,8 @@
   .profile-page .profile-content .profile-header {
     position: fixed;
     display: flex;
-    width: 414px;
+    width: 420px;
     height: 60px;
-    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
