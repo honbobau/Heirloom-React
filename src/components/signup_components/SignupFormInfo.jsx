@@ -19,7 +19,7 @@ class SignupFormInfo extends React.Component {
 
         <label htmlFor="email">Email</label>
         <div>
-          <input type="text" ref="email" />        
+          <input type="text" ref="email" />
         </div>
 
         <button onClick={ this.saveAndContinue }>Next</button>
@@ -34,10 +34,10 @@ class SignupFormInfo extends React.Component {
       username : ReactDOM.findDOMNode(this.refs.username).value,
       password : ReactDOM.findDOMNode(this.refs.password).value,
       email    : ReactDOM.findDOMNode(this.refs.email).value
-    }
+    };
 
-    this.props.saveValuesInfo(data)
-    this.props.nextStep()
+    this.props.saveValuesInfo(data);
+    this.props.nextStep();
   }
 
 }

@@ -16,19 +16,19 @@ import Logout from './Logout.jsx';
 class ProfileHeader extends React.Component {
 
   render() {
-    let id            = this.props.userInfo.id
+    let id            = this.props.userInfo.id;
     let renderNewPage = this.props.renderNewPage;
     let followUser;
     let addRecipe;
 
     if (id !== parseInt(window.localStorage.current_id)) {
-      followUser = ( <FollowButton followUser={ this.followUser } /> )
+      followUser = (<FollowButton followUser={ this.followUser } />);
     } else {
-      addRecipe = ( <RenderAddRecipe renderNewPage={renderNewPage} /> )
+      addRecipe = (<RenderAddRecipe renderNewPage={renderNewPage} />);
     }
 
 
-    return( 
+    return(
       <header className='profile-header'>
         <img src='src/images/heirloom_logo_white.png' className='heirloom-logo'/>
         <div className='profile-header-icons'>
@@ -47,16 +47,16 @@ class ProfileHeader extends React.Component {
 
   followUser = () => {
     // const {id: window.localStorage.current_id, following_id: id} = this.state
-    const current_id = window.localStorage.current_id
-    const following_id = this.props.userInfo.id
-    const token = window.localStorage.token
-    fetch(`http://localhost:3000/user/${current_id}/followUser/${following_id}/follows?token=${token}`, {
+    const current_id = window.localStorage.current_id;
+    const following_id = this.props.userInfo.id;
+    const token = window.localStorage.token;
+    fetch(`https://heirloom-api.herokuapp.com/user/${current_id}/followUser/${following_id}/follows?token=${token}`, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
         'Content-Type': 'application/json'
       }
-    })
+    });
   }
 };
 

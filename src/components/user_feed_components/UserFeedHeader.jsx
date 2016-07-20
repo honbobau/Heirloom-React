@@ -7,7 +7,7 @@ import SearchRecipes from '../utility_components/SearchRecipes.jsx';
 class UserFeedHeader extends React.Component {
 
   render() {
-    const renderNewPage = this.props.renderNewPage
+    const renderNewPage = this.props.renderNewPage;
 
     return(
         <header className='user-feed-header container'>

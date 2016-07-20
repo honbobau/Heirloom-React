@@ -12,20 +12,20 @@ class RecipeCard extends React.Component {
     const description   = recipe.recipe.description;
     const imageURL      = recipe[0].photos[0].filepath;
 
-    return( 
-        <section className='box recipe-card'> 
-          <img 
-            src={imageURL} 
-            onClick={ () => this.renderRecipePage(recipeID, renderNewPage('RecipePage')) }
-            className='recipe-card-image'/>
-          <p>{description}</p>
-        </section>
-    )
+    return(
+      <section className='box recipe-card'>
+        <img
+          src={imageURL}
+          onClick={ () => this.renderRecipePage(recipeID, renderNewPage('RecipePage')) }
+          className='recipe-card-image'/>
+        <p>{description}</p>
+      </section>
+    );
   }
 
   renderRecipePage = (recipe_id, callback) => {
-    window.localStorage.setItem('recipe_id', recipe_id) 
-    callback
+    window.localStorage.setItem('recipe_id', recipe_id) ;
+    callback;
   }
 }
 

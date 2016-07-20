@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginForm from './LoginForm.jsx'
-import SignupButton from './SignupButton.jsx'
+import LoginForm from './LoginForm.jsx';
+import SignupButton from './SignupButton.jsx';
 
 class LandingPage extends React.Component {
 
@@ -15,7 +15,7 @@ class LandingPage extends React.Component {
               <img src="src/images/heirloom_logo.jpg" />
 
               <div className='landing-page-forms'>
-                <section className="login-form"> 
+                <section className="login-form">
                   <LoginForm renderNewPage={renderNewPage} />
                 </section>
 
@@ -29,7 +29,7 @@ class LandingPage extends React.Component {
                 </section>
               </div>
             </div>
-            
+
           </div>
         </div>
     );

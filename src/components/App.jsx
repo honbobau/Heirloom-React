@@ -21,7 +21,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { page: 'ProfilePage' }
+    this.state = { page: 'ProfilePage' };
   };
 
   render() {
@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   renderNewPage = page => this.setState({ page });
-  
+
 }
 
 export default App;
