@@ -5,7 +5,7 @@ class RecipeCardStats extends React.Component {
   render() {
     const inlineBlock = {
       display: 'inline-block'
-    }
+    };
 
     return(
       <div className='recipe-card-info'>

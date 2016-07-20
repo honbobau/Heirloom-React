@@ -5,7 +5,7 @@ class SignupButton extends React.Component {
   render() {
 
     return (
-      <button className="button" 
+      <button className="button"
          onClick={ () => this.props.renderNewPage('SignupPage') }>
          Join
       </button>

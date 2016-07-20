@@ -8,17 +8,17 @@ class Instruction extends React.Component {
     return(
       <li>
         <label htmlFor={'instruction' + ic} ></label>
-        <input 
-          type='text' 
-          onChange={this.handleChange.bind(this)} 
+        <input
+          type='text'
+          onChange={this.handleChange.bind(this)}
         />
-      </li> 
-    ); 
+      </li>
+    );
   }
 
   handleChange(e) {
-    let data = e.target.value
-    this.props.updateState(+this.props.ic - 1, data)
+    let data = e.target.value;
+    this.props.updateState(+this.props.ic - 1, data);
   }
 
 }

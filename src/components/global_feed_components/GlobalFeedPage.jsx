@@ -9,16 +9,16 @@ class GlobalFeedPage extends React.Component {
 
   constructor(props) {
     super(props);
-    
-    this.state = { recipes: [] }
+
+    this.state = { recipes: [] };
   }
 
   // fetches all recipes upon mount
-  componentDidMount() { this.fetchAllRecipes() }
+  componentDidMount() { this.fetchAllRecipes(); }
   componentWillUnmount() {window.localStorage.setItem('prevPage', 'GlobalFeedPage'); }
 
   render() {
-    console.log('test1')
+    console.log('test1');
 
     let { recipes } = this.state;
     const renderNewPage = this.props.renderNewPage;
@@ -28,14 +28,14 @@ class GlobalFeedPage extends React.Component {
         <div className="columns">
 
           <div className="column is-3 global-feed-content">
-            <GlobalFeedHeader 
+            <GlobalFeedHeader
               renderNewPage={renderNewPage}
               setRecipesInState={this.setRecipesInState}
             />
 
             <div className='recipe-container'>
-              {recipes.map(recipe => <GlobalFeedRecipeCard 
-                                      recipe={recipe} 
+              {recipes.map(recipe => <GlobalFeedRecipeCard
+                                      recipe={recipe}
                                       renderNewPage={renderNewPage}
                                     />
               )}
@@ -55,20 +55,20 @@ class GlobalFeedPage extends React.Component {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
-        'Content-Type': 'application/json'   
+        'Content-Type': 'application/json'
       }
     })
     .then((recipes) => recipes.json())
     .then((recipes) => this.setRecipesInState(recipes))
     .then((recipes) => { console.log(recipes); return recipes; })
-    .catch(function(res){ console.log(res) })
+    .catch(function(res) { console.log(res); });
   }
 
   // stores the recipes in state
   setRecipesInState = (recipes) => {
-    recipes.reverse()
-    this.setState({ recipes: recipes })
-    return this.state.recipes
+    recipes.reverse();
+    this.setState({ recipes: recipes });
+    return this.state.recipes;
   }
 
 }

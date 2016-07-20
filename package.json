@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "eslint --ext .js --ext .jsx ./src",
+    "lint:fix": "eslint --ext .js --ext .jsx ./src --fix",
+    "hellokazi": "echo 'hello kazi'"
   },
   "repository": {
     "type": "git",

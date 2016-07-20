@@ -2,7 +2,7 @@ import React from 'react';
 import SignupFormInfo from './SignupFormInfo.jsx';
 import SignupFormPhoto from './SignupFormPhoto.jsx';
 import SignupPreview from './SignupPreview.jsx';
-import SignupForm from './SignupForm.jsx'
+import SignupForm from './SignupForm.jsx';
 
 class SignupPage extends React.Component {
 
@@ -21,7 +21,7 @@ class SignupPage extends React.Component {
           <div className="column is-4">
             <SignupPreview />
           </div>
-          
+
         </div>
       </div>
     );

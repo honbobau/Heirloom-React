@@ -1,6 +1,6 @@
 import React from 'react';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA'
+const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA';
 
 class LoginForm extends React.Component {
 
@@ -10,7 +10,7 @@ class LoginForm extends React.Component {
     this.state = {
       username: '',
       password: ''
-    }
+    };
   };
 
   render() {
@@ -29,26 +29,26 @@ class LoginForm extends React.Component {
 
         <button className="button" onClick={ this.submitLogin }>Log In
         </button>
-      </form>  
+      </form>
 
     );
   }
 
   // sets username state
   setUsernameState = (e) => {
-    let username = e.target.value
-    this.setState({ username: username })
+    let username = e.target.value;
+    this.setState({ username: username });
   }
 
   // sets password state
   setPasswordState = (e) => {
-    let password = e.target.value
-    this.setState({ password: password })
+    let password = e.target.value;
+    this.setState({ password: password });
   }
 
   // submits the form to backend
   submitLogin = (e) => {
-    e.preventDefault() 
+    e.preventDefault();
 
     const username = this.state.username;
     const password = this.state.password;
@@ -67,10 +67,10 @@ class LoginForm extends React.Component {
     .then((user) => user.json())
     .then((user) => { console.log(user); return user;})
     .then((user) => {
-      window.localStorage.setItem('token', user.token)
-      window.localStorage.setItem('current_id', user.user)
+      window.localStorage.setItem('token', user.token);
+      window.localStorage.setItem('current_id', user.user);
     })
-    .then((user) => this.props.renderNewPage('UserFeedPage'))
+    .then((user) => this.props.renderNewPage('UserFeedPage'));
   }
 
 }

@@ -5,19 +5,19 @@ import RecipeGallery from './RecipeGallery.jsx';
 import RecipeGalleryNav from './RecipeGalleryNav.jsx';
 
 class ProfilePage extends React.Component {
-  
+
   constructor(props) {
     super(props);
 
-    this.state = { 
+    this.state = {
       userInfo: {},
       userRecipes: [],
       favRecipes: [],
       recipeDisplay: 'user'
-    }
+    };
   }
 
-  componentDidMount() { this.fetchUserComponents() }
+  componentDidMount() { this.fetchUserComponents(); }
 
   render() {
     // this looks so gross
@@ -25,11 +25,11 @@ class ProfilePage extends React.Component {
     let { userInfo }    = this.state;
     let { userRecipes } = this.state;
     let { favRecipes }  = this.state;
-    let displayUserRecipes = <RecipeGallery 
+    let displayUserRecipes = <RecipeGallery
                               recipes={userRecipes}
                               renderNewPage={renderNewPage}
                              />;
-    let displayFavRecipes = <RecipeGallery 
+    let displayFavRecipes = <RecipeGallery
                               recipes={favRecipes}
                               renderNewPage={renderNewPage}
                             />;
@@ -41,9 +41,9 @@ class ProfilePage extends React.Component {
       <div className='container'>
         <div className='profile-page columns'>
 
-          <div className='profile-content column is-3'> 
-            <ProfileHeader 
-              userInfo={ userInfo } 
+          <div className='profile-content column is-3'>
+            <ProfileHeader
+              userInfo={ userInfo }
               renderNewPage={ renderNewPage }
             />
 
@@ -71,7 +71,7 @@ class ProfilePage extends React.Component {
   fetchUserComponents = () => {
     const current_id = window.localStorage.current_id;
     const token      = window.localStorage.token;
-    
+
     fetch(`https://heirloom-api.herokuapp.com/user/${current_id}?token=${token}`, {
       method: 'GET',
       headers: {
@@ -83,7 +83,7 @@ class ProfilePage extends React.Component {
     .then((user) => this.setUser(user))
     .then((user) => this.fetchRecipeComponents())
     .then((user) => this.fetchFavouriteRecipes())
-    .catch((res) => console.log(res))
+    .catch((res) => console.log(res));
   }
 
   // fetches recipes owned by user
@@ -100,7 +100,7 @@ class ProfilePage extends React.Component {
     })
     .then((userRecipes) => userRecipes.json())
     .then((userRecipes) => this.setUserRecipes(userRecipes))
-    .catch((res) => console.log(res))
+    .catch((res) => console.log(res));
   }
 
   // fetches favourited by user
@@ -121,19 +121,19 @@ class ProfilePage extends React.Component {
   }
 
   // sets user info into state
-  setUser = (user) => { this.setState({ userInfo: user }) }
+  setUser = (user) => { this.setState({ userInfo: user }); }
 
   // sets user recipes into state
-  setUserRecipes = (userRecipes) => { this.setState({ userRecipes: userRecipes}) }
+  setUserRecipes = (userRecipes) => { this.setState({ userRecipes: userRecipes}); }
 
   // sets favourite recipes into state
-  setFavRecipes = (favRecipes) => { 
-    this.setState({ favRecipes: favRecipes }) 
+  setFavRecipes = (favRecipes) => {
+    this.setState({ favRecipes: favRecipes });
   }
 
   // toggles the gallery showing state
   toggleGallery = (state) => {
-    this.setState({ recipeDisplay: state })
+    this.setState({ recipeDisplay: state });
   }
 
   debuggerTest = () => {

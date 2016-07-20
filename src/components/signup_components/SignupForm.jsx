@@ -4,7 +4,7 @@ import SignupFormInfo from './SignupFormInfo.jsx';
 import SignupFormPhoto from './SignupFormPhoto.jsx';
 import SignupFormConfirm from './SignupFormConfirm.jsx';
 
-const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA'
+const token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInVzZXJuYW1lIjoiaG9uIiwicGFzc3dvcmQiOiJob24iLCJlbWFpbCI6bnVsbCwiYmx1cmIiOm51bGwsInVzZXJfcGhvdG8iOm51bGwsImlhdCI6MTQ2ODUzNjExMSwiZXhwIjoxNDY4NjIyNTExfQ.ZOWVVuRvibE1wwzA8uTgFJuVOjUXvrNVfjvod3IR-HA';
 
 class SignupForm extends React.Component {
 
@@ -18,31 +18,31 @@ class SignupForm extends React.Component {
       email:    '',
       photoURL: '',
       blurb:    ''
-    }
+    };
   };
 
   render() {
-   const renderNewPage = this.props.renderNewPage
+    const renderNewPage = this.props.renderNewPage;
 
     switch(this.state.state) {
-      case 1: 
-        return <SignupFormInfo 
+    case 1:
+      return <SignupFormInfo
                   nextStep={this.nextStep}
                   saveValuesInfo={this.saveValuesInfo}
-               />
-      case 2:
-        return <SignupFormPhoto 
+               />;
+    case 2:
+      return <SignupFormPhoto
                   previousStep={this.previousStep}
                   nextStep={this.nextStep}
                   saveBlurb={this.saveBlurb}
                   savePhotoURL={this.savePhotoURL}
-                  submitForm={this.submitForm} 
-               />
-      case 3:
-        return <SignupFormConfirm 
-                 username={this.state.username} 
+                  submitForm={this.submitForm}
+               />;
+    case 3:
+      return <SignupFormConfirm
+                 username={this.state.username}
                  renderNewPage={renderNewPage}
-               />
+               />;
     }
   }
 
@@ -51,27 +51,27 @@ class SignupForm extends React.Component {
       username: data.username,
       password: data.password,
       email:    data.email
-    })
+    });
   }
 
   // saves the blurb
   saveBlurb = (data) => {
-    this.setState({ blurb: data })
+    this.setState({ blurb: data });
   }
 
   // saves the photo url
   savePhotoURL = (url) => {
-    this.setState({ photoURL: url })
+    this.setState({ photoURL: url });
   }
 
   // renders the next step of the form
   nextStep = () => {
-    this.setState({ state : this.state.state + 1 })
+    this.setState({ state : this.state.state + 1 });
   }
 
   // renders the previous step of the form
   previousStep = () => {
-    this.setState({ state : this.state.state - 1 })
+    this.setState({ state : this.state.state - 1 });
   }
 
   submitForm = (callback) => {
@@ -97,11 +97,13 @@ class SignupForm extends React.Component {
     })
     .then((user) => user.json())
     .then((user) => {
-      window.localStorage.setItem('token', user.token)
-      window.localStorage.setItem('current_id', user.id)
+      window.localStorage.setItem('token', user.token);
+      window.localStorage.setItem('current_id', user.id);
     })
     .then(callback)
-    .catch(function(res){ console.log(res) })
+    .catch(function(res) {
+      console.log(res);
+    });
   }
 
 }

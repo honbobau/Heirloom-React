@@ -10,48 +10,48 @@ const token = '?token=' + window.localStorage.token;
 class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       state: 1,
       ingredients: [],
       instructions: [],
       photo: '',
       description: ''
-    }
+    };
   }
 
   render() {
 
     switch(this.state.state) {
-      case 1: 
-        return(
+    case 1:
+      return(
           <section className='new-recipe-form'>
-            <RecipeNewEditIngredients 
+            <RecipeNewEditIngredients
               saveIngredients={this.saveIngredients}
-              nextStep={this.nextStep} 
-            /> 
+              nextStep={this.nextStep}
+            />
           </section>
         );
 
-      case 2:
-        return(
+    case 2:
+      return(
           <section className='new-recipe-form'>
             <RecipeNewEditInstructions
               saveInstructions={this.saveInstructions}
               nextStep={this.nextStep}
-              previousStep={this.previousStep} 
+              previousStep={this.previousStep}
             />
           </section>
           );
 
-      case 3:
-        return(
+    case 3:
+      return(
           <section className='new-recipe-form'>
-            <RecipeNewEditPhoto 
+            <RecipeNewEditPhoto
               savePhoto={this.savePhoto}
               saveDescription={this.saveDescription}
               submitForm={this.submitForm}
-              previousStep={this.previousStep} 
+              previousStep={this.previousStep}
             />
           </section>
           );
@@ -60,42 +60,42 @@ class RecipeForm extends React.Component {
 
   // returns to the previous form component
   previousStep = (ev) => {
-    ev.preventDefault()
+    ev.preventDefault();
 
-    this.setState({ state: this.state.state - 1 })
+    this.setState({ state: this.state.state - 1 });
   }
 
   // renders the next form component
   nextStep = () => {
-    this.setState({ state: this.state.state + 1 })
+    this.setState({ state: this.state.state + 1 });
   }
 
   // save form ingredients to state
   saveIngredients = (data) => {
-    let ingredients = this.state.ingredients
-    this.setState({ ingredients: [...ingredients, ...data] })
+    let ingredients = this.state.ingredients;
+    this.setState({ ingredients: [...ingredients, ...data] });
   }
 
   // save form instructions to state
   saveInstructions = (data) => {
-    let instructions = this.state.instructions
-    this.setState({ instructions: [...instructions, ...data] })
+    let instructions = this.state.instructions;
+    this.setState({ instructions: [...instructions, ...data] });
   }
 
   // save photo upload to state
   savePhoto = (data) => {
-    this.setState({ photo: data })
+    this.setState({ photo: data });
   }
 
   // save description to state
   saveDescription = (data) => {
-    let description = this.state.description
-    this.setState({ description: data })
+    let description = this.state.description;
+    this.setState({ description: data });
   }
 
-  // makes photo ajax call using 
+  // makes photo ajax call using
   submitPhoto = (id, url) => {
-    fetch('https://heirloom-api.herokuapp.com/recipes/photos' + token, { 
+    fetch('https://heirloom-api.herokuapp.com/recipes/photos' + token, {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
@@ -105,7 +105,7 @@ class RecipeForm extends React.Component {
         filepath:  url,
         recipe_id: id
       })
-    })
+    });
   }
 
   // makes ajax post to server with recipe for then with photo form
@@ -116,7 +116,7 @@ class RecipeForm extends React.Component {
     let description  = this.state.description;
     let photo        = this.state.photo;
     let currentDate  = new Date();
-    
+
     fetch('https://heirloom-api.herokuapp.com/recipes' + token, {
       method: 'POST',
       headers: {
@@ -132,9 +132,9 @@ class RecipeForm extends React.Component {
       })
     })
     .then((object) => object.json())
-    .then((object) => { this.submitPhoto(object[0].id, photo) })
+    .then((object) => { this.submitPhoto(object[0].id, photo); })
     .then(this.props.renderNewPage('GlobalFeedPage'))
-    .catch(function(res){ console.log(res) })
+    .catch(function(res) { console.log(res); });
   }
 
 }

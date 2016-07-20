@@ -5,7 +5,7 @@ class Ingredients extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { display: true }
+    this.state = { display: true };
   }
 
   render() {
@@ -15,10 +15,10 @@ class Ingredients extends React.Component {
 
     return(
       <div>
-        <button className='button' onClick={this.handleClick}>Ingredients</button>  
+        <button className='button' onClick={this.handleClick}>Ingredients</button>
         <ul className={isDisplayed}>
           {ingredients.map(function(ingredient) {
-            return( <li> > {ingredient}</li> );
+            return(<li> > {ingredient}</li>);
           })}
         </ul>
       </div>
@@ -27,7 +27,7 @@ class Ingredients extends React.Component {
   handleClick = (ev) => {
     ev.preventDefault;
 
-    this.setState({ display: !this.state.display })
+    this.setState({ display: !this.state.display });
   }
 
 }

@@ -13,7 +13,7 @@ let classNames = require('classnames');
 class RecipePage extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       id:              '',
       recipe:          [],
@@ -23,10 +23,10 @@ class RecipePage extends React.Component {
       photoURL:        '',
       userID:          '',
       recipeUsername:  ''
-    }
+    };
   }
 
-  componentDidMount() { this.fetchRecipeComponents() }
+  componentDidMount() { this.fetchRecipeComponents(); }
 
   render() {
 
@@ -70,7 +70,7 @@ class RecipePage extends React.Component {
                 <h4>Instructions</h4>
                 <Instructions instructions={this.state.instructions} />
               </section>
-           
+
           </div>
 
         </div>
@@ -87,75 +87,75 @@ class RecipePage extends React.Component {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
-        'Content-Type': 'application/json' 
+        'Content-Type': 'application/json'
       }
     })
     .then((recipe) => recipe.json())
     .then((recipe) => this.setState({ recipe: recipe }))
-    .then((recipe) => this.saveRecipeData()) 
+    .then((recipe) => this.saveRecipeData())
     .then((recipe) => this.saveUserData())
-    .catch(function(recipe){ console.log(recipe) })
+    .catch(function(recipe) { console.log(recipe); });
   }
 
   // fetches the user information associated with this recipe
   saveUserData = () => {
-    let recipeUserID = this.state.userID
+    let recipeUserID = this.state.userID;
     let token = '?token=' + window.localStorage.token;
 
     fetch(`https://heirloom-api.herokuapp.com/user/${recipeUserID}` + token, {
       method: 'GET',
       headers: {
         'Accept':       'application/json',
-        'Content-Type': 'application/json' 
+        'Content-Type': 'application/json'
       }
-    })  
+    })
     .then((recipeUser) => recipeUser.json())
-    .then((recipeUser) => this.fetchRecipeUser(recipeUser))
+    .then((recipeUser) => this.fetchRecipeUser(recipeUser));
 
   }
 
   // saves the recipe's user to state
   fetchRecipeUser = (recipeUser) => {
-    this.setState({ recipeUsername: recipeUser.username })
+    this.setState({ recipeUsername: recipeUser.username });
   }
 
   // saves all data from the recipe to state
   saveRecipeData = () => {
-    this.fetchRecipeIngredients()
-    this.fetchRecipeInstructions()
-    this.fetchRecipeDescription()
-    this.fetchRecipePhoto()
-    this.fetchRecipeID()
-    this.fetchUserID()
+    this.fetchRecipeIngredients();
+    this.fetchRecipeInstructions();
+    this.fetchRecipeDescription();
+    this.fetchRecipePhoto();
+    this.fetchRecipeID();
+    this.fetchUserID();
   }
 
   fetchRecipeIngredients = () => {
-    this.setState({ ingredients: this.state.recipe[0].recipe.ingredients })
+    this.setState({ ingredients: this.state.recipe[0].recipe.ingredients });
   }
 
   fetchRecipeInstructions = () => {
-    this.setState({ instructions: this.state.recipe[0].recipe.instructions })
+    this.setState({ instructions: this.state.recipe[0].recipe.instructions });
   }
 
   fetchRecipeDescription = () => {
-    this.setState({ description: this.state.recipe[0].recipe.description })
+    this.setState({ description: this.state.recipe[0].recipe.description });
   }
 
   fetchRecipePhoto = () => {
-    this.setState({ photoURL: this.state.recipe[0].photos[0].filepath })
+    this.setState({ photoURL: this.state.recipe[0].photos[0].filepath });
   }
 
   fetchRecipeID = () => {
-    this.setState({ id: this.state.recipe[0].recipe.id })
-  } 
+    this.setState({ id: this.state.recipe[0].recipe.id });
+  }
 
   fetchUserID = () => {
-    this.setState({ userID: this.state.recipe[0].recipe.user_id })
-  }  
+    this.setState({ userID: this.state.recipe[0].recipe.user_id });
+  }
 
   // attaches the current user id to this recipe id in likes
   likeRecipe = () => {
-    const current_id = window.localStorage.current_id
+    const current_id = window.localStorage.current_id;
     const { id } = this.state;
     let token = '?token=' + window.localStorage.token;
 
@@ -163,24 +163,24 @@ class RecipePage extends React.Component {
       method: 'POST',
       headers: {
         'Accept':       'application/json',
-        'Content-Type': 'application/json' 
+        'Content-Type': 'application/json'
       }
-    })
+    });
   }
 
   // attaches the current user id to this recipe id in favourites
   favRecipe = () => {
     let token = '?token=' + window.localStorage.token;
-    const current_id = window.localStorage.current_id
+    const current_id = window.localStorage.current_id;
     const { id } = this.state;
 
     fetch(`https://heirloom-api.herokuapp.com/user/${current_id}/recipe/${id}/favourites${token}`, {
       method:  'POST',
       headers: {
         'Accept':       'application/json',
-        'Content-Type': 'application/json' 
+        'Content-Type': 'application/json'
       }
-    })
+    });
   }
 
   // current user follows the user of the recipe being shown
@@ -193,9 +193,9 @@ class RecipePage extends React.Component {
       method:  'POST',
       headers: {
         'Accept':       'application/json',
-        'Content-Type': 'application/json' 
+        'Content-Type': 'application/json'
       }
-    })
+    });
   }
 
 };

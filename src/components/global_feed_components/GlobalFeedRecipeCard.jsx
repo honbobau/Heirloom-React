@@ -13,25 +13,25 @@ class GlobalFeedRecipeCard extends React.Component {
     const description   = recipe.recipe.description;
     const imageURL      = recipe.photos[0].filepath;
 
-    return( 
-        <section className='box recipe-card'> 
-          <img 
-            src={imageURL} 
+    return(
+        <section className='box recipe-card'>
+          <img
+            src={imageURL}
             onClick={ () => this.renderRecipePage(recipeID, renderNewPage('RecipePage')) }
             className='recipe-card-image'
           />
-          <RecipeCardStats 
+          <RecipeCardStats
             ingredientsQty  = {ingredients.length}
             instructionsQty = {instructions.length}
             description     = {description}
           />
         </section>
-    )
+    );
   }
 
   renderRecipePage = (recipe_id, callback) => {
-    window.localStorage.setItem('recipe_id', recipe_id) 
-    callback
+    window.localStorage.setItem('recipe_id', recipe_id);
+    callback;
   }
 }
 

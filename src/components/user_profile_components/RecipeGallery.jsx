@@ -9,8 +9,8 @@ class RecipeGallery extends React.Component {
 
     return(
       <div className='profile-photo-container'>
-        {recipes.map(recipe => <PhotoCard 
-                                recipe={recipe} 
+        {recipes.map(recipe => <PhotoCard
+                                recipe={recipe}
                                 renderNewPage={renderNewPage}
                                />
         )}
