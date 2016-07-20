@@ -30,8 +30,10 @@
   .global-feed-page .global-feed-content .global-feed-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
+    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -52,7 +54,7 @@
       display: flex;
       flex-direction: column;
       height: 460px;
-      width: 420px; }
+      width: 414px; }
       .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-image {
         display: block;
         margin: 0 auto;
@@ -112,8 +114,10 @@
   .recipe-page .recipe-content .recipe-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
+    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -183,8 +187,10 @@
   .new-recipe-page .new-recipe-content .new-recipe-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
+    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -263,8 +269,10 @@
   .user-feed-page .user-feed-content .user-feed-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
+    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
@@ -298,8 +306,10 @@
   .profile-page .profile-content .profile-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
+    padding: 0;
     background-color: #e2562b;
     z-index: 100;
     border-radius: 3%; }
