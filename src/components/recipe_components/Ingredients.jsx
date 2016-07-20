@@ -1,5 +1,4 @@
 import React from 'react';
-import { Accordian, AccordionItem } from 'react-sanfona';
 
 function random() {
   return parseInt(Math.random() * 10, 10) + 1;
