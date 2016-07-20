@@ -7,22 +7,23 @@ class SignupFormInfo extends React.Component {
   render() {
     return(
       <form>
+        <h2 className="signup-header">WELCOME TO HEIRLOOM</h2>
         <label htmlFor="signup-username">Username</label>
-        <div>
-          <input type="text" ref="username" />
-        </div>
+        <p className="control">
+          <input className="input" type="text" ref="username" />
+        </p>
 
         <label htmlFor="password">Password</label>
-        <div>
-          <input type="text" ref="password" />
-        </div>
+        <p className="control">
+          <input className="input" type="password" ref="password" />
+        </p>
 
         <label htmlFor="email">Email</label>
-        <div>
-          <input type="text" ref="email" />        
-        </div>
+        <p className="control">
+          <input className="input" type="text" ref="email" />        
+        </p>
 
-        <button onClick={ this.saveAndContinue }>Next</button>
+        <button className="button is-success" onClick={ this.saveAndContinue }>Next</button>
       </form>
     );
   }

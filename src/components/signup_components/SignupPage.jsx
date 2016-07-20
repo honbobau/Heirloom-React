@@ -14,11 +14,11 @@ class SignupPage extends React.Component {
       <div className="container signup-page">
         <div className="columns">
 
-          <div className="column is-4 is-offset-2">
+          <div className="column is-5 is-offset-2">
             <SignupForm renderNewPage={renderNewPage}/>
           </div>
 
-          <div className="column is-4">
+          <div className="column is-5 is-offset-2" id="preview-align">
             <SignupPreview />
           </div>
           

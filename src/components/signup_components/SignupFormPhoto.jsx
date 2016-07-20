@@ -8,7 +8,8 @@ class SignupFormPhoto extends React.Component {
     return(
 
       <form id="signup-form-photo" encType="application/x-www-form-urlencoded">
-        <label htmlFor="signup-photo">Photo</label>
+        <h2 className="signup-header">ADD PHOTO & BIO</h2>
+        <label htmlFor="signup-photo"></label>
         <ReactS3Uploader
           signingUrl="/s3/sign"
           accept="image/*"
@@ -19,14 +20,13 @@ class SignupFormPhoto extends React.Component {
           contentDisposition="auto"
           server="http://localhost:3000" 
         />
-
-        <label htmlFor="signup-blurb">Blurb</label>
-        <div>
-          <input type="text" ref="blurb" onBlur={ this.saveBlurb }/>
-        </div>
-
-        <button onClick={ this.previousForm }>Previous</button>
-        <button onClick={ this.saveAndFinish }>Finish</button>
+    
+        <p className="control" id="control-blurb">
+          <textarea placeholder="Tell Us About Yourself" className="input" type="text" ref="blurb" onBlur={ this.saveBlurb }/>
+        </p>
+    
+        <button className="button is-success" onClick={ this.previousForm }>Previous</button>
+        <button className="button is-success" onClick={ this.saveAndFinish }>Finish</button>
       </form>
     );
   }

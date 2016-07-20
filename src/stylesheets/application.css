@@ -214,6 +214,17 @@
   .recipe-search-form #search-icon:hover {
     color: #97CD76; }
 
+.signup-page .columns .column {
+  margin-top: 1em; }
+.signup-page .columns .signup-header {
+  font-size: 30px;
+  text-align: center; }
+.signup-page .columns #control-blurb {
+  padding-bottom: 0.5em;
+  padding-top: 0.5em; }
+.signup-page .columns button {
+  margin-right: 0.5em; }
+
 /* ------------------------ User Feed ----------------------- */
 .user-feed-page .user-feed-content {
   width: 100%;

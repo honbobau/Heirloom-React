@@ -43,3 +43,27 @@
     color: $secondary-color;
   }
 }
+
+.signup-page {
+
+  .columns {
+
+    .column {
+      margin-top: 1em;
+    }
+
+    .signup-header {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    #control-blurb {
+      padding-bottom: 0.5em;
+      padding-top: 0.5em; 
+    }
+
+    button {
+      margin-right: 0.5em;
+    }
+  }
+}
