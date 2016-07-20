@@ -22,15 +22,14 @@
 
   .recipe-search-form-container {
     display: flex;
-    height: 100px;
-    width: 160px;
+    height: 35px;
+    width: 192px;
     background-color: $primary-color;
     border-radius: 5%;
 
     .recipe-search-form-package {
-      align-self: flex-end;
-      display: flex;
-      align-items: center;
+      display: block;
+      margin: 0.5em;
     }
   }
 

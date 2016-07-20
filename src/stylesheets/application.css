@@ -8,7 +8,7 @@
   transition: all 0.4s linear; }
 
 .container {
-  width: 420px; }
+  width: 414px; }
 
 .columns, .column {
   max-width: 100%;
@@ -27,8 +27,9 @@
   .global-feed-page .global-feed-content .global-feed-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
     padding: 0;
     background-color: #e2562b;
     z-index: 100;
@@ -50,7 +51,7 @@
       display: flex;
       flex-direction: column;
       height: 460px;
-      width: 420px; }
+      width: 414px; }
       .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-image {
         display: block;
         margin: 0 auto;
@@ -120,8 +121,9 @@
   .recipe-page .recipe-content .recipe-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
     padding: 0;
     background-color: #e2562b;
     z-index: 100;
@@ -192,8 +194,9 @@
   .new-recipe-page .new-recipe-content .new-recipe-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
     padding: 0;
     background-color: #e2562b;
     z-index: 100;
@@ -241,14 +244,13 @@
     display: block; }
   .recipe-search-form .recipe-search-form-container {
     display: flex;
-    height: 100px;
-    width: 160px;
+    height: 35px;
+    width: 192px;
     background-color: #e2562b;
     border-radius: 5%; }
     .recipe-search-form .recipe-search-form-container .recipe-search-form-package {
-      align-self: flex-end;
-      display: flex;
-      align-items: center; }
+      display: block;
+      margin: 0.5em; }
   .recipe-search-form #search-icon {
     color: #FFFFFF;
     transition: all 0.4s linear; }
@@ -274,8 +276,9 @@
   .user-feed-page .user-feed-content .user-feed-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
     padding: 0;
     background-color: #e2562b;
     z-index: 100;
@@ -324,8 +327,9 @@
   .profile-page .profile-content .profile-header {
     position: fixed;
     display: flex;
-    width: 420px;
+    width: 414px;
     height: 60px;
+    top: 0;
     padding: 0;
     background-color: #e2562b;
     z-index: 100;

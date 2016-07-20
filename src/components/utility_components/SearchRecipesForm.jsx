@@ -13,7 +13,7 @@ class SearchRecipesForm extends React.Component {
     return(
       <form className='recipe-search-form-container'>
         <div className='recipe-search-form-package'>
-          <input className='recipe-search-form-input' type='text' onBlur={this.storeQuery} />
+          <input placeholder="Search By Tag" className='recipe-search-form-input' type='text' onBlur={this.storeQuery} />
           <span className='recipe-search-form-icon icon is-small'>
             <i className='recipe-search-form-icon fa fa-search' onClick={this.filterRecipes}></i>
           </span>
