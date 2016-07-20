@@ -14,8 +14,12 @@ class GlobalFeedPage extends React.Component {
   }
 
   // fetches all recipes upon mount
-  componentDidMount() { this.fetchAllRecipes(); }
-  componentWillUnmount() {window.localStorage.setItem('prevPage', 'GlobalFeedPage'); }
+  componentDidMount() {
+    this.fetchAllRecipes();
+  }
+  componentWillUnmount() {
+    window.localStorage.setItem('prevPage', 'GlobalFeedPage');
+  }
 
   render() {
     console.log('test1');
@@ -60,7 +64,6 @@ class GlobalFeedPage extends React.Component {
     })
     .then((recipes) => recipes.json())
     .then((recipes) => this.setRecipesInState(recipes))
-    .then((recipes) => { console.log(recipes); return recipes; })
     .catch(function(res) { console.log(res); });
   }
 

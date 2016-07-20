@@ -22,7 +22,9 @@ class RecipePage extends React.Component {
       description:     '',
       photoURL:        '',
       userID:          '',
-      recipeUsername:  ''
+      recipeUsername:  '',
+      isLiked:         '',
+      isFav:           ''
     };
   }
 
@@ -118,7 +120,6 @@ class RecipePage extends React.Component {
     })
     .then((recipeUser) => recipeUser.json())
     .then((recipeUser) => this.fetchRecipeUser(recipeUser));
-
   }
 
   // saves the recipe's user to state
@@ -203,6 +204,23 @@ class RecipePage extends React.Component {
         'Content-Type': 'application/json'
       }
     });
+  }
+
+  // checks if the current user has already like the current recipe
+  checkLiked = () => {
+    let token       = '?token=' + window.localStorage.token;
+    let currentUser = window.localStorage.current_id;
+    let recipeID    = this.state.id;
+
+    fetch(`https://heirloom-api.herokuapp.com/user/${currentUser}/recipe/${recipeID}/likes${token}`, {
+      method:  'POST',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((result) => console.log(result))
+    .catch((result) => console.log(result));
   }
 
 };

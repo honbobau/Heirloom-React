@@ -19,9 +19,6 @@
   max-width: 300px;
   margin: 0 auto; }
 
-.hidden {
-  display: none; }
-
 /* ------------------------ Global Feed --------------------- */
 .global-feed-page .global-feed-content {
   width: 100%;
@@ -64,7 +61,7 @@
         width: 300px;
         margin: 0 auto;
         padding-top: 10px; }
-        .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-info i, .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-info i:hover {
+        .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-info i {
           color: #e2562b; }
         .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-info .match-md-icon {
           font-size: 25px;
@@ -79,6 +76,8 @@
 .landing-page {
   height: 35em;
   margin-top: 20px; }
+  .landing-page label, .landing-page p {
+    font-size: 18px; }
   .landing-page .landing-page-content {
     width: 100%; }
     .landing-page .landing-page-content hr {
@@ -303,6 +302,20 @@
         border-radius: 2%;
         height: 300px;
         width: 300px; }
+      .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info {
+        width: 300px;
+        margin: 0 auto;
+        padding-top: 10px; }
+        .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info i {
+          color: #e2562b; }
+        .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info .match-md-icon {
+          font-size: 25px;
+          line-height: 140%; }
+        .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info div {
+          padding: 0 5px 0 0; }
+        .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info #border-left {
+          padding-left: 5px;
+          border-left: 1px solid #e2562b; }
 
 /* ------------------------ Profile Page --------------------- */
 .profile-page .profile-content {
@@ -357,5 +370,13 @@
       height: 100%;
       width: 100%;
       border-radius: 4%; }
+    .profile-page .profile-content .profile-recipe-container .profile-recipe-card .match-md-icon {
+      font-size: 25px;
+      line-height: 140%; }
+    .profile-page .profile-content .profile-recipe-container .profile-recipe-card div {
+      padding: 0 5px 0 0; }
+    .profile-page .profile-content .profile-recipe-container .profile-recipe-card #border-left {
+      padding-left: 5px;
+      border-left: 1px solid #e2562b; }
 
 /*# sourceMappingURL=application.css.map */

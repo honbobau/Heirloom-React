@@ -37,6 +37,30 @@
           height: 300px;
           width: 300px;
         }
+
+        .recipe-card-info {
+          width: $recipe-card-image-width;
+          margin: 0 auto;
+          padding-top: 10px;
+
+          i {
+            color: $primary-color;
+          }
+
+          .match-md-icon {
+            font-size: 25px;
+            line-height: 140%;
+          }
+
+          div {
+            padding: 0 5px 0 0;
+          }
+
+          #border-left {
+            padding-left: 5px;
+            border-left: 1px solid $primary-color;
+          }
+        }
       }
     }
 

@@ -17,7 +17,9 @@ class ProfilePage extends React.Component {
     };
   }
 
-  componentDidMount() { this.fetchUserComponents(); }
+  componentDidMount() {
+    this.fetchUserComponents();
+  }
 
   render() {
     // this looks so gross
@@ -121,10 +123,14 @@ class ProfilePage extends React.Component {
   }
 
   // sets user info into state
-  setUser = (user) => { this.setState({ userInfo: user }); }
+  setUser = (user) => {
+    this.setState({ userInfo: user });
+  }
 
   // sets user recipes into state
-  setUserRecipes = (userRecipes) => { this.setState({ userRecipes: userRecipes}); }
+  setUserRecipes = (userRecipes) => {
+    this.setState({ userRecipes: userRecipes});
+  }
 
   // sets favourite recipes into state
   setFavRecipes = (favRecipes) => {

@@ -13,8 +13,12 @@ class UserFeedPage extends React.Component {
   }
 
   // fetches all recipes upon mount
-  componentDidMount() { this.fetchAllRecipes(); }
-  componentWillUnmount() { window.localStorage.setItem('prevPage', 'UserFeedPage'); }
+  componentDidMount() {
+    this.fetchAllRecipes();
+  }
+  componentWillUnmount() {
+    window.localStorage.setItem('prevPage', 'UserFeedPage');
+  }
 
   render() {
     const { recipes } = this.state;
@@ -57,7 +61,6 @@ class UserFeedPage extends React.Component {
       }
     })
     .then((recipes) => recipes.json())
-    .then((recipes) => { console.log(recipes); return recipes; })
     .then((recipes) => this.consolidateRecipeArrays(recipes[0], recipes[1]))
     .then((recipes) => this.sortRecipesByDate(recipes))
     .then((recipes) => this.setRecipesInState(recipes))
