@@ -20,12 +20,8 @@ const routes = {
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-<<<<<<< HEAD
+    
     this.state = { page: 'LandingPage' }
-=======
-    this.state = { page: 'ProfilePage' };
->>>>>>> master
   };
 
   render() {

@@ -17,7 +17,6 @@ class RecipeNewEditPhoto extends React.Component {
 
     return(
       <div>
-<<<<<<< HEAD
         <h2 id="photo-header">ADD PHOTO & DESCRIPTION</h2>
         <div>
           <ReactS3Uploader
@@ -42,29 +41,6 @@ class RecipeNewEditPhoto extends React.Component {
           </p>
         <button className='button is-success' onClick={ this.props.previousStep}>Previous</button>
         <button className='button is-success' onClick={ (e) => { this.updateParentState() } }>Submit</button>
-=======
-        <label>Input Photo</label>
-        <ReactS3Uploader
-          signingUrl="/s3/sign"
-          accept="image/*"
-          onProgress={this.onUploadProgress}
-          onError={this.onUploadError}
-          onFinish={this.onUploadFinish}
-          uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
-          contentDisposition="auto"
-          server="https://heirloom-api.herokuapp.com"
-        />
-
-        <label>Input Description</label>
-        <input
-          type="text"
-          onChange={ this.updateDescriptionState.bind(this) }
-          onBlur={ this.updateDescriptionState.bind(this) }
-        />
-
-        <button className='button' onClick={ this.props.previousStep}>Previous</button>
-        <button className='button' onClick={ (e) => { this.updateParentState(); } }>Submit</button>
->>>>>>> master
       </div>
     );
   }

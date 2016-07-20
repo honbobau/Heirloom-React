@@ -14,7 +14,6 @@ class Ingredient extends React.Component {
     return(
       <li>
         <label htmlFor={'ingredient' + ic} ></label>
-<<<<<<< HEAD
         <p className="control">
           <input 
             className="input"
@@ -25,14 +24,7 @@ class Ingredient extends React.Component {
         </p>
       </li> 
     ); 
-=======
-        <input
-          type='text'
-          onChange={ this.handleChange.bind(this) }
-        />
-      </li>
-    );
->>>>>>> master
+
   }
 
   // updates the parent state with the input data

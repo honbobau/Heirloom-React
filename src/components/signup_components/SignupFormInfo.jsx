@@ -19,16 +19,9 @@ class SignupFormInfo extends React.Component {
         </p>
 
         <label htmlFor="email">Email</label>
-<<<<<<< HEAD
         <p className="control">
           <input className="input" type="text" ref="email" />        
         </p>
-=======
-        <div>
-          <input type="text" ref="email" />
-        </div>
->>>>>>> master
-
         <button className="button is-success" onClick={ this.saveAndContinue }>Next</button>
       </form>
     );

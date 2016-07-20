@@ -52,21 +52,14 @@
     .global-feed-page .global-feed-content .recipe-container .recipe-card {
       display: flex;
       flex-direction: column;
-<<<<<<< HEAD
-      height: 410px;
-      width: 410px; }
-=======
       height: 460px;
       width: 420px; }
->>>>>>> master
       .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-image {
         display: block;
         margin: 0 auto;
         border-radius: 2%;
         height: 300px;
         width: 300px; }
-<<<<<<< HEAD
-=======
       .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-info {
         width: 300px;
         margin: 0 auto;
@@ -81,7 +74,6 @@
         .global-feed-page .global-feed-content .recipe-container .recipe-card .recipe-card-info #border-left {
           padding-left: 5px;
           border-left: 1px solid #e2562b; }
->>>>>>> master
 
 /* ------------------------ landing page --------------------- */
 .landing-page {
@@ -156,7 +148,7 @@
       display: flex;
       flex-direction: column;
       border-radius: 2%;
-      background-color: #226722; }
+      background-color: #97CD76; }
       .recipe-page .recipe-content .recipe-display .recipe-display-icons span {
         display: block;
         margin: 0 auto;
