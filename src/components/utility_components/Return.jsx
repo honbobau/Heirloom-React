@@ -5,7 +5,7 @@ class Return extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { page: window.localStorage.prevPage }
+    this.state = { page: window.localStorage.prevPage };
   };
 
   render() {

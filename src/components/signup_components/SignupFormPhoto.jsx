@@ -18,7 +18,7 @@ class SignupFormPhoto extends React.Component {
           onFinish={this.onUploadFinish}
           uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
           contentDisposition="auto"
-          server="http://localhost:3000" 
+          server="https://heirloom-api.herokuapp.com"
         />
     
         <p className="control" id="control-blurb">
@@ -34,24 +34,24 @@ class SignupFormPhoto extends React.Component {
   previousForm = (ev) => {
     ev.preventDefault();
 
-    this.props.previousStep()
+    this.props.previousStep();
   }
 
   saveBlurb = () => {
-    let blurb =  ReactDOM.findDOMNode(this.refs.blurb).value
-    
-    this.props.saveBlurb(blurb)
+    let blurb =  ReactDOM.findDOMNode(this.refs.blurb).value;
+
+    this.props.saveBlurb(blurb);
   }
 
   saveAndFinish = (ev) => {
     ev.preventDefault();
 
-    this.props.submitForm(this.props.nextStep)
+    this.props.submitForm(this.props.nextStep);
   }
 
-  onUploadFinish = (url) => { 
-    let setURL = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.filename 
-    this.props.savePhotoURL(setURL)
+  onUploadFinish = (url) => {
+    let setURL = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.filename;
+    this.props.savePhotoURL(setURL);
   }
 }
 

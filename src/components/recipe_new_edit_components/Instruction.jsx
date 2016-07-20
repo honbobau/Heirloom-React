@@ -8,6 +8,7 @@ class Instruction extends React.Component {
     return(
       <li>
         <label htmlFor={'instruction' + ic} ></label>
+<<<<<<< HEAD
         <p className="control">
           <input 
             placeholder="Add Instructions"
@@ -18,11 +19,19 @@ class Instruction extends React.Component {
         </p>
       </li> 
     ); 
+=======
+        <input
+          type='text'
+          onChange={this.handleChange.bind(this)}
+        />
+      </li>
+    );
+>>>>>>> master
   }
 
   handleChange(e) {
-    let data = e.target.value
-    this.props.updateState(+this.props.ic - 1, data)
+    let data = e.target.value;
+    this.props.updateState(+this.props.ic - 1, data);
   }
 
 }

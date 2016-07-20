@@ -5,11 +5,11 @@ class RecipeNewEditPhoto extends React.Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       description: '',
       photoURL: ''
-    }
+    };
   }
 
   // renders
@@ -17,6 +17,7 @@ class RecipeNewEditPhoto extends React.Component {
 
     return(
       <div>
+<<<<<<< HEAD
         <h2 id="photo-header">ADD PHOTO & DESCRIPTION</h2>
         <div>
           <ReactS3Uploader
@@ -41,36 +42,59 @@ class RecipeNewEditPhoto extends React.Component {
           </p>
         <button className='button is-success' onClick={ this.props.previousStep}>Previous</button>
         <button className='button is-success' onClick={ (e) => { this.updateParentState() } }>Submit</button>
+=======
+        <label>Input Photo</label>
+        <ReactS3Uploader
+          signingUrl="/s3/sign"
+          accept="image/*"
+          onProgress={this.onUploadProgress}
+          onError={this.onUploadError}
+          onFinish={this.onUploadFinish}
+          uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}
+          contentDisposition="auto"
+          server="https://heirloom-api.herokuapp.com"
+        />
+
+        <label>Input Description</label>
+        <input
+          type="text"
+          onChange={ this.updateDescriptionState.bind(this) }
+          onBlur={ this.updateDescriptionState.bind(this) }
+        />
+
+        <button className='button' onClick={ this.props.previousStep}>Previous</button>
+        <button className='button' onClick={ (e) => { this.updateParentState(); } }>Submit</button>
+>>>>>>> master
       </div>
     );
   }
 
  // updates photo state
   updatePhotoState = (data) => {
-    this.setState({ photoURL: data })
+    this.setState({ photoURL: data });
   }
 
   // updates description state
   updateDescriptionState = (e) => {
-    let data = e.target.value
-    let description = this.state.description
+    let data = e.target.value;
+    let description = this.state.description;
 
-    this.setState({ description: data })
-    this.props.saveDescription(this.state.description)
+    this.setState({ description: data });
+    this.props.saveDescription(this.state.description);
   }
 
 
 
-  // updates parent state 
+  // updates parent state
   updateParentState = () => {
-    this.props.savePhoto(this.state.photo)
-    this.props.submitForm()
+    this.props.savePhoto(this.state.photo);
+    this.props.submitForm();
   }
 
   // returns signedURL after successful upload
   onUploadFinish = (url) => {
-    let setURL = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.filename
-    this.props.savePhoto(setURL)
+    let setURL = 'https://s3-us-west-2.amazonaws.com/heirloom-toronto/' + url.filename;
+    this.props.savePhoto(setURL);
   }
 
 }

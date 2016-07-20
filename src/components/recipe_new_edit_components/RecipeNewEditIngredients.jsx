@@ -10,12 +10,12 @@ class RecipeNewEditIngredients extends React.Component {
     this.state = {
       newInputs: [],
       ingredients: []
-    }
+    };
   };
 
   // rendering
   render() {
-    const input = this.state.newInputs
+    const input = this.state.newInputs;
 
     return(
         <form className="new-recipe-form">
@@ -31,18 +31,18 @@ class RecipeNewEditIngredients extends React.Component {
 
   // renders the new inputs
   renderNewInputs = () => {
-    let ic = this.state.ic
-    let updateState = this.updateState
+    let ic = this.state.ic;
+    let updateState = this.updateState;
 
     return(
       <div>
         <Ingredient key='1' ic='1' updateState={updateState}/>
         {this.state.newInputs.map(function(new_input) {
           return (
-            <Ingredient 
-              key={new_input.ic} 
+            <Ingredient
+              key={new_input.ic}
               ic={new_input.ic}
-              updateState={updateState} 
+              updateState={updateState}
             />
           );
         })}
@@ -58,23 +58,23 @@ class RecipeNewEditIngredients extends React.Component {
       newInputs: [...this.state.newInputs, {
         ic: this.state.newInputs.length + 2
       }],
-    })
+    });
   }
 
   // updates the state once each input changes
   updateState = (ic, data) => {
-    let ingredients = this.state.ingredients
+    let ingredients = this.state.ingredients;
     this.setState({
       ingredients: [...ingredients.slice(0, ic), data, ...ingredients.slice(ic + 1)]
-    }) 
+    });
   }
 
   // saves the ingredients and renders instruction page
   saveAndContinue = (ev) => {
     ev.preventDefault();
 
-    this.props.saveIngredients(this.state.ingredients)
-    this.props.nextStep()
+    this.props.saveIngredients(this.state.ingredients);
+    this.props.nextStep();
   }
 }
 

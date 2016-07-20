@@ -34,3 +34,6 @@ Secret Access Key:
 0WzhC3lP1ASC0AwQo6u5RrqM1un/LSyE6aKGkw9b
 
 https://s3-us-west-2.amazonaws.com/heirloom-toronto/ + publicURL
+
+
+./node_modules/.bin/eslint --ext .js --ext .jsx src --fix

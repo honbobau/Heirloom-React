@@ -1,9 +1,9 @@
 import React from 'react';
 
 class DescriptionTags extends React.Component {
-  
+
   render() {
-    const description = this.props.description
+    const description = this.props.description;
 
     return(
       <p>{description}</p>
