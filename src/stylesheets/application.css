@@ -22,6 +22,9 @@
   max-width: 300px;
   margin: 0 auto; }
 
+.hidden {
+  display: none; }
+
 /* ------------------------ Global Feed --------------------- */
 .global-feed-page .global-feed-content {
   width: 100%;

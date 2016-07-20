@@ -26,7 +26,9 @@ class RecipePage extends React.Component {
     };
   }
 
-  componentDidMount() { this.fetchRecipeComponents(); }
+  componentDidMount() {
+    this.fetchRecipeComponents();
+  }
 
   render() {
 
@@ -67,7 +69,6 @@ class RecipePage extends React.Component {
 
               {/* instructions */}
               <section className="recipe-display-instructions">
-                <h4>Instructions</h4>
                 <Instructions instructions={this.state.instructions} />
               </section>
 
@@ -94,7 +95,9 @@ class RecipePage extends React.Component {
     .then((recipe) => this.setState({ recipe: recipe }))
     .then((recipe) => this.saveRecipeData())
     .then((recipe) => this.saveUserData())
-    .catch(function(recipe) { console.log(recipe); });
+    .catch(function(recipe) {
+      console.log(recipe);
+    });
   }
 
   // fetches the user information associated with this recipe
