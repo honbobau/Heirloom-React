@@ -15,7 +15,7 @@ class Ingredients extends React.Component {
 
     return(
       <div>
-        <button className='button' onClick={this.handleClick}>Ingredients</button>
+        <button className='button accordian' onClick={this.handleClick}>Ingredients</button>
         <ul className={isDisplayed}>
           {ingredients.map(function(ingredient) {
             return(<li> > {ingredient}</li>);
@@ -24,9 +24,9 @@ class Ingredients extends React.Component {
       </div>
     );
   }
+
   handleClick = (ev) => {
     ev.preventDefault;
-
     this.setState({ display: !this.state.display });
   }
 

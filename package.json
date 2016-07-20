@@ -9,7 +9,7 @@
     "prod": "NODE_ENV=production node server.js",
     "lint": "eslint --ext .js --ext .jsx ./src",
     "lint:fix": "eslint --ext .js --ext .jsx ./src --fix",
-    "hellokazi": "echo 'hello kazi'"
+    "hellowilliam": "echo 'hello william'"
   },
   "repository": {
     "type": "git",
@@ -47,8 +47,11 @@
     "classnames": "^2.2.5",
     "isomorphic-fetch": "^2.2.1",
     "materialize-css": "^0.97.6",
+    "node-sass": "^3.8.0",
     "normalize.css": "^4.2.0",
+    "rc-collapse": "^1.6.5",
     "react": "^15.2.1",
+    "react-animate": "^3.0.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.5.2",
     "react-s3-uploader": "^3.2.1",
