@@ -12,7 +12,7 @@ new WebpackDevServer(webpack(config), {
     colors: true,
     timings: true
   }
-}).listen(8080, '0.0.0.0', function (err, result) {
+}).listen(process.env.PORT || 8080, '0.0.0.0', function (err, result) {
   if (err) {
     console.log(err);
   }
