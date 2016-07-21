@@ -20,6 +20,8 @@
   margin: 0 auto; }
 
 /* ------------------------ Global Feed --------------------- */
+.global-feed-page p {
+  font-size: 18px; }
 .global-feed-page .global-feed-content {
   width: 100%;
   /* ------- global feed header ------ */
@@ -174,6 +176,8 @@
     color: #E34329; }
   .recipe-page .recipe-content .recipe-display-ingredients {
     margin: 0 auto; }
+  .recipe-page .recipe-content .recipe-display-instructions .clicked:active {
+    background-color: #e2562b; }
   .recipe-page .recipe-content .recipe-instruction-counter {
     display: inline-block;
     height: 20px;
@@ -268,6 +272,8 @@
   margin-right: 0.5em; }
 
 /* ------------------------ User Feed ----------------------- */
+.user-feed-page p {
+  font-size: 18px; }
 .user-feed-page .user-feed-content {
   width: 100%;
   /* ------- user feed header ------ */
