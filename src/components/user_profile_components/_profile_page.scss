@@ -100,5 +100,25 @@
           }
       }
     }
+
+    profile-recipe-container > div {
+      transition: visibility 0s, opacity 0.5s linear;
+    }
+
+    .user.active-gallery {
+      display: block;
+    }
+
+    .user.hidden-gallery {
+      display: none;
+    }
+
+    .fav.active-gallery {
+      display: block;
+    }
+
+    .fav.hidden-gallery {
+      display: none;
+    }
   }
 }

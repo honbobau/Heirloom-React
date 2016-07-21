@@ -66,12 +66,15 @@ class ProfilePage extends React.Component {
               <RecipeGallery
                 recipes={userRecipes}
                 renderNewPage={renderNewPage}
-                
-              />;
+                recipeDisplay={recipeDisplay}
+                className='user'
+              />
               <RecipeGallery
                 recipes={favRecipes}
                 renderNewPage={renderNewPage}
-              />;
+                recipeDisplay={recipeDisplay}
+                className='fav'
+              />
             </section>
 
           </div>

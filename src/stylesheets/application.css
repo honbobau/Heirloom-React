@@ -302,10 +302,9 @@
         display: block;
         margin: 0 auto;
         border-radius: 2%;
-        height: 300px;
-        width: 400px; }
+        height: 300px; }
       .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info {
-        width: 300px;
+        width: 400px;
         margin: 0 auto;
         padding-top: 10px; }
         .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info i {
@@ -392,5 +391,15 @@
     .profile-page .profile-content .profile-recipe-container .profile-recipe-card #border-left {
       padding-left: 5px;
       border-left: 1px solid #e2562b; }
+  .profile-page .profile-content profile-recipe-container > div {
+    transition: visibility 0s, opacity 0.5s linear; }
+  .profile-page .profile-content .user.active-gallery {
+    display: block; }
+  .profile-page .profile-content .user.hidden-gallery {
+    display: none; }
+  .profile-page .profile-content .fav.active-gallery {
+    display: block; }
+  .profile-page .profile-content .fav.hidden-gallery {
+    display: none; }
 
 /*# sourceMappingURL=application.css.map */
