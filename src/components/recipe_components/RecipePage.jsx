@@ -162,7 +162,7 @@ class RecipePage extends React.Component {
   }
 
   // attaches the current user id to this recipe id in likes
-  likeRecipe = () => {
+  likeRecipe = (callback) => {
     const current_id = window.localStorage.current_id;
     const { id } = this.state;
     let token = '?token=' + window.localStorage.token;
@@ -174,10 +174,12 @@ class RecipePage extends React.Component {
         'Content-Type': 'application/json'
       }
     });
+
+    callback;
   }
 
   // attaches the current user id to this recipe id in favourites
-  favRecipe = () => {
+  favRecipe = (callback) => {
     let token = '?token=' + window.localStorage.token;
     const current_id = window.localStorage.current_id;
     const { id } = this.state;
@@ -189,10 +191,12 @@ class RecipePage extends React.Component {
         'Content-Type': 'application/json'
       }
     });
+
+    callback;
   }
 
   // current user follows the user of the recipe being shown
-  followUser = () => {
+  followUser = (callback) => {
     let token = '?token=' + window.localStorage.token;
     let current_user = window.localStorage.current_id;
     let userID       = this.state.userID;
@@ -204,6 +208,8 @@ class RecipePage extends React.Component {
         'Content-Type': 'application/json'
       }
     });
+
+    callback;
   }
 
   // checks if the current user has already like the current recipe

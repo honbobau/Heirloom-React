@@ -74,8 +74,12 @@
           transition: all 0.4s linear;
         }
 
-        span:hover {
-          color: $primary-color;
+        i {
+          transition: all 0.4s linear;
+        }
+
+        .active {
+          color: $icon-liked-color;
         }
       }
     }
