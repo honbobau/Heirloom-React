@@ -7231,7 +7231,7 @@
 	                  _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'Tired of looking through shit sites for shit recipes? Join the Heirloom family.'
+	                    'Welcome to Heirloom! A platform for sharing recipes with your family & friends.'
 	                  ),
 	                  _react2.default.createElement(_SignupButton2.default, { renderNewPage: renderNewPage })
 	                )
@@ -27822,4 +27822,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=index_bundle.d02f61cf7a7bc82b7d0b.js.map
+//# sourceMappingURL=index_bundle.4e58dad7efd193537614.js.map

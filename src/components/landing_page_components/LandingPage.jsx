@@ -23,7 +23,7 @@ class LandingPage extends React.Component {
 
                 <section className="signup-button">
                   <div className='smaller-container'>
-                    <p>Tired of looking through shit sites for shit recipes? Join the Heirloom family.</p>
+                    <p>Welcome to Heirloom! A platform for sharing recipes with your family & friends.</p>
                     <SignupButton renderNewPage={renderNewPage} />
                   </div>
                 </section>
