@@ -321,6 +321,8 @@
 /* ------------------------ Profile Page --------------------- */
 .profile-page p {
   font-size: 18px; }
+.profile-page .width {
+  width: 100%; }
 .profile-page .profile-content {
   width: 100%;
   /* ------- profile header ------ */ }
@@ -347,7 +349,8 @@
   .profile-page .profile-content .profile-page-user-info {
     margin-top: 60px;
     padding-top: 20px;
-    max-width: 100%; }
+    width: 90%;
+    right: 0; }
     .profile-page .profile-content .profile-page-user-info img {
       border: 1px solid;
       border-radius: 10% 35%;

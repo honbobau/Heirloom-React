@@ -50,12 +50,14 @@ class ProfilePage extends React.Component {
               renderNewPage={ renderNewPage }
             />
 
-            <section className='profile-page-user-info'>
-              <div className='profile-page-user-info-photo'>
-                <img src={ userInfo.user_photo } className='user-photo'/>
+            <section className='width'>
+              <div className='profile-page-user-info'>
+                <div className='profile-page-user-info-photo'>
+                  <img src={ userInfo.user_photo } className='user-photo'/>
+                </div>
+                <p>{ userInfo.username }</p>
+                <p>{ userInfo.blurb }</p>
               </div>
-              <p>{ userInfo.username }</p>
-              <p>{ userInfo.blurb }</p>
             </section>
 
             <section className='profile-recipe-container'>
