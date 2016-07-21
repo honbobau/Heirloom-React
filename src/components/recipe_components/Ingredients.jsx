@@ -1,9 +1,5 @@
 import React from 'react';
 
-function random() {
-  return parseInt(Math.random() * 10, 10) + 1;
-}
-
 class Ingredients extends React.Component {
 
   constructor(props) {
@@ -23,7 +19,9 @@ class Ingredients extends React.Component {
         <button className={isActive} onClick={this.handleClick}><strong>Ingredients</strong></button>
         <ul className={isDisplayed}>
           {ingredients.map(function(ingredient) {
-            return(<li> > {ingredient}</li>);
+            return(
+              <li ><i className='fa fa-leaf'></i> {ingredient}</li>
+            );
           })}
         </ul>
       </div>
