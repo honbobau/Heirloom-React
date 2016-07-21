@@ -1,4 +1,5 @@
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var config = {
   entry: [
@@ -8,7 +9,7 @@ var config = {
   ],
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'index_bundle.js'
   },
   devtool: 'source-map',
   module: {
@@ -23,7 +24,8 @@ var config = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin()
   ]
 };
 
