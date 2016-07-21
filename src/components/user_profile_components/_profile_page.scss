@@ -2,7 +2,9 @@
 @import '../../stylesheets/variables';
 /* ------------------------ Profile Page --------------------- */
 .profile-page {
-
+  p {
+    font-size: 18px;
+  }
   .profile-content {
     width: 100%;
 
@@ -41,18 +43,34 @@
 
       .profile-gallery-nav {
         display: flex;
+        justify-content: space-around;
         padding: 10px 0;
 
         .profile-gallery-nav-btn {
           text-align: center;
-          width: 50%;
-
-          span {
-            color: $primary-color;
-            border-bottom: 1px solid $primary-color;
-          }
+          padding: 5px 0;
+          width: 30%;
+          transition: all 0.5s linear;
+          border-radius: 3%;
 
         }
+
+        .active-nav {
+          color: $primary-color;
+        }
+
+        .inactive-nav {
+          color: #b0b0b0;
+        }
+
+        .active-box {
+          border: 1px solid $primary-color;
+        }
+
+        .inactive-box {
+          border: 1px solid #b0b0b0;
+        }
+
       }
 
       .profile-recipe-card {

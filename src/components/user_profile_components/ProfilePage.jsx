@@ -23,10 +23,11 @@ class ProfilePage extends React.Component {
 
   render() {
     // this looks so gross
-    const renderNewPage = this.props.renderNewPage;
-    let { userInfo }    = this.state;
-    let { userRecipes } = this.state;
-    let { favRecipes }  = this.state;
+    const renderNewPage   = this.props.renderNewPage;
+    let { userInfo }      = this.state;
+    let { userRecipes }   = this.state;
+    let { favRecipes }    = this.state;
+    let { recipeDisplay } = this.state;
     let displayUserRecipes = <RecipeGallery
                               recipes={userRecipes}
                               renderNewPage={renderNewPage}
@@ -58,8 +59,19 @@ class ProfilePage extends React.Component {
             </section>
 
             <section className='profile-recipe-container'>
-              <RecipeGalleryNav toggleGallery={this.toggleGallery} />
-              { recipeGallery }
+              <RecipeGalleryNav
+                toggleGallery={this.toggleGallery}
+                recipeDisplay={recipeDisplay}
+              />
+              <RecipeGallery
+                recipes={userRecipes}
+                renderNewPage={renderNewPage}
+                
+              />;
+              <RecipeGallery
+                recipes={favRecipes}
+                renderNewPage={renderNewPage}
+              />;
             </section>
 
           </div>
