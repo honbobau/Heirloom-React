@@ -302,10 +302,9 @@
         display: block;
         margin: 0 auto;
         border-radius: 2%;
-        height: 300px;
-        width: 400px; }
+        height: 300px; }
       .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info {
-        width: 300px;
+        width: 400px;
         margin: 0 auto;
         padding-top: 10px; }
         .user-feed-page .user-feed-content .recipe-container .recipe-card .recipe-card-info i {

@@ -99,6 +99,14 @@
     }
 
     /* ------- recipe instructions ------ */
+    
+    .recipe-display-instructions {
+
+      .clicked:active {
+        background-color: #e2562b;
+      }
+    }
+
     .recipe-instruction-counter {
       display: inline-block;
       height: 20px;

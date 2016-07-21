@@ -11,7 +11,7 @@ class RecipeCardStats extends React.Component {
       <div className='recipe-card-info'>
         <div style={inlineBlock}>
           <span className='icon is-medium'>
-            <i className='fa fa-fire'></i>
+            <i className='fa fa-check-circle'></i>
           </span>
           <span className='match-md-icon'>
             : {this.props.ingredientsQty}
@@ -20,7 +20,7 @@ class RecipeCardStats extends React.Component {
 
         <div id='border-left' style={inlineBlock}>
           <span className='icon is-medium'>
-            <i className='fa fa-apple'></i>
+            <i className='fa fa-leaf'></i>
           </span>
           <span className='match-md-icon'>
             : {this.props.instructionsQty}
