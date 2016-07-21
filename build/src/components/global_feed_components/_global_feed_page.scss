@@ -1,0 +1,73 @@
+@import '../../stylesheets/mixins';
+@import '../../stylesheets/variables';
+
+$recipe-card-image-width: 300px;
+/* ------------------------ Global Feed --------------------- */
+.global-feed-page {
+
+  .global-feed-content {
+    width: 100%;
+
+    /* ------- global feed header ------ */
+    .global-feed-header {
+      @include header-style;
+
+      .heirloom-logo {
+        @include heirloom-logo
+      }
+
+      .global-feed-header-nav {
+        align-self: center;
+        margin-left: auto;
+
+        .icon {
+          display: inline-block;
+        }
+      }
+    }
+    /* ------- recipe cards ------ */
+    .recipe-container {
+      @include header-height($header-height);
+
+      .recipe-card {
+        display: flex;
+        flex-direction: column;
+        height: 460px;
+        width: 414px;
+
+        .recipe-card-image {
+          display: block;
+          margin: 0 auto;
+          border-radius: 2%;
+          height: 300px;
+        }
+
+        .recipe-card-info {
+          width: 400px;
+          margin: 0 auto;
+          padding-top: 10px;
+
+          i {
+            color: $primary-color;
+          }
+
+          .match-md-icon {
+            font-size: 25px;
+            line-height: 140%;
+          }
+
+          div {
+            padding: 0 5px 0 0;
+          }
+
+          #border-left {
+            padding-left: 5px;
+            border-left: 1px solid $primary-color;
+          }
+
+        }
+      }
+    }
+
+  }
+}
