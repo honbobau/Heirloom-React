@@ -10,7 +10,7 @@ class Instructions extends React.Component {
 
   render() {
     const instructions = this.props.instructions;
-    let display        = this.state.display; 
+    let display        = this.state.display;
     const isDisplayed  = display ? 'show' : 'hidden';
     const isActive     = display ? 'button active' : 'button inactive';
   

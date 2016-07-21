@@ -74,25 +74,23 @@
           transition: all 0.4s linear;
         }
 
-        span:hover {
-          color: $primary-color;
+        i {
+          transition: all 0.4s linear;
+        }
+
+        .active {
+          color: $icon-liked-color;
         }
       }
     }
     /* ------- recipe nav buttons ------ */
     .recipe-nav-buttons {
-
       h4 {
         display: inline;
         font-size: 20px;
         line-height: -10px;
       }
-
-      .icon:hover {
-        color: $icon-liked-color;
-      }
     }
-
 
     /* ------- recipe ingredients ------ */
     .recipe-display-ingredients {
@@ -100,7 +98,6 @@
     }
 
     /* ------- recipe instructions ------ */
-    
     .recipe-display-instructions {
 
       .clicked:active {
@@ -124,4 +121,6 @@
 
   }
 }
+
+
 

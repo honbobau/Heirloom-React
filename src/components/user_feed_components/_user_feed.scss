@@ -33,6 +33,10 @@
         height: 410px;
         width: 414px;
 
+        p {
+          max-width: 95%;
+        }
+
         .recipe-card-image {
           display: block;
           margin: 0 auto;
