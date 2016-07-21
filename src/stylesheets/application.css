@@ -319,6 +319,8 @@
           border-left: 1px solid #e2562b; }
 
 /* ------------------------ Profile Page --------------------- */
+.profile-page p {
+  font-size: 18px; }
 .profile-page .profile-content {
   width: 100%;
   /* ------- profile header ------ */ }
@@ -356,13 +358,22 @@
       border-radius: 10% 35%; }
   .profile-page .profile-content .profile-recipe-container .profile-gallery-nav {
     display: flex;
+    justify-content: space-around;
     padding: 10px 0; }
     .profile-page .profile-content .profile-recipe-container .profile-gallery-nav .profile-gallery-nav-btn {
       text-align: center;
-      width: 50%; }
-      .profile-page .profile-content .profile-recipe-container .profile-gallery-nav .profile-gallery-nav-btn span {
-        color: #e2562b;
-        border-bottom: 1px solid #e2562b; }
+      padding: 5px 0;
+      width: 30%;
+      transition: all 0.5s linear;
+      border-radius: 3%; }
+    .profile-page .profile-content .profile-recipe-container .profile-gallery-nav .active-nav {
+      color: #e2562b; }
+    .profile-page .profile-content .profile-recipe-container .profile-gallery-nav .inactive-nav {
+      color: #b0b0b0; }
+    .profile-page .profile-content .profile-recipe-container .profile-gallery-nav .active-box {
+      border: 1px solid #e2562b; }
+    .profile-page .profile-content .profile-recipe-container .profile-gallery-nav .inactive-box {
+      border: 1px solid #b0b0b0; }
   .profile-page .profile-content .profile-recipe-container .profile-recipe-card {
     display: inline-block;
     max-width: 32%;
