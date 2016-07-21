@@ -3575,7 +3575,7 @@
 	      _this.setState({ userID: _this.state.recipe[0].recipe.user_id });
 	    };
 	
-	    _this.likeRecipe = function () {
+	    _this.likeRecipe = function (callback) {
 	      var current_id = window.localStorage.current_id;
 	      var id = _this.state.id;
 	
@@ -3588,9 +3588,11 @@
 	          'Content-Type': 'application/json'
 	        }
 	      });
+	
+	      callback;
 	    };
 	
-	    _this.favRecipe = function () {
+	    _this.favRecipe = function (callback) {
 	      var token = '?token=' + window.localStorage.token;
 	      var current_id = window.localStorage.current_id;
 	      var id = _this.state.id;
@@ -3603,9 +3605,11 @@
 	          'Content-Type': 'application/json'
 	        }
 	      });
+	
+	      callback;
 	    };
 	
-	    _this.followUser = function () {
+	    _this.followUser = function (callback) {
 	      var token = '?token=' + window.localStorage.token;
 	      var current_user = window.localStorage.current_id;
 	      var userID = _this.state.userID;
@@ -3617,6 +3621,8 @@
 	          'Content-Type': 'application/json'
 	        }
 	      });
+	
+	      callback;
 	    };
 	
 	    _this.checkLiked = function () {
@@ -13270,20 +13276,63 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (_ref) {
-	  var favRecipe = _ref.favRecipe;
-	  return _react2.default.createElement(
-	    'span',
-	    { className: 'icon is-large' },
-	    _react2.default.createElement('i', { className: 'fa fa-heart', onClick: favRecipe })
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var FavButton = function (_React$Component) {
+	  _inherits(FavButton, _React$Component);
+	
+	  function FavButton(props) {
+	    _classCallCheck(this, FavButton);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FavButton).call(this, props));
+	
+	    _this.activeIcon = function () {
+	      _this.setState({
+	        clicked: true
+	      });
+	    };
+	
+	    _this.state = {
+	      clicked: false
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(FavButton, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var favRecipe = this.props.favRecipe;
+	      var icon = 'fa fa-heart';
+	      var className = this.state.clicked ? icon + ' active' : icon + ' inactive';
+	
+	      return _react2.default.createElement(
+	        'span',
+	        { className: 'icon is-large' },
+	        _react2.default.createElement('i', { className: className, onClick: function onClick() {
+	            return favRecipe(_this2.activeIcon());
+	          } })
+	      );
+	    }
+	  }]);
+	
+	  return FavButton;
+	}(_react2.default.Component);
+	
+	exports.default = FavButton;
 
 /***/ },
 /* 117 */
@@ -13295,22 +13344,63 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (_ref) {
-	  var followUser = _ref.followUser;
-	  return _react2.default.createElement(
-	    'span',
-	    { className: 'icon is-large' },
-	    _react2.default.createElement('i', { className: 'fa fa-user-plus', onClick: function onClick() {
-	        return followUser();
-	      } })
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var FollowUser = function (_React$Component) {
+	  _inherits(FollowUser, _React$Component);
+	
+	  function FollowUser(props) {
+	    _classCallCheck(this, FollowUser);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FollowUser).call(this, props));
+	
+	    _this.activeIcon = function () {
+	      _this.setState({
+	        clicked: true
+	      });
+	    };
+	
+	    _this.state = {
+	      clicked: false
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(FollowUser, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var followUser = this.props.followUser;
+	      var icon = 'fa fa-user-plus';
+	      var className = this.state.clicked ? icon + ' active' : icon + ' inactive';
+	
+	      return _react2.default.createElement(
+	        'span',
+	        { className: 'icon is-large' },
+	        _react2.default.createElement('i', { className: className, onClick: function onClick() {
+	            return followUser(_this2.activeIcon());
+	          } })
+	      );
+	    }
+	  }]);
+	
+	  return FollowUser;
+	}(_react2.default.Component);
+	
+	exports.default = FollowUser;
 
 /***/ },
 /* 118 */
@@ -13522,20 +13612,63 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (_ref) {
-	  var likeRecipe = _ref.likeRecipe;
-	  return _react2.default.createElement(
-	    'span',
-	    { className: 'icon is-large' },
-	    _react2.default.createElement('i', { className: 'fa fa-thumbs-up', onClick: likeRecipe })
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var LikeButton = function (_React$Component) {
+	  _inherits(LikeButton, _React$Component);
+	
+	  function LikeButton(props) {
+	    _classCallCheck(this, LikeButton);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LikeButton).call(this, props));
+	
+	    _this.activeIcon = function () {
+	      _this.setState({
+	        clicked: true
+	      });
+	    };
+	
+	    _this.state = {
+	      clicked: false
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(LikeButton, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var likeRecipe = this.props.likeRecipe;
+	      var icon = 'fa fa-thumbs-up';
+	      var className = this.state.clicked ? icon + ' active' : icon + ' inactive';
+	
+	      return _react2.default.createElement(
+	        'span',
+	        { className: 'icon is-large' },
+	        _react2.default.createElement('i', { className: className, onClick: function onClick() {
+	            return likeRecipe(_this2.activeIcon());
+	          } })
+	      );
+	    }
+	  }]);
+	
+	  return LikeButton;
+	}(_react2.default.Component);
+	
+	exports.default = LikeButton;
 
 /***/ },
 /* 122 */
@@ -27689,4 +27822,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=index_bundle.b8f27b201407766ecd7b.js.map
+//# sourceMappingURL=index_bundle.d02f61cf7a7bc82b7d0b.js.map
