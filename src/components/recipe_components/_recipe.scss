@@ -40,7 +40,8 @@
     /* ------- recipe photo ------ */
     .recipe-display {
       @include header-height($header-height);
-      width: 415px;
+      
+      width: 414px;
       display: flex;
       align-items: stretch;
 
