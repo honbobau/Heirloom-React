@@ -32,7 +32,7 @@ class RecipeNewEditPhoto extends React.Component {
           />
         </div>
           <p className="control" id="control-description">
-            <textarea 
+            <textarea
               className="textarea"
               placeholder="Add Description"
               type="text"
