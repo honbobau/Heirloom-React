@@ -36,7 +36,6 @@ class UserFeedPage extends React.Component {
             <UserFeedHeader renderNewPage={renderNewPage}/>
 
             <div className='recipe-container'>
-            { noRecipes }
               {recipes.map(recipe => <UserFeedRecipeCard
                                       recipe={recipe}
                                       renderNewPage={renderNewPage}
