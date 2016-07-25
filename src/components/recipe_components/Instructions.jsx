@@ -13,7 +13,6 @@ class Instructions extends React.Component {
     let display        = this.state.display;
     const isDisplayed  = display ? 'show' : 'hidden';
     const isActive     = display ? 'button active' : 'button inactive';
-  
 
     return(
       <div>
