@@ -134,9 +134,9 @@ class RecipeForm extends React.Component {
     .then((object) => object.json())
     .then((object) => { this.submitPhoto(object[0].id, photo); })
     .then((object) => this.props.renderNewPage('UserFeedPage'))
-    .catch(function(res) { console.log(res); });
+    .catch(function(res) { console.log(res); 
+    });
   }
-
 }
 
 export default RecipeForm;
